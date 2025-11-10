@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #c0ef55;
+  --background-black: #1e2020;
+  --cart-black: #25282a;
+  --stroke: #323435;
+  --white: #f8f8fd;
+  --txt: #a6a6a6;
+
+  --font-family: "Inter", sans-serif;
+  --second-family: "Montserrat", sans-serif;
+  --third-family: "Raleway", sans-serif;
+
+  --transition: all .5s ease-in-out;
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--background-black);
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+    background-color: var(--background-black);
+    color: var(--white);
+    overflow-x: hidden;
+    margin: 0 auto;
+    font-family: var(--font-family);
+    font-weight: 400;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--second-family);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: clamp(1.875rem, 0.911rem + 4.82vw, 6rem);
+    line-height: 120%;
+  }
+
+  h2 {
+    font-size: clamp(1.875rem, 1.379rem + 2.48vw, 4rem);
+    line-height: 120%;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 0.958rem + 1.46vw, 2.5rem);
+    line-height: 120%;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 1.192rem + 0.29vw, 1.5rem);
+    line-height: 120%;
+  }
+
+  h5 {
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+  h6 {
+    font-size: 16px;
+    line-height: 130%;
+  }
+
+  p {
+    font-size: clamp(1rem, 0.942rem + 0.29vw, 1.25rem);
+    line-height: 140%;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--white);
+    transition: var(--transition);
+  }
+
+  a:hover {
+    color: var(--primary);
+  }
+}
+
+.container {
+  max-width: 1690px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--primary);
+  border-radius: 40px;
+  padding: 20px 50px;
+  height: 70px;
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: clamp(0.875rem, 0.787rem + 0.44vw, 1.25rem);
+  line-height: 120%;
+  color: var(--cart-black);
+  border: 1px solid inherit;
+}
+
+.btn:hover {
+  background: var(--white);
+  color: var(--cart-black);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--stroke);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+}
+
+.mainbanner-block .running__line-item {
+    font-family: var(--second-family);
+    font-weight: 600;
+    /* font-size: 96px; */
+    line-height: 120%;
+    color: rgba(255, 255, 255, 0.05);
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% - clamp(2.5rem, 1.624rem + 4.38vw, 6.25rem)));
+    }
+}
+
+/* Отключаем анимации для декоративных фонов */
+.decorative-background,
+.decorative-background *,
+.decorative-image {
+    transition: none !important;
+    animation: none !important;
+    will-change: auto !important;
+}
