@@ -22,5 +22,6 @@ export default defineConfig({
         manualChunks: undefined, // Можно настроить code splitting при необходимости
       },
     },
+    minify: 'esbuild', // Использовать esbuild вместо terser для минификации (не использует eval)
   },
 })
