@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import PromoBanner from '../components/PromoBanner'
 import ContactQuickForm from '../components/ContactQuickForm'
 import CityForm from '../components/CityForm'
 import ServicesCarousel from '../components/ServicesCarousel'
@@ -293,9 +292,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-
-      {/* Promo/Акции - БЕЗ декора */}
-      <PromoBanner />
 
       {/* Advantages Section - БЕЗ декора */}
       <section style={{

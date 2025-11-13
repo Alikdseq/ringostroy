@@ -1,0 +1,33 @@
+RewriteEngine On
+RewriteBase /
+
+# Перенаправление HTTP → HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Перенаправление ringoostroy.ru → www.ringoostroy.ru
+RewriteCond %{HTTP_HOST} ^ringoostroy.ru$ [NC]
+RewriteRule ^(.*)$ https://www.ringoostroy.ru/$1 [L,R=301]
+
+# SPA роутинг - все запросы на index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# Кеширование статических файлов
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+</FilesMatch>
+
+# Gzip сжатие
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css
+    AddOutputFilterByType DEFLATE application/javascript text/javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# Безопасность
+Header always set X-Content-Type-Options nosniff
+Header always set X-Frame-Options DENY
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"

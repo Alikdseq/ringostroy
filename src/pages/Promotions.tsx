@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { generateBreadcrumbSchema } from '../utils/seo'
-const nightImage = '/images/images-imag/night.png'
-const svobodaImage = '/images/images-technica/svoboda.png'
 
 export default function Promotions() {
   const [isMobile, setIsMobile] = useState(false)
@@ -25,10 +23,9 @@ export default function Promotions() {
     window.scrollTo(0, 0)
   }, [])
 
-  const handleOrderClick = () => {
+  const handleWhatsAppClick = () => {
     const whatsappNumber = '79888307777'
-    const message = 'Новая заявка с сайта (страница Акции)'
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://wa.me/${whatsappNumber}`
     window.open(whatsappUrl, '_blank')
   }
 
@@ -103,214 +100,100 @@ export default function Promotions() {
             Акции
           </h1>
 
-          {/* Карточки акций */}
+          {/* Блок с информацией об акциях */}
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
-            gap: isMobile ? '20px' : '30px',
-            width: '100%'
+            background: 'var(--cart-black)',
+            border: '1px solid var(--stroke)',
+            borderRadius: isMobile ? '20px' : '24px',
+            padding: isMobile ? '40px 20px' : '60px 40px',
+            textAlign: 'center',
+            maxWidth: isMobile ? '100%' : '800px',
+            margin: '0 auto'
           }}>
-            {/* Карточка 1: Акция ночи */}
+            {/* Иконка или декоративный элемент */}
             <div style={{
-              borderRadius: isMobile ? '16px' : '20px',
-              overflow: 'hidden',
-              background: 'var(--cart-black)',
-              border: '1px solid var(--stroke)',
+              width: isMobile ? '80px' : '100px',
+              height: isMobile ? '80px' : '100px',
+              margin: '0 auto',
+              marginBottom: isMobile ? '30px' : '40px',
+              background: 'var(--primary)',
+              borderRadius: '50%',
               display: 'flex',
-              flexDirection: isMobile ? 'column' : 'row'
+              alignItems: 'center',
+              justifyContent: 'center'
             }}>
-              {/* Текстовая часть слева */}
-              <div style={{
-                width: isMobile ? '100%' : '50%',
-                padding: isMobile ? '20px' : '30px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between'
-              }}>
-                {/* Дата */}
-                <div style={{
-                  color: 'var(--primary)',
-                  fontSize: isMobile ? 'clamp(12px, 2.5vw, 14px)' : '14px',
-                  fontWeight: 600,
-                  marginBottom: isMobile ? '15px' : '20px'
-                }}>
-                  Действует до 31.12.2025
-                </div>
-
-                {/* Заголовок */}
-                <h2 style={{
-                  color: 'var(--white)',
-                  fontSize: isMobile ? 'clamp(18px, 4vw, 24px)' : 'clamp(20px, 2.5vw, 28px)',
-                  fontWeight: 700,
-                  marginBottom: isMobile ? '12px' : '15px',
-                  marginTop: 0
-                }}>
-                  Акция ночи
-                </h2>
-
-                {/* Описание */}
-                <p style={{
-                  color: 'var(--txt)',
-                  fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
-                  lineHeight: '1.6',
-                  marginBottom: isMobile ? '20px' : '30px',
-                  flex: 1
-                }}>
-                  Скидка на аренду техники в ночное время
-                </p>
-
-                {/* Кнопка */}
-                <button
-                  onClick={handleOrderClick}
-                  style={{
-                    padding: isMobile ? '12px 24px' : '14px 28px',
-                    background: 'var(--primary)',
-                    border: 'none',
-                    borderRadius: isMobile ? '10px' : '12px',
-                    color: 'var(--background-black)',
-                    fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    alignSelf: 'flex-start',
-                    width: isMobile ? '100%' : 'auto'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'transparent'
-                    e.currentTarget.style.border = '2px solid var(--primary)'
-                    e.currentTarget.style.color = 'var(--primary)'
-                    e.currentTarget.style.transform = 'translateY(-2px)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'var(--primary)'
-                    e.currentTarget.style.border = 'none'
-                    e.currentTarget.style.color = 'var(--background-black)'
-                    e.currentTarget.style.transform = 'translateY(0)'
-                  }}
-                >
-                  Оставить заявку
-                </button>
-              </div>
-
-              {/* Изображение справа */}
-              <div style={{
-                width: isMobile ? '100%' : '50%',
-                minHeight: isMobile ? '150px' : '300px',
-                overflow: 'hidden',
-                order: isMobile ? -1 : 0
-              }}>
-                <img
-                  src={nightImage}
-                  alt="Акция ночи"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover'
-                  }}
-                />
-              </div>
+              <svg 
+                width={isMobile ? "48" : "60"} 
+                height={isMobile ? "48" : "60"} 
+                fill="var(--background-black)" 
+                viewBox="0 0 24 24"
+              >
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                <path d="M7 9h2v2H7zm4 0h6v2h-6zm-4 4h6v2H7zm8 0h2v2h-2z"/>
+              </svg>
             </div>
 
-            {/* Карточка 2: Холостая техника */}
-            <div style={{
-              borderRadius: isMobile ? '16px' : '20px',
-              overflow: 'hidden',
-              background: 'var(--cart-black)',
-              border: '1px solid var(--stroke)',
-              display: 'flex',
-              flexDirection: isMobile ? 'column' : 'row'
+            {/* Основной текст */}
+            <h2 style={{
+              color: 'var(--white)',
+              fontSize: isMobile ? 'clamp(24px, 5vw, 32px)' : 'clamp(28px, 3vw, 36px)',
+              fontWeight: 700,
+              marginBottom: isMobile ? '20px' : '24px',
+              lineHeight: '1.3'
             }}>
-              {/* Текстовая часть слева */}
-              <div style={{
-                width: isMobile ? '100%' : '50%',
-                padding: isMobile ? '20px' : '30px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between'
-              }}>
-                {/* Дата */}
-                <div style={{
-                  color: 'var(--primary)',
-                  fontSize: isMobile ? 'clamp(12px, 2.5vw, 14px)' : '14px',
-                  fontWeight: 600,
-                  marginBottom: isMobile ? '15px' : '20px'
-                }}>
-                  Действует до 31.12.2025
-                </div>
+              По поводу акции пишите нам!
+            </h2>
 
-                {/* Заголовок */}
-                <h2 style={{
-                  color: 'var(--white)',
-                  fontSize: isMobile ? 'clamp(18px, 4vw, 24px)' : 'clamp(20px, 2.5vw, 28px)',
-                  fontWeight: 700,
-                  marginBottom: isMobile ? '12px' : '15px',
-                  marginTop: 0
-                }}>
-                  Холостая техника
-                </h2>
+            <p style={{
+              color: 'var(--txt)',
+              fontSize: isMobile ? 'clamp(16px, 3.5vw, 18px)' : '18px',
+              lineHeight: '1.6',
+              marginBottom: isMobile ? '30px' : '40px',
+              opacity: 0.9
+            }}>
+              Все расскажем!
+            </p>
 
-                {/* Описание */}
-                <p style={{
-                  color: 'var(--txt)',
-                  fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
-                  lineHeight: '1.6',
-                  marginBottom: isMobile ? '20px' : '30px',
-                  flex: 1
-                }}>
-                  Скидка 20% на одиноко стоящую технику
-                </p>
-
-                {/* Кнопка */}
-                <button
-                  onClick={handleOrderClick}
-                  style={{
-                    padding: isMobile ? '12px 24px' : '14px 28px',
-                    background: 'var(--primary)',
-                    border: 'none',
-                    borderRadius: isMobile ? '10px' : '12px',
-                    color: 'var(--background-black)',
-                    fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    alignSelf: 'flex-start',
-                    width: isMobile ? '100%' : 'auto'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'transparent'
-                    e.currentTarget.style.border = '2px solid var(--primary)'
-                    e.currentTarget.style.color = 'var(--primary)'
-                    e.currentTarget.style.transform = 'translateY(-2px)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'var(--primary)'
-                    e.currentTarget.style.border = 'none'
-                    e.currentTarget.style.color = 'var(--background-black)'
-                    e.currentTarget.style.transform = 'translateY(0)'
-                  }}
-                >
-                  Оставить заявку
-                </button>
-              </div>
-
-              {/* Изображение справа */}
-              <div style={{
-                width: isMobile ? '100%' : '50%',
-                minHeight: isMobile ? '150px' : '300px',
-                overflow: 'hidden',
-                order: isMobile ? -1 : 0
-              }}>
-                <img
-                  src={svobodaImage}
-                  alt="Холостая техника"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover'
-                  }}
-                />
-              </div>
-            </div>
+            {/* Кнопка WhatsApp */}
+            <button
+              onClick={handleWhatsAppClick}
+              style={{
+                padding: isMobile ? '16px 32px' : '18px 40px',
+                background: '#25D366',
+                border: 'none',
+                borderRadius: isMobile ? '12px' : '14px',
+                color: '#fff',
+                fontSize: isMobile ? 'clamp(16px, 3.5vw, 18px)' : '18px',
+                fontWeight: 700,
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '12px',
+                boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#20BA5A'
+                e.currentTarget.style.transform = 'translateY(-2px)'
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(37, 211, 102, 0.4)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = '#25D366'
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(37, 211, 102, 0.3)'
+              }}
+            >
+              <svg 
+                width="24" 
+                height="24" 
+                fill="currentColor" 
+                viewBox="0 0 24 24"
+                style={{ flexShrink: 0 }}
+              >
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+              <span>Написать в WhatsApp</span>
+            </button>
           </div>
         </div>
       </section>
