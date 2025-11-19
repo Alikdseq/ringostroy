@@ -1,5 +1,9 @@
 {
-  "count": 0,
-  "results": []
+  "count": 4,
+  "results": [
+    { "id": 1, "name": "Экскаваторы", "slug": "ekskavatory" },
+    { "id": 2, "name": "Мини-погрузчики", "slug": "mini-pogruzchiki" },
+    { "id": 3, "name": "Грузовой транспорт", "slug": "gruzovoj-transport" },
+    { "id": 4, "name": "Манипуляторы", "slug": "manipulyatory" }
+  ]
 }
-

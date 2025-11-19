@@ -23,9 +23,14 @@ export const equipmentApi = {
   getFeatured: () => createPromise<Equipment[]>(
     (equipmentData as { count: number; results: Equipment[] }).results.filter(e => e.is_featured)
   ),
-  byCategory: (_slug: string) => createPromise<{ count: number; results: Equipment[] }>(
-    { count: 0, results: [] } // Пока техника не используется
-  ),
+  byCategory: (slug: string) => {
+    const all = (equipmentData as { count: number; results: Equipment[] }).results
+    const filtered = all.filter(e => e.category?.slug === slug)
+    return createPromise<{ count: number; results: Equipment[] }>({
+      count: filtered.length,
+      results: filtered
+    })
+  },
 }
 
 export const categoryApi = {

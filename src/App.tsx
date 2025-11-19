@@ -1,11 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Services from './pages/Services'
-// ВРЕМЕННО ОТКЛЮЧЕНО: Техника
-// import Equipment from './pages/Equipment'
-// import EquipmentCategory from './pages/EquipmentCategory';
-import ServiceCategory from './pages/ServiceCategory';
-// import EquipmentDetail from './pages/EquipmentDetail';
+import Equipment from './pages/Equipment'
+import EquipmentCategory from './pages/EquipmentCategory'
+import EquipmentDetail from './pages/EquipmentDetail'
+import ServiceCategory from './pages/ServiceCategory'
 import ServiceDetail from './pages/ServiceDetail';
 import YardImprovementService from './pages/service-pages/Page-1';
 import TrenchDiggingService from './pages/service-pages/Page-2';
@@ -38,11 +37,10 @@ function App() {
     <Router>
       <Layout>
         <Routes>
-          {/* ВРЕМЕННО ОТКЛЮЧЕНО: Роуты техники
-          <Route path="/equipment/:category" element={<EquipmentCategory />} />
+          {/* Роуты техники */}
           <Route path="/equipment/:slug" element={<EquipmentDetail />} />
+          <Route path="/equipment/:category" element={<EquipmentCategory />} />
           <Route path="/equipment" element={<Equipment />} />
-          */}
 
           <Route path="/services/:category" element={<ServiceCategory />} />
           <Route path="/services/blagoustrojstvo-dvorov" element={<YardImprovementService />} />

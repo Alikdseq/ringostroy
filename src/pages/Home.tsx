@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import ContactQuickForm from '../components/ContactQuickForm'
 import CityForm from '../components/CityForm'
 import ServicesCarousel from '../components/ServicesCarousel'
+import EquipmentGridShowcase from '../components/EquipmentGridShowcase'
 import SEO from '../components/SEO'
 import { generateLocalBusinessSchema, generateOrganizationSchema } from '../utils/seo'
 import BrandsBlock from '../components/BrandsBlock'
@@ -293,6 +294,11 @@ export default function Home() {
         </section>
       </div>
 
+      <EquipmentGridShowcase />
+
+      {/* Блок наших услуг */}
+      <ServicesCarousel />
+
       {/* Advantages Section - БЕЗ декора */}
       <section style={{
         padding: isMobile ? '40px 0' : '60px 0'
@@ -452,9 +458,6 @@ export default function Home() {
         </div>
         </div>
       </section>
-
-      {/* Блок наших услуг с каруселью */}
-      <ServicesCarousel />
 
       {/* Форма быстрой обратной связи - БЕЗ декора */}
       <ContactQuickForm />

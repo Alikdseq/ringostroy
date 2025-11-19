@@ -21,19 +21,28 @@ export interface EquipmentImage {
   sort_order: number
 }
 
+export interface EquipmentSpec {
+  label: string
+  value: string
+}
+
 export interface Equipment {
   id: number
   name: string
   slug: string
   category: Category
   description: string
+  full_description?: string
   manufacturer: string
   model: string
   price_per_hour: number
+  price_per_shift?: number
   status: string
   is_featured: boolean
   images: EquipmentImage[]
   primary_image: string | null
+  specs?: EquipmentSpec[]
+  full_specs?: EquipmentSpec[]
 }
 
 export interface Category {

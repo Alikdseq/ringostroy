@@ -27,6 +27,23 @@ export default function Header() {
     setIsMenuOpen(false)
   }
 
+  // Обработка якорных ссылок
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      e.preventDefault()
+      const hash = href.substring(2)
+      if (window.location.pathname === '/') {
+        const element = document.getElementById(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      } else {
+        window.location.href = href
+      }
+      setIsMenuOpen(false)
+    }
+  }
+
   // Блокировка скролла больше не нужна, так как меню раскрывается внутри хедера
 
   return (
@@ -110,6 +127,29 @@ export default function Header() {
             gap: 'clamp(1.25rem, 0.958rem + 1.46vw, 2.5rem)',
             alignItems: 'center'
           }}>
+            <a
+              href="/#equipment"
+              onClick={(e) => handleAnchorClick(e, '/#equipment')}
+              style={{ 
+                color: 'var(--white)',
+                fontFamily: 'var(--second-family)',
+                fontWeight: 600,
+                fontSize: 'clamp(1rem, 0.942rem + 0.29vw, 1.25rem)',
+                lineHeight: '120%',
+                textDecoration: 'none',
+                transition: 'color 0.3s ease',
+                position: 'relative',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'var(--primary)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'var(--white)'
+              }}
+            >
+              Наша техника
+            </a>
             <Link 
               to="/services" 
               style={{ 
@@ -347,6 +387,56 @@ export default function Header() {
               gap: '10px',
               width: '100%'
             }}>
+              <a
+                href="/#equipment"
+                onClick={(e) => {
+                  handleAnchorClick(e, '/#equipment')
+                  handleLinkClick()
+                }}
+                style={{
+                  color: 'var(--white)',
+                  fontFamily: 'var(--second-family)',
+                  fontWeight: 600,
+                  fontSize: '20px',
+                  textDecoration: 'none',
+                  padding: '18px 20px',
+                  border: '1px solid var(--stroke)',
+                  borderRadius: '12px',
+                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '15px',
+                  background: 'var(--background-black)',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'var(--primary)'
+                  e.currentTarget.style.borderColor = 'var(--primary)'
+                  e.currentTarget.style.background = 'rgba(192, 239, 85, 0.1)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--white)'
+                  e.currentTarget.style.borderColor = 'var(--stroke)'
+                  e.currentTarget.style.background = 'var(--background-black)'
+                }}
+              >
+                <div style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '10px',
+                  background: 'var(--primary)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <svg width="22" height="22" viewBox="0 0 20 20" fill="var(--background-black)">
+                    <path d="M10 2L3 7v11h4v-6h6v6h4V7l-7-5z"/>
+                  </svg>
+                </div>
+                <span>Наша техника</span>
+              </a>
+              
               <Link 
                 to="/services" 
                 onClick={handleLinkClick}

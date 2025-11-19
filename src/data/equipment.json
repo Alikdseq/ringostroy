@@ -1,5 +1,693 @@
 {
-  "count": 0,
-  "results": []
+  "count": 12,
+  "results": [
+    {
+      "id": 1,
+      "name": "Мини-экскаватор SANY SY35U",
+      "slug": "mini-ekskavator-sany-sy35u",
+      "category": {
+        "id": 1,
+        "name": "Экскаваторы",
+        "slug": "ekskavatory"
+      },
+      "description": "Компактный экскаватор с нулевым задним свесом. Уверенно работает во дворах и стеснённой застройке.",
+      "full_description": "Экскаватор SANY SY35U обладает высокой производительностью, превосходной мощностью и великолепной глубиной копания. Отличный выбор для сложных задач.",
+      "manufacturer": "SANY",
+      "model": "SY35U",
+      "price_per_hour": 23000,
+      "price_per_shift": 23000,
+      "status": "Свободен",
+      "is_featured": true,
+      "primary_image": "/images/images-technica/t1.png",
+      "specs": [
+        { "label": "Объём ковша", "value": "0,12 м³" },
+        { "label": "Глубина копания", "value": "3 110 мм" },
+        { "label": "Вес", "value": "3,8 т" }
+      ],
+      "full_specs": [
+        { "label": "Модель двигателя", "value": "3TNV88F" },
+        { "label": "Мощность двигателя", "value": "20.2 кВт / 2200 об/мин" },
+        { "label": "Объем двигателя", "value": "1.64 л" },
+        { "label": "Объем ковша", "value": "0.12 см³" },
+        { "label": "Длина стрелы", "value": "2540 мм" },
+        { "label": "Длина", "value": "4 915 мм" },
+        { "label": "Ширина", "value": "1 720 мм" },
+        { "label": "Высота", "value": "2 515 мм" }
+      ],
+      "images": [
+        {
+          "id": 101,
+          "image": "/images/real-photo/real (25).png",
+          "alt_text": "Мини-экскаватор SANY SY35U",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 102,
+          "image": "/images/real-photo/real (19).png",
+          "alt_text": "Мини-экскаватор SANY SY35U - вид сбоку",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 103,
+          "image": "/images/real-photo/real (17).png",
+          "alt_text": "Мини-экскаватор SANY SY35U - кабина",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Экскаватор-погрузчик MST 644S",
+      "slug": "ekskavator-pogruzchik-mst-644s",
+      "category": {
+        "id": 1,
+        "name": "Экскаваторы",
+        "slug": "ekskavatory"
+      },
+      "description": "Универсальная машина с телескопической стрелой. Выполняет земляные и погрузочные операции без перестановок техники.",
+      "full_description": "Экскаватор-погрузчик MST 644 S — предназначен для выполнения разнообразных строительных задач, включая копку, выемку, поднятие и перемещение грунта, песка, камней и других строительных материалов.",
+      "manufacturer": "MST",
+      "model": "644S",
+      "price_per_hour": 30000,
+      "price_per_shift": 30000,
+      "status": "Свободен",
+      "is_featured": true,
+      "primary_image": "/images/images-technica/t2.png",
+      "specs": [
+        { "label": "Объём ковша", "value": "1,1 м³" },
+        { "label": "Глубина копания", "value": "5 800 мм" },
+        { "label": "Грузоподъёмность", "value": "3,5 т" }
+      ],
+      "full_specs": [
+        { "label": "Модель двигателя", "value": "Perkins 1104C-44T" },
+        { "label": "Мощность двигателя", "value": "74.5 кВт / 2200 об/мин" },
+        { "label": "Объем двигателя", "value": "4.4 л" },
+        { "label": "Максимальная скорость", "value": "40 км/ч" }
+      ],
+      "images": [
+        {
+          "id": 201,
+          "image": "/images/real-photo/r1.png",
+          "alt_text": "Экскаватор-погрузчик MST 644S",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 202,
+          "image": "/images/real-photo/r2.png",
+          "alt_text": "Экскаватор-погрузчик MST 644S - вид сбоку",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 203,
+          "image": "/images/real-photo/r3.png",
+          "alt_text": "Экскаватор-погрузчик MST 644S - ковш",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Экскаватор-погрузчик SANY BHL95",
+      "slug": "ekskavator-pogruzchik-sany-bhl95",
+      "category": {
+        "id": 1,
+        "name": "Экскаваторы",
+        "slug": "ekskavatory"
+      },
+      "description": "Комбинированная машина с усиленной рамой и комфортной кабиной для длительных смен.",
+      "full_description": "Экскаватор-погрузчик BHL95 способен эффективно выполнять земляные, погрузочно-разгрузочные работы и множество других задач. Телескопическая рукоять, функция бокового смещения обеспечивают универсальность и функциональность в самых разных ситуациях.",
+      "manufacturer": "SANY",
+      "model": "BHL95",
+      "price_per_hour": 25000,
+      "price_per_shift": 25000,
+      "status": "Свободен",
+      "is_featured": true,
+      "primary_image": "/images/images-technica/t3.png",
+      "specs": [
+        { "label": "Объём ковша", "value": "1,0 м³" },
+        { "label": "Высота загрузки", "value": "3 129 мм" },
+        { "label": "Мощность", "value": "95 л.с." }
+      ],
+      "full_specs": [
+        { "label": "Модель двигателя", "value": "Cumnins QSF3.8" },
+        { "label": "Мощность двигателя", "value": "74 кВт / 2200 об/мин" },
+        { "label": "Объем двигателя", "value": "3,76 л" },
+        { "label": "Объем ковша", "value": "1 см³" },
+        { "label": "Масса", "value": "9200 кг" },
+        { "label": "Длина", "value": "5 920 мм" },
+        { "label": "Ширина", "value": "2 280 мм" },
+        { "label": "Высота", "value": "3 129 мм" },
+        { "label": "Колесная база", "value": "2 245 мм" }
+      ],
+      "images": [
+        {
+          "id": 301,
+          "image": "/images/real-photo/r4.png",
+          "alt_text": "Экскаватор-погрузчик SANY BHL95",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 302,
+          "image": "/images/real-photo/r5.png",
+          "alt_text": "Экскаватор-погрузчик SANY BHL95 - вид сбоку",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 303,
+          "image": "/images/real-photo/r6.png",
+          "alt_text": "Экскаватор-погрузчик SANY BHL95 - кабина",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Мини-погрузчик ZOOMLION ZS085V",
+      "slug": "mini-pogruzchik-zoomlion-zs085v",
+      "category": {
+        "id": 2,
+        "name": "Мини-погрузчики",
+        "slug": "mini-pogruzchiki"
+      },
+      "description": "Манёвренный мини-погрузчик для благоустройства и коммунальных работ. Проходит в стандартные ворота.",
+      "full_description": "Мини-погрузчик Zoomlion ZS085V с двигателем Xinchai C490BPG, кондиционером и ковшом — популярная модель мини-погрузчиков на рынке России.",
+      "manufacturer": "ZOOMLION",
+      "model": "ZS085V",
+      "price_per_hour": 23000,
+      "price_per_shift": 23000,
+      "status": "Свободен",
+      "is_featured": true,
+      "primary_image": "/images/images-technica/t4.png",
+      "specs": [
+        { "label": "Грузоподъёмность", "value": "900 кг" },
+        { "label": "Ширина", "value": "1 600 мм" },
+        { "label": "Высота подъёма", "value": "3 050 мм" }
+      ],
+      "full_specs": [
+        { "label": "Грузоподъемность", "value": "878 кг" },
+        { "label": "Объем ковша", "value": "0.4 см³" },
+        { "label": "Максимальная скорость", "value": "11 км/ч" },
+        { "label": "Максимальное тяговое усилие", "value": "19.6 кН" },
+        { "label": "Тип двигателя", "value": "Дизель" },
+        { "label": "Модель двигателя", "value": "C490BPG" },
+        { "label": "Мощность двигателя", "value": "36.7 кВт / 2700 об/мин" },
+        { "label": "Объем двигателя", "value": "2 400 см³" },
+        { "label": "Длина", "value": "3 364 мм" },
+        { "label": "Ширина", "value": "1 725 мм" },
+        { "label": "Высота", "value": "1 998 мм" },
+        { "label": "Радиус поворота", "value": "1 967 мм" },
+        { "label": "Колесная база", "value": "1 080 мм" },
+        { "label": "Рабочая высота", "value": "3 826 мм" }
+      ],
+      "images": [
+        {
+          "id": 401,
+          "image": "/images/real-photo/r7.png",
+          "alt_text": "Мини-погрузчик ZOOMLION ZS085V",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 402,
+          "image": "/images/real-photo/r8.png",
+          "alt_text": "Мини-погрузчик ZOOMLION ZS085V - вид сбоку",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 403,
+          "image": "/images/real-photo/r9.png",
+          "alt_text": "Мини-погрузчик ZOOMLION ZS085V - ковш",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Мини-трактор",
+      "slug": "mini-traktor",
+      "category": {
+        "id": 2,
+        "name": "Мини-погрузчики",
+        "slug": "mini-pogruzchiki"
+      },
+      "description": "Компактный мини-трактор для коммунальных, фермерских и строительных задач на ограниченных площадках.",
+      "full_description": "Манёвренный мини-трактор легко работает в стеснённых дворах, теплицах и на стройплощадках. Полный привод 4×4, трёхточечная навеска и дисковое сцепление позволяют подключать широкий набор навесного оборудования и выполнять работу круглый год.",
+      "manufacturer": "RinGoo",
+      "model": "MT-30",
+      "price_per_hour": 1000,
+      "price_per_shift": 1000,
+      "status": "Свободен",
+      "is_featured": true,
+      "primary_image": "/images/images-technica/t15.png",
+      "specs": [
+        { "label": "Мощность", "value": "29.5 л.с." },
+        { "label": "Привод", "value": "4×4" },
+        { "label": "Вес", "value": "1 070 кг" }
+      ],
+      "full_specs": [
+        { "label": "Мощность", "value": "29.5 л.с." },
+        { "label": "Трансмиссия", "value": "механическая с дисковым сцеплением" },
+        { "label": "Привод", "value": "полный (4WD) 4×4" },
+        { "label": "Система навески", "value": "трехточечная КАТ I" },
+        { "label": "Грузоподъемность навески", "value": "910 кг" },
+        { "label": "Тяговый класс", "value": "0,6" },
+        { "label": "Вес", "value": "1 070 кг" }
+      ],
+      "images": [
+        {
+          "id": 501,
+          "image": "/images/real-photo/r14.png",
+          "alt_text": "Мини-трактор",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 502,
+          "image": "/images/real-photo/r13.png",
+          "alt_text": "Мини-трактор с навеской",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 503,
+          "image": "/images/real-photo/real (15).png",
+          "alt_text": "Мини-трактор профиль",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "SHACMAN L3000",
+      "slug": "shacman-l3000",
+      "category": {
+        "id": 3,
+        "name": "Грузовой транспорт",
+        "slug": "gruzovoj-transport"
+      },
+      "description": "Среднетоннажный самосвал для вывозки грунта и строительного мусора с объектов частного сектора.",
+      "full_description": "Незаменимый городской помощник среднетоннажный грузовой автомобиль SHACMAN L3000, отличительными чертами которого являются компактные размеры, облегченный вес, высокая мощность, маневренность, надежность, экономичность и экологичность.",
+      "manufacturer": "SHACMAN",
+      "model": "L3000",
+      "price_per_hour": 6000,
+      "price_per_shift": 6000,
+      "status": "На выезде",
+      "is_featured": false,
+      "primary_image": "/images/images-technica/t6.png",
+      "specs": [
+        { "label": "Грузоподъёмность", "value": "12 т" },
+        { "label": "Объём кузова", "value": "9 м³" },
+        { "label": "Привод", "value": "4x2" }
+      ],
+      "full_specs": [
+        { "label": "Грузоподъемность", "value": "18-25 т" },
+        { "label": "Модель двигателя", "value": "Cummins ISDe210 30" },
+        { "label": "Коробка передач", "value": "9-вперед и 1-назад скорости" },
+        { "label": "Колесная формула", "value": "4×2, 6×4" },
+        { "label": "Объем кузова", "value": "До 19.32 см³" }
+      ],
+      "images": [
+        {
+          "id": 601,
+          "image": "/images/real-photo/r10.png",
+          "alt_text": "Самосвал SHACMAN L3000",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 602,
+          "image": "/images/real-photo/r11.png",
+          "alt_text": "Самосвал SHACMAN L3000 - вид сбоку",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 603,
+          "image": "/images/real-photo/r12.png",
+          "alt_text": "Самосвал SHACMAN L3000 - кузов",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "SHACMAN X3000",
+      "slug": "shacman-x3000",
+      "category": {
+        "id": 3,
+        "name": "Грузовой транспорт",
+        "slug": "gruzovoj-transport"
+      },
+      "description": "Карьерный самосвал повышенной грузоподъёмности для объёмных вывозов и доставки инертных материалов.",
+      "full_description": "SHACMAN X3000 не уступает по качеству европейским и американским грузовикам. Серия X3000 является продолжением 46-летнего опыта технологических инноваций. Это совершенно новый продукт для логистических перевозок. Благодаря выдающейся мощности и экономии топлива, просторному и удобному салону и отличной безопасности, серия X3000 является новым стандартом.",
+      "manufacturer": "SHACMAN",
+      "model": "X3000",
+      "price_per_hour": 10000,
+      "price_per_shift": 10000,
+      "status": "Свободен",
+      "is_featured": true,
+      "primary_image": "/images/images-technica/t7.png",
+      "specs": [
+        { "label": "Грузоподъёмность", "value": "25 т" },
+        { "label": "Объём кузова", "value": "16 м³" },
+        { "label": "Привод", "value": "6x4" }
+      ],
+      "full_specs": [
+        { "label": "Модель двигателя", "value": "WP12.430E50" },
+        { "label": "Колесная формула", "value": "6х6" },
+        { "label": "Тип двигателя", "value": "Дизель" },
+        { "label": "Мощность двигателя", "value": "430 л.с." }
+      ],
+      "images": [
+        {
+          "id": 701,
+          "image": "/images/real-photo/r15.png",
+          "alt_text": "Самосвал SHACMAN X3000",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 702,
+          "image": "/images/real-photo/r16.png",
+          "alt_text": "Самосвал SHACMAN X3000 - вид сбоку",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 703,
+          "image": "/images/real-photo/r17.png",
+          "alt_text": "Самосвал SHACMAN X3000 - кабина",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "КМУ JAC N120 5 тонн",
+      "slug": "kmu-jac-n120-5-tonn",
+      "category": {
+        "id": 4,
+        "name": "Манипуляторы",
+        "slug": "manipulyatory"
+      },
+      "description": "Компактный кран-манипулятор на шасси JAC. Подаёт груз на высоту второго этажа и работает в тесных проездах.",
+      "full_description": "JAC N120 с крано-манипуляторной установкой (КМУ) представляет собой мощный и многофункциональный грузовик, специально разработанный для выполнения подъемно-монтажных работ.",
+      "manufacturer": "JAC",
+      "model": "N120",
+      "price_per_hour": 6000,
+      "price_per_shift": 6000,
+      "status": "Свободен",
+      "is_featured": true,
+      "primary_image": "/images/images-technica/t9.png",
+      "specs": [
+        { "label": "Грузоподъёмность", "value": "5 т" },
+        { "label": "Длина стрелы", "value": "10,5 м" },
+        { "label": "Поворот стрелы", "value": "360°" }
+      ],
+      "full_specs": [
+        { "label": "Грузоподъемность", "value": "5 000 кг" },
+        { "label": "Тип двигателя", "value": "Дизель" },
+        { "label": "Модель двигателя", "value": "ISF3.8S5168" },
+        { "label": "Мощность двигателя", "value": "166 л.с." },
+        { "label": "Объем двигателя", "value": "3 760 см³" },
+        { "label": "Колесная формула", "value": "4×2" },
+        { "label": "Длина", "value": "6.3 м" },
+        { "label": "Масса", "value": "11 900 кг" },
+        { "label": "Грузоподъемность стрелы", "value": "6 300 кг" },
+        { "label": "Длина стрелы", "value": "12.6 м" }
+      ],
+      "images": [
+        {
+          "id": 801,
+          "image": "/images/real-photo/r18.png",
+          "alt_text": "КМУ JAC N120 5 тонн",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 802,
+          "image": "/images/real-photo/r19.png",
+          "alt_text": "КМУ JAC N120 5 тонн - стрела",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 803,
+          "image": "/images/real-photo/r20.png",
+          "alt_text": "КМУ JAC N120 5 тонн - кабина",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Манипулятор на базе КамАЗ (Horyong 8 тонн)",
+      "slug": "kmu-horyong-8-tonn",
+      "category": {
+        "id": 4,
+        "name": "Манипуляторы",
+        "slug": "manipulyatory"
+      },
+      "description": "Манипулятор на шасси КамАЗ с КМУ Horyong для погрузки, перевозки и монтажа тяжёлых грузов.",
+      "full_description": "Манипулятор на базе КамАЗ с КМУ Horyong сочетает выносливость отечественного шасси и корейскую точность гидравлики. Поднимает тяжёлые металлоконструкции, доставляет негабарит и уверенно работает на карьерах и стройках.",
+      "manufacturer": "Horyong",
+      "model": "Horyong 8T",
+      "price_per_hour": 8000,
+      "price_per_shift": 8000,
+      "status": "На выезде",
+      "is_featured": false,
+      "primary_image": "/images/images-technica/t8.png",
+      "specs": [
+        { "label": "Грузоподъёмность", "value": "8 т" },
+        { "label": "Длина стрелы", "value": "18 м" },
+        { "label": "База", "value": "6x4" }
+      ],
+      "full_specs": [
+        { "label": "Грузоподъемность", "value": "8-9 т" },
+        { "label": "Вылет стрелы", "value": "19-20 м" },
+        { "label": "Колесная формула", "value": "6х6" },
+        { "label": "Мощность двигателя", "value": "300 л.с." },
+        { "label": "Модель двигателя", "value": "Cummins ISB6.7" }
+      ],
+      "images": [
+        {
+          "id": 901,
+          "image": "/images/real-photo/r21.png",
+          "alt_text": "КМУ Horyong 8 тонн",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 902,
+          "image": "/images/real-photo/r22.png",
+          "alt_text": "КМУ Horyong 8 тонн - стрела",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 903,
+          "image": "/images/real-photo/r23.png",
+          "alt_text": "КМУ Horyong 8 тонн - кабина",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Эвакуатор ISUZU 4 тонны",
+      "slug": "evakuator-isuzu-4-tonny",
+      "category": {
+        "id": 3,
+        "name": "Грузовой транспорт",
+        "slug": "gruzovoj-transport"
+      },
+      "description": "Платформенный эвакуатор для перевозки спецтехники до 4 тонн. Оперативная подача по городу.",
+      "full_description": "Эвакуатор ISUZU NMR — это высококачественный транспорт для эвакуации легковых и коммерческих автомобилей, а также мини-погрузчиков и другой спецтехники весом до 4 тонн.",
+      "manufacturer": "ISUZU",
+      "model": "NMR",
+      "price_per_hour": 3000,
+      "price_per_shift": 3000,
+      "status": "Свободен",
+      "is_featured": true,
+      "primary_image": "/images/images-technica/t10.png",
+      "specs": [
+        { "label": "Грузоподъёмность", "value": "4 т" },
+        { "label": "Длина платформы", "value": "6,2 м" },
+        { "label": "Лебёдка", "value": "4,5 т" }
+      ],
+      "full_specs": [
+        { "label": "Модель двигателя", "value": "ISUZU 4KH1CN6LB" },
+        { "label": "Мощность двигателя", "value": "120 л.с." },
+        { "label": "Объем двигателя", "value": "2 999 см³" },
+        { "label": "Колесная база", "value": "3 815 мм" },
+        { "label": "Максимальная скорость", "value": "105 км/ч" },
+        { "label": "Колесная формула", "value": "4×2" },
+        { "label": "Длина", "value": "7 470 мм" },
+        { "label": "Ширина", "value": "2 350 мм" },
+        { "label": "Высота", "value": "2 500 мм" }
+      ],
+      "images": [
+        {
+          "id": 1001,
+          "image": "/images/real-photo/r24.png",
+          "alt_text": "Эвакуатор ISUZU 4 тонны",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 1002,
+          "image": "/images/real-photo/r25.png",
+          "alt_text": "Эвакуатор ISUZU 4 тонны - платформа",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 1003,
+          "image": "/images/real-photo/r26.png",
+          "alt_text": "Эвакуатор ISUZU 4 тонны - лебедка",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Ломовоз FAW 3250",
+      "slug": "lomovoz-faw-3250",
+      "category": {
+        "id": 3,
+        "name": "Грузовой транспорт",
+        "slug": "gruzovoj-transport"
+      },
+      "description": "Карьерный ломовоз FAW 3250 для перевозки сыпучих и тяжёлых материалов в суровых условиях.",
+      "full_description": "FAW 3250 — тяжёлый карьерный самосвал, предназначенный для перевозки грунта, песка, гравия, угля и руды. В просторечии машину называют «ломовозом» за её выносливость, вместительность кузова и способность работать с крупногабаритными грузами.",
+      "manufacturer": "FAW",
+      "model": "3250",
+      "price_per_hour": 20000,
+      "price_per_shift": 20000,
+      "status": "Свободен",
+      "is_featured": true,
+      "primary_image": "/images/images-technica/t13.png",
+      "specs": [
+        { "label": "Грузоподъёмность", "value": "20 000 кг" },
+        { "label": "Колесная формула", "value": "6×4" },
+        { "label": "Объём кузова", "value": "16–20 м³" }
+      ],
+      "full_specs": [
+        { "label": "Грузоподъемность", "value": "20 000 кг" },
+        { "label": "Тип двигателя", "value": "Дизельный с турбонаддувом" },
+        { "label": "Модель двигателя", "value": "CA6DL2-35E3" },
+        { "label": "Мощность двигателя", "value": "350 л.с." },
+        { "label": "Объем двигателя", "value": "8 600 см³" },
+        { "label": "Колесная формула", "value": "6×4" },
+        { "label": "Коробка передач", "value": "Механическая, 9-ступенчатая" },
+        { "label": "Длина", "value": "≈ 8 500 мм" },
+        { "label": "Снаряженная масса", "value": "≈ 12 500 кг" },
+        { "label": "Полная масса", "value": "32 000 кг" },
+        { "label": "Объем кузова", "value": "16–20 м³" }
+      ],
+      "images": [
+        {
+          "id": 1101,
+          "image": "/images/real-photo/real (18).png",
+          "alt_text": "Ломовоз FAW 3250",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 1102,
+          "image": "/images/real-photo/real (11).png",
+          "alt_text": "Ломовоз FAW 3250 - кузов",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 1103,
+          "image": "/images/real-photo/real (5).png",
+          "alt_text": "Ломовоз FAW 3250 - вид сбоку",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Мини-погрузчик Sunward (гусеничный)",
+      "slug": "mini-pogruzchik-sunward-gusenichnyj",
+      "category": {
+        "id": 2,
+        "name": "Мини-погрузчики",
+        "slug": "mini-pogruzchiki"
+      },
+      "description": "Гусеничный мини-погрузчик Sunward для работы на мягких грунтах и в стеснённых условиях.",
+      "full_description": "Гусеничные мини-погрузчики Sunward — компактные и маневренные машины для широкого спектра задач в ограниченном пространстве. Гусеничный ход обеспечивает низкое давление на грунт и отличное сцепление, что позволяет работать на рыхлой почве, глине, песке и других сложных покрытиях.",
+      "manufacturer": "Sunward",
+      "model": "SWL Track",
+      "price_per_hour": 25000,
+      "price_per_shift": 25000,
+      "status": "Свободен",
+      "is_featured": true,
+      "primary_image": "/images/images-technica/t14.png",
+      "specs": [
+        { "label": "Грузоподъёмность", "value": "900–1200 кг" },
+        { "label": "Тип ходовой", "value": "Гусеничная" },
+        { "label": "Мощность", "value": "35–50 л.с." }
+      ],
+      "full_specs": [
+        { "label": "Грузоподъемность", "value": "900–1200 кг" },
+        { "label": "Тип двигателя", "value": "Дизельный" },
+        { "label": "Модель двигателя", "value": "Yanmar 3TNV82 / Kubota D1803" },
+        { "label": "Мощность двигателя", "value": "35–50 л.с. (26–37 кВт)" },
+        { "label": "Объем двигателя", "value": "≈ 1 500–1 800 см³" },
+        { "label": "Тип ходовой части", "value": "Гусеничный" },
+        { "label": "Ширина гусениц", "value": "Стандарт / узкие / широкие" },
+        { "label": "Габаритная длина", "value": "≈ 3 200–3 500 мм" },
+        { "label": "Габаритная ширина", "value": "≈ 1 500–1 800 мм" },
+        { "label": "Габаритная высота", "value": "≈ 1 900–2 100 мм" },
+        { "label": "Масса", "value": "2 500–3 200 кг" },
+        { "label": "Вырывное усилие", "value": "≈ 20–25 кН" },
+        { "label": "Скорость движения", "value": "до 5–6 км/ч" },
+        { "label": "Объем ковша", "value": "0.3–0.5 м³" }
+      ],
+      "images": [
+        {
+          "id": 1201,
+          "image": "/images/real-photo/r27.png",
+          "alt_text": "Мини-погрузчик Sunward гусеничный",
+          "is_primary": true,
+          "sort_order": 1
+        },
+        {
+          "id": 1202,
+          "image": "/images/real-photo/r28.png",
+          "alt_text": "Мини-погрузчик Sunward гусеничный - вид сбоку",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 1203,
+          "image": "/images/real-photo/r29.png",
+          "alt_text": "Мини-погрузчик Sunward гусеничный - ковш",
+          "is_primary": false,
+          "sort_order": 3
+        }
+      ]
+    }
+  ]
 }
-

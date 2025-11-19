@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { servicesApi } from '../services/api'
 import type { Service } from '../types'
@@ -6,11 +6,7 @@ import type { Service } from '../types'
 export default function ServicesCarousel() {
   const [services, setServices] = useState<Service[]>([])
   const [loading, setLoading] = useState(true)
-  const [currentIndex, setCurrentIndex] = useState(0)
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
-  const cardRef = useRef<HTMLDivElement>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [cardWidth, setCardWidth] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
 
   // Определение размера экрана
@@ -103,41 +99,6 @@ export default function ServicesCarousel() {
       })
   }, [])
 
-  useEffect(() => {
-    if (cardRef.current && containerRef.current) {
-      const updateCardWidth = () => {
-        if (cardRef.current && containerRef.current) {
-          const computedStyle = window.getComputedStyle(containerRef.current)
-          const gap = parseFloat(computedStyle.gap || '0') || 20
-          const width = cardRef.current.offsetWidth
-          setCardWidth(width + gap)
-        }
-      }
-      
-      // Небольшая задержка для корректного измерения после рендера
-      const timer = setTimeout(updateCardWidth, 100)
-      window.addEventListener('resize', updateCardWidth)
-      
-      return () => {
-        clearTimeout(timer)
-        window.removeEventListener('resize', updateCardWidth)
-      }
-    }
-  }, [services])
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => {
-      const next = prev + 1
-      return next >= services.length ? 0 : next
-    })
-  }
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => {
-      const newIndex = prev - 1
-      return newIndex < 0 ? services.length - 1 : newIndex
-    })
-  }
 
   if (loading) {
     return null
@@ -156,215 +117,137 @@ export default function ServicesCarousel() {
           Наши услуги
         </h2>
 
-        {/* Карусель */}
-        <div style={{ position: 'relative', width: '100%' }}>
-          {/* Стрелка влево */}
-          <button
-            onClick={prevSlide}
-            style={{
-              position: 'absolute',
-              left: isMobile ? '5px' : '10px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              width: isMobile ? '36px' : '48px',
-              height: isMobile ? '36px' : '48px',
-              borderRadius: '50%',
-              border: '1px solid var(--stroke)',
-              background: 'var(--cart-black)',
-              color: 'var(--white)',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              zIndex: 10,
-              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'var(--primary)'
-              e.currentTarget.style.borderColor = 'var(--primary)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'var(--cart-black)'
-              e.currentTarget.style.borderColor = 'var(--stroke)'
-            }}
-          >
-            <svg width={isMobile ? "18" : "24"} height={isMobile ? "18" : "24"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M15 18l-6-6 6-6"/>
-            </svg>
-          </button>
-
-          {/* Wrapper с overflow для обрезки */}
-          <div style={{ overflow: 'hidden', width: '100%' }}>
-            {/* Контейнер карточек */}
-            <div 
-              ref={containerRef}
-              style={{
-                display: 'flex',
-                gap: isMobile ? '15px' : '20px',
-                transition: 'transform 0.5s ease',
-                transform: `translateX(-${currentIndex * cardWidth}px)`,
-                width: '100%'
-              }}
-            >
-            {services.map((service, idx) => {
-              return (
-                <div
-                  key={service.id}
-                  ref={idx === 0 ? cardRef : null}
-                  style={{
-                    flex: isMobile ? '0 0 calc(100% - 7.5px)' : '0 0 calc(50% - 10px)',
-                    borderRadius: isMobile ? '16px' : '20px',
-                    overflow: 'hidden',
-                    background: 'var(--cart-black)',
-                    border: '1px solid var(--stroke)',
-                    position: 'relative',
-                    minWidth: 0
-                  }}
-                  onMouseEnter={() => setHoveredCard(service.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                >
-                  {/* Изображение - кликабельное */}
-                  <Link
-                    to={getServicePageLink(service.slug)}
-                    style={{
-                      display: 'block',
-                      width: '100%',
-                      height: isMobile ? '220px' : '300px',
-                      position: 'relative',
-                      overflow: 'hidden',
-                      cursor: 'pointer',
-                      textDecoration: 'none'
-                    }}
-                    onClick={(e) => {
-                      e.stopPropagation()
-                    }}
-                  >
-                    {(() => {
-                      const imagePath = getServiceImage(service.slug) || service.image || '/images/images-imag/mask-group-72.png';
-                      return (
-                        <img
-                          src={imagePath}
-                          alt={service.name}
-                          style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            transition: 'transform 0.3s ease'
-                          }}
-                          onError={(e) => {
-                            // Fallback на изображение по умолчанию при ошибке загрузки
-                            const target = e.currentTarget as HTMLImageElement;
-                            target.src = '/images/images-imag/mask-group-72.png';
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'scale(1.05)'
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'scale(1)'
-                          }}
-                        />
-                      );
-                    })()}
-                  </Link>
-
-                  {/* Текстовый блок */}
-                  <div style={{
-                    padding: isMobile ? '18px' : '25px',
-                    background: 'var(--cart-black)',
-                    position: 'relative',
-                    minHeight: isMobile ? '100px' : '120px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between'
+        {/* Сетка услуг */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? 'repeat(1, 1fr)' : 'repeat(2, 1fr)',
+          gap: isMobile ? '20px' : '24px',
+          marginBottom: isMobile ? '25px' : '30px'
+        }}>
+          {services.map((service) => {
+            const imagePath = getServiceImage(service.slug) || service.image || '/images/images-imag/mask-group-72.png';
+            const isHovered = hoveredCard === service.id;
+            
+            return (
+              <Link
+                key={service.id}
+                to={getServicePageLink(service.slug)}
+                style={{
+                  position: 'relative',
+                  borderRadius: isMobile ? '20px' : '24px',
+                  overflow: 'hidden',
+                  minHeight: isMobile ? '280px' : '320px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'flex-end',
+                  padding: isMobile ? '24px' : '32px',
+                  textDecoration: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                  transform: isHovered ? 'scale(1.03) translateY(-8px)' : 'scale(1) translateY(0)',
+                  boxShadow: isHovered 
+                    ? '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(192, 239, 85, 0.3)' 
+                    : '0 8px 24px rgba(0, 0, 0, 0.25)',
+                  zIndex: isHovered ? 10 : 1
+                }}
+                onMouseEnter={() => setHoveredCard(service.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                {/* Фоновое изображение с эффектом зума */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundImage: `url(${imagePath})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                  transform: isHovered ? 'scale(1.15)' : 'scale(1)',
+                  zIndex: 0
+                }} />
+                
+                {/* Затемнение фона для читаемости текста */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: isHovered 
+                    ? 'linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%)'
+                    : 'linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%)',
+                  transition: 'background 0.4s ease',
+                  zIndex: 1
+                }} />
+                
+                {/* Текстовый контент */}
+                <div style={{
+                  position: 'relative',
+                  zIndex: 2,
+                  color: 'var(--white)'
+                }}>
+                  <h3 style={{
+                    fontSize: isMobile ? 'clamp(18px, 3vw, 22px)' : 'clamp(20px, 2.5vw, 26px)',
+                    fontWeight: 700,
+                    marginBottom: isMobile ? '12px' : '16px',
+                    lineHeight: '1.3',
+                    textShadow: '0 2px 8px rgba(0, 0, 0, 0.5)',
+                    transition: 'transform 0.4s ease',
+                    transform: isHovered ? 'translateY(-4px)' : 'translateY(0)'
                   }}>
-                    <h3 style={{
-                      color: 'var(--white)',
-                      fontSize: 'clamp(16px, 2.5vw, 20px)',
-                      fontWeight: 600,
-                      marginBottom: isMobile ? '12px' : '15px',
-                      textAlign: 'center',
-                      lineHeight: '1.3'
+                    {service.name}
+                  </h3>
+                  
+                  {service.short_description && (
+                    <p style={{
+                      fontSize: isMobile ? '14px' : '16px',
+                      lineHeight: '1.5',
+                      textShadow: '0 1px 4px rgba(0, 0, 0, 0.5)',
+                      marginBottom: isMobile ? '16px' : '20px',
+                      transition: 'opacity 0.4s ease',
+                      opacity: isHovered ? 1 : 0.9
                     }}>
-                      {service.name}
-                    </h3>
-
-                    {/* Кнопка "Подробнее" - всегда видима */}
-                    <Link
-                      to={getServicePageLink(service.slug)}
-                      style={{
-                        display: 'block',
-                        width: '100%',
-                        padding: isMobile ? '10px 20px' : '12px 24px',
-                        background: hoveredCard === service.id ? 'var(--primary)' : 'transparent',
-                        border: '2px solid var(--primary)',
-                        color: hoveredCard === service.id ? 'var(--background-black)' : 'var(--primary)',
-                        borderRadius: isMobile ? '10px' : '12px',
-                        textAlign: 'center',
-                        fontSize: 'clamp(14px, 2vw, 16px)',
-                        fontWeight: 700,
-                        textDecoration: 'none',
-                        transition: 'all 0.3s ease',
-                        cursor: 'pointer'
-                      }}
-                      onClick={(e) => {
-                        // Останавливаем всплытие события, чтобы не срабатывали другие обработчики
-                        e.stopPropagation()
-                      }}
-                    >
-                      Подробнее
-                    </Link>
+                      {service.short_description}
+                    </p>
+                  )}
+                  
+                  <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: isMobile ? '10px 20px' : '12px 24px',
+                    background: isHovered ? 'var(--primary)' : 'rgba(192, 239, 85, 0.2)',
+                    border: `2px solid ${isHovered ? 'var(--primary)' : 'rgba(192, 239, 85, 0.4)'}`,
+                    borderRadius: isMobile ? '10px' : '12px',
+                    color: isHovered ? 'var(--background-black)' : 'var(--primary)',
+                    fontSize: isMobile ? '14px' : '16px',
+                    fontWeight: 700,
+                    transition: 'all 0.4s ease',
+                    transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
+                    boxShadow: isHovered ? '0 4px 12px rgba(192, 239, 85, 0.3)' : 'none'
+                  }}>
+                    Подробнее
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{
+                      transition: 'transform 0.4s ease',
+                      transform: isHovered ? 'translateX(4px)' : 'translateX(0)'
+                    }}>
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
                   </div>
                 </div>
-              )
-            })}
-            </div>
-          </div>
-
-          {/* Стрелка вправо */}
-          <button
-            onClick={nextSlide}
-            style={{
-              position: 'absolute',
-              right: isMobile ? '5px' : '10px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              width: isMobile ? '36px' : '48px',
-              height: isMobile ? '36px' : '48px',
-              borderRadius: '50%',
-              border: '1px solid var(--stroke)',
-              background: 'var(--cart-black)',
-              color: 'var(--white)',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              zIndex: 10,
-              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'var(--primary)'
-              e.currentTarget.style.borderColor = 'var(--primary)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'var(--cart-black)'
-              e.currentTarget.style.borderColor = 'var(--stroke)'
-            }}
-          >
-            <svg width={isMobile ? "18" : "24"} height={isMobile ? "18" : "24"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M9 18l6-6-6-6"/>
-            </svg>
-          </button>
+              </Link>
+            );
+          })}
         </div>
 
-        {/* Кнопка "Все услуги" в правом нижнем углу */}
+        {/* Кнопка "Все услуги" */}
         <div style={{
           display: 'flex',
           justifyContent: isMobile ? 'center' : 'flex-end',
-          marginTop: isMobile ? '25px' : '30px',
-          paddingRight: isMobile ? '0' : '40px',
-          paddingLeft: isMobile ? '0' : '0'
+          marginTop: isMobile ? '20px' : '30px'
         }}>
           <Link
             to="/services"
