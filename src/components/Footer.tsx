@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   const [isMobile, setIsMobile] = useState(false)
+  const [isDeveloperHover, setIsDeveloperHover] = useState(false)
 
   // Определение размера экрана
   useEffect(() => {
@@ -17,7 +18,19 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer style={{ 
+    <>
+      <style>
+        {`
+          @keyframes footerArrowBounce {
+            0% { transform: translateY(0); opacity: 0; }
+            30% { opacity: 1; }
+            50% { transform: translateY(-6px); }
+            70% { transform: translateY(0); }
+            100% { transform: translateY(-4px); opacity: 0.9; }
+          }
+        `}
+      </style>
+      <footer style={{ 
       background: 'var(--cart-black)',
       marginTop: isMobile ? '30px' : 'clamp(1.875rem, 1.437rem + 2.19vw, 3.75rem)',
       paddingTop: isMobile ? '30px' : 'clamp(2.5rem, 2.208rem + 1.46vw, 3.75rem)',
@@ -244,23 +257,81 @@ export default function Footer() {
             }}>
               Сайт разработал
             </span>
-            <a
-              href="https://wa.me/79187020987?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%BB%D0%B8%D1%85%D0%B0%D0%BD%2C%20%D1%85%D0%BE%D1%82%D0%B5%D0%BB%20%D0%B1%D1%8B%20%D0%B2%D0%BE%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%D0%B0%D1%88%D0%B8%D0%BC%D0%B8%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8."
-              target="_blank"
-              rel="noopener noreferrer"
+            <div
               style={{
-                color: 'var(--white)',
-                fontFamily: 'var(--third-family)',
-                fontWeight: 700,
-                fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
-                textDecoration: 'none'
+                position: 'relative',
+                paddingTop: isMobile ? '35px' : '40px',
+                paddingBottom: '8px',
+                paddingLeft: '8px',
+                paddingRight: '8px',
+                marginTop: isMobile ? '-35px' : '-40px',
+                marginBottom: isMobile ? '-8px' : '-8px',
+                marginLeft: '-8px',
+                marginRight: '-8px',
+                display: 'inline-block'
               }}
+              onMouseEnter={() => setIsDeveloperHover(true)}
+              onMouseLeave={() => setIsDeveloperHover(false)}
             >
-              Скяев Алихан
-            </a>
+              {isDeveloperHover && (
+                <span
+                  style={{
+                    position: 'absolute',
+                    top: isMobile ? '0px' : '-5px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: isMobile ? '28px' : '32px',
+                    height: isMobile ? '28px' : '32px',
+                    borderRadius: '50%',
+                    border: '1px solid rgba(192, 239, 85, 0.6)',
+                    background: 'rgba(192, 239, 85, 0.1)',
+                    animation: 'footerArrowBounce 1s ease-in-out infinite',
+                    pointerEvents: 'none',
+                    boxShadow: '0 6px 14px rgba(192, 239, 85, 0.25)'
+                  }}
+                >
+                  <svg
+                    width={isMobile ? 16 : 18}
+                    height={isMobile ? 16 : 18}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--primary)"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M12 5v14" />
+                    <path d="M6 13l6 6 6-6" />
+                  </svg>
+                </span>
+              )}
+              <a
+                href="https://wa.me/79187020987?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%BB%D0%B8%D1%85%D0%B0%D0%BD%2C%20%D1%85%D0%BE%D1%82%D0%B5%D0%BB%20%D0%B1%D1%8B%20%D0%B2%D0%BE%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%D0%B0%D1%88%D0%B8%D0%BC%D0%B8%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%D0%BC%D0%B8."
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontFamily: 'var(--third-family)',
+                  fontWeight: 900,
+                  fontSize: isMobile ? 'clamp(20px, 3vw, 20px)' : '20px',
+                  textDecoration: 'none',
+                  transition: 'transform 0.3s ease, color 0.3s ease',
+                  transform: isDeveloperHover ? 'translateY(-3px)' : 'translateY(0)',
+                  color: isDeveloperHover ? 'var(--primary)' : 'var(--white)',
+                  display: 'inline-block'
+                }}
+                onFocus={() => setIsDeveloperHover(true)}
+                onBlur={() => setIsDeveloperHover(false)}
+              >
+                Скяев Алихан
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </footer>
+    </>
   )
 }
