@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { categoryApi, equipmentApi } from '../services/api';
 import type { Category, Equipment } from '../types';
 import SEO from '../components/SEO';
+import { extractFirstParagraph, truncateText } from '../utils/text';
 
 export default function EquipmentCategory() {
   const { category } = useParams<{ category: string }>();
@@ -48,7 +49,9 @@ export default function EquipmentCategory() {
                     <div className="font-bold text-primary text-sm mb-1">{item.category?.name}</div>
                     <h3 className="text-xl font-semibold mb-1 text-black">{item.name}</h3>
                     <div className="text-gray-700 mb-1">{item.manufacturer} {item.model}</div>
-                    <div className="text-gray-600 mb-2 text-sm line-clamp-4 min-h-[54px]">{item.description}</div>
+                    <div className="text-gray-600 mb-2 text-sm line-clamp-4 min-h-[54px]">
+                      {truncateText(extractFirstParagraph(item.description), 140)}
+                    </div>
                     <div className="text-lime-600 font-semibold text-lg mb-3">От {item.price_per_hour} ₽/час</div>
                     <div className="flex gap-2">
                       <a href="/contacts" className="flex-1 bg-green-500 text-white px-4 py-2 rounded text-center font-semibold">WhatsApp</a>

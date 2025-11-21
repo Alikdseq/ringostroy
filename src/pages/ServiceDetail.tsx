@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { servicesApi } from '../services/api';
 import type { Service } from '../types';
 import SEO from '../components/SEO';
+import { splitTextToParagraphs } from '../utils/text';
 
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -22,6 +23,10 @@ export default function ServiceDetail() {
       .catch(() => setError('Ошибка загрузки услуги'))
       .finally(() => setLoading(false));
   }, [slug]);
+
+  const formattedDescription = service
+    ? splitTextToParagraphs(service.full_description, { preserveSingleBreaks: true })
+    : [];
 
   return (
     <>
@@ -65,14 +70,23 @@ export default function ServiceDetail() {
               }}>
                 {/* Левая колонка - текст */}
                 <div>
-                  {service.full_description && (
-                    <div style={{
-                      fontSize: '16px',
-                      lineHeight: '1.8',
-                      color: 'var(--txt)',
-                      marginBottom: '30px'
-                    }}>
-                      {service.full_description}
+                  {formattedDescription.length > 0 && (
+                    <div
+                      style={{
+                        fontSize: '16px',
+                        lineHeight: '1.8',
+                        color: 'var(--txt)',
+                        marginBottom: '30px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '12px',
+                      }}
+                    >
+                      {formattedDescription.map((paragraph, index) => (
+                        <p key={`service-desc-${index}`} style={{ margin: 0 }}>
+                          {paragraph}
+                        </p>
+                      ))}
                     </div>
                   )}
 

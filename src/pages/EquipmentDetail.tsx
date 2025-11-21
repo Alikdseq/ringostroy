@@ -3,6 +3,7 @@ import { useEffect, useState, useRef, RefObject } from 'react';
 import { equipmentApi, categoryApi } from '../services/api';
 import type { Equipment } from '../types';
 import SEO from '../components/SEO';
+import { splitTextToParagraphs } from '../utils/text';
 
 interface FullSpec {
   label: string;
@@ -327,6 +328,13 @@ export default function EquipmentDetail() {
     );
   }
 
+  const descriptionBlocks = splitTextToParagraphs(
+    data.full_description || data.description,
+    { preserveSingleBreaks: false }
+  );
+  const safeDescriptionBlocks = descriptionBlocks.length
+    ? descriptionBlocks
+    : ['Описание техники отсутствует.'];
   const pricePerHour = data.price_per_hour || 0;
   const pricePerShift = data.price_per_shift || (pricePerHour * 8);
   const discountDays = 3;
@@ -582,21 +590,26 @@ ${address ? `Адрес: ${address}` : ''}
 
               {/* Описание */}
               <div style={{ marginTop: isMobile ? '30px' : '40px' }}>
-                <h2 style={{
-                  color: 'var(--white)',
-                  fontSize: isMobile ? '22px' : '28px',
-                  fontWeight: 700,
-                  marginBottom: '16px'
-                }}>
+                <h2
+                  style={{
+                    color: 'var(--white)',
+                    fontSize: isMobile ? '22px' : '28px',
+                    fontWeight: 700,
+                    marginBottom: '16px',
+                  }}
+                >
                   Описание
                 </h2>
-                <p style={{
-                  color: 'var(--txt)',
-                  fontSize: '16px',
-                  lineHeight: '1.6'
-                }}>
-                  {data.full_description || data.description || 'Описание техники отсутствует.'}
-                </p>
+                <div style={{ color: 'var(--txt)', fontSize: '16px', lineHeight: 1.6 }}>
+                  {safeDescriptionBlocks.map((paragraph, index) => (
+                    <p
+                      key={`description-${index}`}
+                      style={{ marginBottom: index === safeDescriptionBlocks.length - 1 ? 0 : '12px' }}
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
 
               {/* Характеристики */}

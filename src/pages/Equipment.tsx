@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { equipmentApi, categoryApi } from '../services/api'
 import type { Equipment, Category } from '../types'
 import SEO from '../components/SEO'
+import { extractFirstParagraph, truncateText } from '../utils/text'
 
 export default function Equipment() {
   const [equipment, setEquipment] = useState<Equipment[]>([])
@@ -72,10 +73,12 @@ export default function Equipment() {
               justifyContent: 'center',
               alignItems: 'stretch'
             }}>
-              {equipment.map((item) => (
-                <div 
-                  key={item.id} 
-                  style={{
+              {equipment.map((item) => {
+                const previewText = truncateText(extractFirstParagraph(item.description), 140)
+                return (
+                  <div 
+                    key={item.id} 
+                    style={{
                     border: '1px solid var(--stroke)',
                     borderRadius: '20px',
                     background: 'var(--cart-black)',
@@ -134,7 +137,7 @@ export default function Equipment() {
                         lineHeight: '1.5',
                         minHeight: '60px'
                       }}>
-                        {item.description ? (item.description.length > 120 ? `${item.description.substring(0, 120)}...` : item.description) : ''}
+                        {previewText}
                       </div>
                     </div>
                     
@@ -152,7 +155,8 @@ export default function Equipment() {
                     </div>
                   </div>
                 </div>
-              ))}
+                )
+              })}
             </div>
           )}
         </div> 
