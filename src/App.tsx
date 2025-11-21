@@ -31,10 +31,12 @@ import Promotions from './pages/Promotions';
 import About from './pages/About';
 import Contacts from './pages/Contacts';
 import Privacy from './pages/Privacy';
+import YandexMetrika from './components/YandexMetrika';
 
 function App() {
   return (
     <Router>
+      <YandexMetrika />
       <Layout>
         <Routes>
           {/* Роуты техники */}
