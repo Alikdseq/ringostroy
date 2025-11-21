@@ -4,6 +4,7 @@ import { servicesApi } from '../services/api';
 import type { Service } from '../types';
 import SEO from '../components/SEO';
 import { splitTextToParagraphs } from '../utils/text';
+import servicesSeoData from '../data/services-seo.json';
 
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -30,7 +31,25 @@ export default function ServiceDetail() {
 
   return (
     <>
-      <SEO title={service?.name ? `${service.name} | Услуга` : 'Услуга | Не найдено'} description={service?.short_description || 'Информация об услуге'} />
+      <SEO 
+        title={
+          service?.slug && servicesSeoData[service.slug as keyof typeof servicesSeoData]?.title
+            ? servicesSeoData[service.slug as keyof typeof servicesSeoData].title
+            : service?.name
+              ? `${service.name} | Услуги во Владикавказе | RingooStroy`
+              : 'Услуга | Не найдено'
+        }
+        description={
+          service?.slug && servicesSeoData[service.slug as keyof typeof servicesSeoData]?.description
+            ? servicesSeoData[service.slug as keyof typeof servicesSeoData].description
+            : service?.short_description || 'Информация об услуге'
+        }
+        keywords={
+          service?.slug && servicesSeoData[service.slug as keyof typeof servicesSeoData]?.keywords
+            ? servicesSeoData[service.slug as keyof typeof servicesSeoData].keywords
+            : undefined
+        }
+      />
       <section style={{ padding: '60px 0' }}>
         <div className="container">
           {loading ? (

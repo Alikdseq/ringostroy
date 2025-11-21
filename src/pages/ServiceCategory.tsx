@@ -27,7 +27,23 @@ export default function ServiceCategory() {
 
   return (
     <>
-      <SEO title={`Услуги категории ${categoryName}`} description={`Все услуги в категории ${categoryName}`} />
+      <SEO 
+        title={
+          categoryName
+            ? `Услуги: ${categoryName} во Владикавказе | RingooStroy`
+            : 'Услуги аренды спецтехники | RingooStroy'
+        }
+        description={
+          categoryName
+            ? `Услуги ${categoryName.toLowerCase()} во Владикавказе. Профессиональное выполнение работ, современная техника, доступные цены. Работаем по всей Северной Осетии.`
+            : 'Полный каталог услуг аренды спецтехники во Владикавказе'
+        }
+        keywords={
+          categoryName
+            ? `услуги ${categoryName.toLowerCase()}, ${categoryName.toLowerCase()} Владикавказ, аренда спецтехники ${categoryName.toLowerCase()}`
+            : 'услуги аренды спецтехники, каталог услуг Владикавказ'
+        }
+      />
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-bold mb-7 text-center">{categoryName ? `Услуги: ${categoryName}` : 'Услуги по категории'}</h1>
         {loading ? (

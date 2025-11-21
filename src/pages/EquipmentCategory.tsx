@@ -29,7 +29,23 @@ export default function EquipmentCategory() {
 
   return (
     <>
-      <SEO title={`${catData?.name ? catData.name + ' | ' : ''}Категория спецтехники`} description={catData?.name || 'Техника этой категории'} />
+      <SEO 
+        title={
+          catData?.name
+            ? `Аренда ${catData.name.toLowerCase()} во Владикавказе | RingooStroy`
+            : 'Категория спецтехники | RingooStroy'
+        }
+        description={
+          catData?.name
+            ? `Аренда ${catData.name.toLowerCase()} во Владикавказе. Широкий выбор техники в категории. Актуальные цены, быстрая подача, работаем по всей Северной Осетии.`
+            : 'Каталог спецтехники для аренды во Владикавказе'
+        }
+        keywords={
+          catData?.name
+            ? `аренда ${catData.name.toLowerCase()}, ${catData.name.toLowerCase()} Владикавказ, аренда спецтехники ${catData.name.toLowerCase()}`
+            : 'аренда спецтехники, каталог техники Владикавказ'
+        }
+      />
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {loading ? (
           <div className="text-center mt-16">Загрузка...</div>

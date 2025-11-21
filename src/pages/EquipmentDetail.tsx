@@ -4,6 +4,7 @@ import { equipmentApi, categoryApi } from '../services/api';
 import type { Equipment } from '../types';
 import SEO from '../components/SEO';
 import { splitTextToParagraphs } from '../utils/text';
+import equipmentSeoData from '../data/equipment-seo.json';
 
 interface FullSpec {
   label: string;
@@ -386,8 +387,19 @@ ${address ? `Адрес: ${address}` : ''}
   return (
     <>
       <SEO 
-        title={`${data.name} | Аренда спецтехники`} 
-        description={data.description || `Аренда ${data.name}. Цена от ${pricePerHour.toLocaleString('ru-RU')} ₽/час. ${data.manufacturer} ${data.model}.`} 
+        title={
+          equipmentSeoData[data.slug as keyof typeof equipmentSeoData]?.title ||
+          `${data.name} | Аренда спецтехники во Владикавказе | RingooStroy`
+        }
+        description={
+          equipmentSeoData[data.slug as keyof typeof equipmentSeoData]?.description ||
+          `Аренда ${data.name} во Владикавказе. Цена от ${pricePerHour.toLocaleString('ru-RU')} ₽/час. ${data.manufacturer} ${data.model}. Работаем по всей Северной Осетии.`
+        }
+        keywords={
+          equipmentSeoData[data.slug as keyof typeof equipmentSeoData]?.keywords ||
+          `аренда ${data.name.toLowerCase()}, ${data.manufacturer} ${data.model}, аренда спецтехники Владикавказ`
+        }
+        image={`https://ringoostroy.ru${data.primary_image}`}
       />
       
       <section style={{ padding: isMobile ? '30px 0' : '60px 0', background: 'var(--background-black)' }}>
