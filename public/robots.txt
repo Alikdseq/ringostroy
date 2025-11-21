@@ -16,6 +16,8 @@ Disallow: /src/
 Allow: /
 Allow: /services
 Allow: /services/*
+Allow: /equipment
+Allow: /equipment/*
 Allow: /about
 Allow: /contacts
 Allow: /promotions

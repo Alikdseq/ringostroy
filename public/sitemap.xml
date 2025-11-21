@@ -20,6 +20,14 @@
     <priority>0.9</priority>
   </url>
   
+  <!-- Техника -->
+  <url>
+    <loc>https://ringoostroy.ru/equipment</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
   <!-- О компании -->
   <url>
     <loc>https://ringoostroy.ru/about</loc>
@@ -163,6 +171,80 @@
   </url>
   <url>
     <loc>https://ringoostroy.ru/services/raschistka-ili-uborka-snega</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Техника - детальные страницы -->
+  <url>
+    <loc>https://ringoostroy.ru/equipment/mini-ekskavator-sany-sy35u</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ringoostroy.ru/equipment/ekskavator-pogruzchik-mst-644s</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ringoostroy.ru/equipment/ekskavator-pogruzchik-sany-bhl95</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ringoostroy.ru/equipment/mini-pogruzchik-zoomlion-zs085v</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ringoostroy.ru/equipment/mini-traktor</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ringoostroy.ru/equipment/shacman-l3000</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ringoostroy.ru/equipment/shacman-x3000</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ringoostroy.ru/equipment/kmu-jac-n120-5-tonn</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ringoostroy.ru/equipment/kmu-horyong-8-tonn</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ringoostroy.ru/equipment/evakuator-isuzu-4-tonny</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ringoostroy.ru/equipment/lomovoz-faw-3250</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ringoostroy.ru/equipment/mini-pogruzchik-sunward-gusenichnyj</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
