@@ -1,0 +1,29 @@
+{
+  "name": "RingooStroy - Аренда спецтехники во Владикавказе",
+  "short_name": "RingooStroy",
+  "description": "Аренда спецтехники во Владикавказе и Северной Осетии. Экскаваторы, погрузчики, краны, грузовики.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#c0ef55",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/icons/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icons/logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/images/icons/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
+
