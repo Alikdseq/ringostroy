@@ -14,7 +14,7 @@ interface SEOProps {
 
 const SITE_URL = 'https://ringoostroy.ru'; // TODO: Заменить на реальный домен
 const DEFAULT_IMAGE = `${SITE_URL}/images/icons/logo.svg`;
-const DEFAULT_KEYWORDS = 'аренда спецтехники, аренда экскаватора, аренда погрузчика, аренда крана, спецтехника Владикавказ, спецтехника Северная Осетия, аренда техники, строительная техника, дорожная техника, коммунальная техника';
+const DEFAULT_KEYWORDS = 'аренда спецтехники, аренда экскаватора, аренда погрузчика, аренда крана, спецтехника Владикавказ, спецтехника Северная Осетия, аренда техники, строительная техника, дорожная техника, коммунальная техника, ринго, рингострой, RingooStroy, ringostroy, ringoostroy, ринго строй, рингострой владикавказ, ringoo stroy';
 
 export default function SEO({ 
   title, 
@@ -58,6 +58,7 @@ export default function SEO({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={title} />
+      <meta property="og:image:type" content={image.includes('.svg') ? 'image/svg+xml' : 'image/png'} />
       <meta property="og:site_name" content="RingooStroy" />
       <meta property="og:locale" content="ru_RU" />
       
@@ -66,8 +67,12 @@ export default function SEO({
       <meta name="twitter:url" content={currentUrl} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      {/* Twitter не поддерживает SVG, используем PNG если изображение SVG */}
+      <meta name="twitter:image" content={image.includes('.svg') ? image.replace('.svg', '.png') : image} />
       <meta name="twitter:image:alt" content={title} />
+      {/* Опционально: добавьте twitter:site и twitter:creator если есть аккаунт */}
+      {/* <meta name="twitter:site" content="@ringoostroy" /> */}
+      {/* <meta name="twitter:creator" content="@ringoostroy" /> */}
       
       {/* Mobile optimization */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />

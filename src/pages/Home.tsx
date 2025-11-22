@@ -83,7 +83,7 @@ export default function Home() {
        <SEO 
          title="Аренда спецтехники во Владикавказе | RingooStroy - Северная Осетия" 
          description="Аренда спецтехники во Владикавказе и Северной Осетии. Экскаваторы, погрузчики, краны, грузовики, бульдозеры. Работаем 24/7. Гарантии качества. Более 13 лет опыта. Закажите спецтехнику прямо сейчас!" 
-         keywords="аренда спецтехники Владикавказ, аренда экскаватора, аренда погрузчика, аренда крана, спецтехника Северная Осетия, аренда техники, строительная техника, дорожная техника, коммунальная техника, аренда бульдозера"
+         keywords="аренда спецтехники Владикавказ, аренда экскаватора, аренда погрузчика, аренда крана, спецтехника Северная Осетия, аренда техники, строительная техника, дорожная техника, коммунальная техника, аренда бульдозера, ринго, рингострой, RingooStroy, ringostroy, ringoostroy, ринго строй, рингострой владикавказ, ringoo stroy"
          structuredData={combinedSchema}
        />
       
@@ -218,7 +218,7 @@ export default function Home() {
           paddingBottom: isMobile ? '20px' : undefined
         }}>
           <div className="container h-full flex items-start pt-20" style={{ 
-            paddingTop: isMobile ? '20px' : undefined,
+            paddingTop: isMobile ? '10px' : undefined,
             paddingLeft: isMobile ? '15px' : undefined,
             paddingRight: isMobile ? '15px' : undefined
           }}>
@@ -228,6 +228,56 @@ export default function Home() {
               marginLeft: isMobile ? '0' : undefined,
               maxWidth: isMobile ? '100%' : undefined
             }}>
+              {/* Номер телефона и адрес для мобильной версии */}
+              {isMobile && (
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '100%',
+                  marginBottom: '25px',
+                  textAlign: 'center'
+                }}>
+                  <a 
+                    href="tel:+79888307777"
+                    style={{
+                      fontSize: 'clamp(22px, 6vw, 28px)',
+                      fontWeight: 700,
+                      color: 'var(--primary)',
+                      textDecoration: 'none',
+                      marginBottom: '12px',
+                      padding: '12px 24px',
+                      borderRadius: '12px',
+                      background: 'rgba(132, 204, 22, 0.1)',
+                      border: '2px solid var(--primary)',
+                      transition: 'all 0.3s ease',
+                      display: 'inline-block',
+                      textAlign: 'center'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(132, 204, 22, 0.2)'
+                      e.currentTarget.style.transform = 'scale(1.05)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(132, 204, 22, 0.1)'
+                      e.currentTarget.style.transform = 'scale(1)'
+                    }}
+                  >
+                    +7 988 830-77-77
+                  </a>
+                  <div style={{
+                    fontSize: 'clamp(13px, 3.5vw, 15px)',
+                    color: 'var(--white)',
+                    opacity: 0.9,
+                    textAlign: 'center',
+                    lineHeight: '1.5'
+                  }}>
+                    г. Владикавказ, ул. Билара Кабалоева, 12В
+                  </div>
+                </div>
+              )}
+              
               <div className="mb-8" style={{ marginBottom: isMobile ? '20px' : undefined }}>
                 <span className="text-white text-base font-semibold" style={{ 
                   fontSize: isMobile ? '14px' : undefined,
@@ -252,7 +302,7 @@ export default function Home() {
                 fontSize: isMobile ? 'clamp(14px, 3.5vw, 16px)' : undefined,
                 marginBottom: isMobile ? '25px' : undefined
               }}>
-                RingooStroy – удобный и простой сервис аренды строительной техники
+                RingooStroy (Ринго Строй) – удобный и простой сервис аренды строительной техники во Владикавказе
               </p>
               
               <ul className="advants__holder list-none flex flex-col gap-4 mb-8" style={{

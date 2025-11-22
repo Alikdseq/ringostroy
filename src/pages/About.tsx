@@ -6,7 +6,6 @@ import CityForm from '../components/CityForm'
 const imageLeft = '/images/images-technica/t3.png'
 const imageRight = '/images/images-technica/t2.png'
 const osnovatelImage = '/images/images-imag/osnovatel.png'
-const logoImage = '/images/icons/logo.svg'
 
 export default function About() {
   const [isMobile, setIsMobile] = useState(false)
@@ -31,9 +30,9 @@ export default function About() {
   return (
     <>
       <SEO 
-        title="О компании RingooStroy | Аренда спецтехники Владикавказ" 
-        description="RingooStroy - более 13 лет опыта в аренде спецтехники во Владикавказе и Северной Осетии. Надежный партнер для строительства, производства и сельского хозяйства. Современная техника, гарантии качества, работа 24/7." 
-        keywords="о компании RingooStroy, аренда спецтехники Владикавказ, история компании, основатель RingooStroy, спецтехника Северная Осетия"
+        title="Ваш надежный партнер в аренде спецтехники | RingooStroy Владикавказ" 
+        description="RingooStroy - более 13 лет опыта в аренде спецтехники и выполнении строительно-земляных работ во Владикавказе. Комплексный подход: подбираем технику и обеспечиваем результат. Прозрачные цены, исправная техника, опытные операторы." 
+        keywords="о компании RingooStroy, аренда спецтехники Владикавказ, строительно-земляные работы, аренда техники, благоустройство территорий, транспортные услуги, рингострой, ринго, ringostroy, ringoostroy, спецтехника Северная Осетия, строительные работы Владикавказ"
         structuredData={generateBreadcrumbSchema([
           { name: 'Главная', url: '/' },
           { name: 'О компании', url: '/about' }
@@ -94,9 +93,10 @@ export default function About() {
             color: 'var(--white)',
             fontSize: 'clamp(28px, 5vw, 48px)',
             fontWeight: 700,
-            marginBottom: isMobile ? '30px' : '40px'
+            marginBottom: isMobile ? '30px' : '40px',
+            textAlign: 'center'
           }}>
-            О компании
+            Ваш надежный партнер в аренде спецтехники и выполнении строительных работ
           </h1>
 
           {/* Две фотографии под заголовком */}
@@ -304,71 +304,263 @@ export default function About() {
             </div>
           </section>
 
-          {/* Блок с текстом слева и логотипом справа */}
+          {/* Основной контент о компании */}
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
-            gap: isMobile ? '30px' : '40px',
-            marginTop: isMobile ? '40px' : '60px',
-            marginBottom: isMobile ? '40px' : '60px',
-            alignItems: 'center'
+            maxWidth: '1200px',
+            margin: '0 auto'
           }}>
-            {/* Текст слева */}
-            <div style={{ order: isMobile ? 2 : 1 }}>
+            {/* Раздел: Решаем задачи, а не просто сдаем технику */}
+            <div style={{
+              marginTop: isMobile ? '40px' : '60px',
+              marginBottom: isMobile ? '40px' : '60px'
+            }}>
+              <h2 style={{
+                color: 'var(--white)',
+                fontSize: 'clamp(24px, 4vw, 36px)',
+                fontWeight: 700,
+                marginBottom: isMobile ? '20px' : '30px'
+              }}>
+                Решаем задачи, а не просто сдаем технику
+              </h2>
               <p style={{
                 color: 'var(--white)',
-                fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
+                fontSize: isMobile ? 'clamp(14px, 3vw, 18px)' : '18px',
                 lineHeight: '1.8',
-                marginBottom: isMobile ? '15px' : '20px'
+                opacity: 0.9
               }}>
-                Наша компания уже более 13 лет является надежным партнером для различных предприятий и организаций, предоставляя в аренду полный спектр современной спецтехники.
-              </p>
-              <p style={{
-                color: 'var(--white)',
-                fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
-                lineHeight: '1.8',
-                marginBottom: isMobile ? '15px' : '20px'
-              }}>
-                Мы понимаем, что каждое строительство, производство или сельскохозяйственное предприятие имеет свои уникальные потребности, поэтому предлагаем широкий выбор техники, способной решить самые разнообразные задачи.
-              </p>
-              <p style={{
-                color: 'var(--white)',
-                fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
-                lineHeight: '1.8'
-              }}>
-                В нашем парке вы найдете современные экскаваторы, погрузчики, краны, грузовики, бульдозеры и другую спецтехнику ведущих мировых производителей. Все наши машины проходят регулярное техническое обслуживание и находятся в отличном рабочем состоянии, что гарантирует бесперебойную работу и безопасность на вашем объекте.
+                Наша компания — это более 13 лет опыта в оказании услуг аренды спецтехники и выполнения строительно-земляных работ во Владикавказе. Мы понимаем, что вы приходите к нам не за самой машиной, а за результатом: за выкопанным котлованом, построенным фундаментом или чистым участком. Поэтому мы предлагаем комплексный подход: подбираем нужную технику и обеспечиваем ее работой для достижения вашей цели.
               </p>
             </div>
 
-            {/* Логотип справа */}
+            {/* Раздел: Что мы делаем для вас? */}
             <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              order: isMobile ? 1 : 2
+              marginTop: isMobile ? '40px' : '60px',
+              marginBottom: isMobile ? '40px' : '60px'
             }}>
+              <h2 style={{
+                color: 'var(--white)',
+                fontSize: 'clamp(24px, 4vw, 36px)',
+                fontWeight: 700,
+                marginBottom: isMobile ? '20px' : '30px'
+              }}>
+                Что мы делаем для вас?
+              </h2>
               <div style={{
-                textAlign: 'center'
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                gap: isMobile ? '20px' : '30px'
               }}>
                 <div style={{
-                  color: 'var(--white)',
-                  fontSize: isMobile ? 'clamp(12px, 2.5vw, 14px)' : '14px',
-                  fontWeight: 600,
-                  letterSpacing: isMobile ? '1px' : '2px',
-                  marginBottom: isMobile ? '15px' : '20px',
-                  textTransform: 'uppercase'
+                  background: 'var(--cart-black)',
+                  border: '1px solid var(--stroke)',
+                  borderRadius: isMobile ? '16px' : '20px',
+                  padding: isMobile ? '20px' : '30px'
                 }}>
-                  СТРОИТЕЛЬНАЯ ТЕХНИКА
+                  <h3 style={{
+                    color: 'var(--primary)',
+                    fontSize: isMobile ? 'clamp(18px, 3.5vw, 22px)' : '22px',
+                    fontWeight: 700,
+                    marginBottom: isMobile ? '12px' : '15px'
+                  }}>
+                    Аренда спецтехники
+                  </h3>
+                  <p style={{
+                    color: 'var(--white)',
+                    fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
+                    lineHeight: '1.7',
+                    opacity: 0.9
+                  }}>
+                    Предоставляем в аренду современные и исправные машины для любых задач.
+                  </p>
                 </div>
-                <img
-                  src={logoImage}
-                  alt="RingooStroy Logo"
-                  style={{
-                    maxWidth: isMobile ? '200px' : '300px',
-                    height: 'auto',
-                    width: '100%'
-                  }}
-                />
+
+                <div style={{
+                  background: 'var(--cart-black)',
+                  border: '1px solid var(--stroke)',
+                  borderRadius: isMobile ? '16px' : '20px',
+                  padding: isMobile ? '20px' : '30px'
+                }}>
+                  <h3 style={{
+                    color: 'var(--primary)',
+                    fontSize: isMobile ? 'clamp(18px, 3.5vw, 22px)' : '22px',
+                    fontWeight: 700,
+                    marginBottom: isMobile ? '12px' : '15px'
+                  }}>
+                    Строительство и земляные работы
+                  </h3>
+                  <p style={{
+                    color: 'var(--white)',
+                    fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
+                    lineHeight: '1.7',
+                    opacity: 0.9
+                  }}>
+                    Выполняем полный цикл — от копки котлована и траншей до строительства фундаментов и обратной засыпки.
+                  </p>
+                </div>
+
+                <div style={{
+                  background: 'var(--cart-black)',
+                  border: '1px solid var(--stroke)',
+                  borderRadius: isMobile ? '16px' : '20px',
+                  padding: isMobile ? '20px' : '30px'
+                }}>
+                  <h3 style={{
+                    color: 'var(--primary)',
+                    fontSize: isMobile ? 'clamp(18px, 3.5vw, 22px)' : '22px',
+                    fontWeight: 700,
+                    marginBottom: isMobile ? '12px' : '15px'
+                  }}>
+                    Благоустройство территорий
+                  </h3>
+                  <p style={{
+                    color: 'var(--white)',
+                    fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
+                    lineHeight: '1.7',
+                    opacity: 0.9
+                  }}>
+                    Помогаем привести участок в порядок: планировка, расчистка, покос травы, вывоз мусора.
+                  </p>
+                </div>
+
+                <div style={{
+                  background: 'var(--cart-black)',
+                  border: '1px solid var(--stroke)',
+                  borderRadius: isMobile ? '16px' : '20px',
+                  padding: isMobile ? '20px' : '30px'
+                }}>
+                  <h3 style={{
+                    color: 'var(--primary)',
+                    fontSize: isMobile ? 'clamp(18px, 3.5vw, 22px)' : '22px',
+                    fontWeight: 700,
+                    marginBottom: isMobile ? '12px' : '15px'
+                  }}>
+                    Транспортные услуги
+                  </h3>
+                  <p style={{
+                    color: 'var(--white)',
+                    fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
+                    lineHeight: '1.7',
+                    opacity: 0.9
+                  }}>
+                    Обеспечиваем доставку сыпучих материалов (песок, щебень, чернозем), вывоз строительного мусора и услуги манипулятора для установки тяжелых грузов.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Раздел: Почему выбирают нас? */}
+            <div style={{
+              marginTop: isMobile ? '40px' : '60px',
+              marginBottom: isMobile ? '40px' : '60px'
+            }}>
+              <h2 style={{
+                color: 'var(--white)',
+                fontSize: 'clamp(24px, 4vw, 36px)',
+                fontWeight: 700,
+                marginBottom: isMobile ? '20px' : '30px'
+              }}>
+                Почему выбирают нас?
+              </h2>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                gap: isMobile ? '20px' : '30px'
+              }}>
+                <div style={{
+                  background: 'var(--cart-black)',
+                  border: '1px solid var(--stroke)',
+                  borderRadius: isMobile ? '16px' : '20px',
+                  padding: isMobile ? '20px' : '30px'
+                }}>
+                  <h3 style={{
+                    color: 'var(--primary)',
+                    fontSize: isMobile ? 'clamp(18px, 3.5vw, 22px)' : '22px',
+                    fontWeight: 700,
+                    marginBottom: isMobile ? '12px' : '15px'
+                  }}>
+                    Прозрачность и честность
+                  </h3>
+                  <p style={{
+                    color: 'var(--white)',
+                    fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
+                    lineHeight: '1.7',
+                    opacity: 0.9
+                  }}>
+                    Фиксированная стоимость аренды и работ, которая не меняется в процессе. Никаких скрытых платежей.
+                  </p>
+                </div>
+
+                <div style={{
+                  background: 'var(--cart-black)',
+                  border: '1px solid var(--stroke)',
+                  borderRadius: isMobile ? '16px' : '20px',
+                  padding: isMobile ? '20px' : '30px'
+                }}>
+                  <h3 style={{
+                    color: 'var(--primary)',
+                    fontSize: isMobile ? 'clamp(18px, 3.5vw, 22px)' : '22px',
+                    fontWeight: 700,
+                    marginBottom: isMobile ? '12px' : '15px'
+                  }}>
+                    Исправная техника
+                  </h3>
+                  <p style={{
+                    color: 'var(--white)',
+                    fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
+                    lineHeight: '1.7',
+                    opacity: 0.9
+                  }}>
+                    Весь наш парк — от мини-экскаваторов до самосвалов — проходит регулярное ТО. Мы гарантируем, что техника не подведет на вашем объекте.
+                  </p>
+                </div>
+
+                <div style={{
+                  background: 'var(--cart-black)',
+                  border: '1px solid var(--stroke)',
+                  borderRadius: isMobile ? '16px' : '20px',
+                  padding: isMobile ? '20px' : '30px'
+                }}>
+                  <h3 style={{
+                    color: 'var(--primary)',
+                    fontSize: isMobile ? 'clamp(18px, 3.5vw, 22px)' : '22px',
+                    fontWeight: 700,
+                    marginBottom: isMobile ? '12px' : '15px'
+                  }}>
+                    Опытные операторы
+                  </h3>
+                  <p style={{
+                    color: 'var(--white)',
+                    fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
+                    lineHeight: '1.7',
+                    opacity: 0.9
+                  }}>
+                    За рулем нашей техники — профессионалы, которые знают, как выполнить работу быстро, качественно и безопасно.
+                  </p>
+                </div>
+
+                <div style={{
+                  background: 'var(--cart-black)',
+                  border: '1px solid var(--stroke)',
+                  borderRadius: isMobile ? '16px' : '20px',
+                  padding: isMobile ? '20px' : '30px'
+                }}>
+                  <h3 style={{
+                    color: 'var(--primary)',
+                    fontSize: isMobile ? 'clamp(18px, 3.5vw, 22px)' : '22px',
+                    fontWeight: 700,
+                    marginBottom: isMobile ? '12px' : '15px'
+                  }}>
+                    Решение под вашу задачу
+                  </h3>
+                  <p style={{
+                    color: 'var(--white)',
+                    fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
+                    lineHeight: '1.7',
+                    opacity: 0.9
+                  }}>
+                    Не знаете, какая техника нужна? Просто опишите задачу («нужно выкопать яму под колодец», «расчистить участок от деревьев»), а мы подберем оптимальное решение и технику.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -405,9 +597,9 @@ export default function About() {
                 color: 'var(--white)',
                 fontSize: 'clamp(22px, 3vw, 32px)',
                 fontWeight: 700,
-                marginBottom: isMobile ? '15px' : '20px'
+                marginBottom: isMobile ? '20px' : '25px'
               }}>
-                Основатель
+                Почему со мной работают — честно от основателя
               </h2>
               <p style={{
                 color: 'var(--white)',
@@ -415,7 +607,7 @@ export default function About() {
                 lineHeight: '1.8',
                 marginBottom: isMobile ? '15px' : '20px'
               }}>
-                Меня зовут Герман Мисиков, бизнесмен с опытом 20 лет.
+                Меня зовут Герман Мисиков. Я в бизнесе 20 лет, и мой главный вывод прост: лучший клиент — это довольный клиент, который возвращается.
               </p>
               <p style={{
                 color: 'var(--white)',
@@ -423,7 +615,7 @@ export default function About() {
                 lineHeight: '1.8',
                 marginBottom: isMobile ? '15px' : '20px'
               }}>
-                Решил открыть новое направление. Внедрил весь накопленный опыт в этот бизнес.
+                Когда я запускал эту компанию, я поставил одну цель: убрать все «но» и «внезапные траты» из процесса аренды техники. Мы не просто сдаем машины в аренду — мы берем на себя ваши проблемы и решаем их.
               </p>
               <p style={{
                 color: 'var(--white)',
@@ -431,25 +623,26 @@ export default function About() {
                 lineHeight: '1.8',
                 marginBottom: isMobile ? '15px' : '20px'
               }}>
-                Я знаю, что хочет заказчик, и поэтому я вывел несколько правил:
+                Можете проверить меня на слове. Вот мои твердые условия:
               </p>
               <ul style={{
                 listStyle: 'none',
                 padding: 0,
-                margin: 0
+                margin: 0,
+                marginBottom: isMobile ? '20px' : '25px'
               }}>
                 {[
-                  'Я даю 100% гарантию на свои работы;',
-                  'Я даю рассрочку на свои работы;',
-                  'Если я опоздал на заказ — мы делаем скидку 10%;',
-                  'Мы работаем наличными/безналичными/перевод/бартер;',
-                  'Есть услуга — под ключ. Мы сами фиксируем цену и она не меняется.'
+                  'Цена зафиксирована в договоре и не меняется. Никаких сюрпризов!',
+                  'Даем рассрочку. Не нужно ждать, пока соберется вся сумма — начните работы сейчас.',
+                  'Наше опоздание = ваша выгода. Опоздали мы — ваша скидка 10%.',
+                  'Платите как вам удобно: нал, безнал, перевод.',
+                  'Гарантия на все работы 100%. Спите спокойно.'
                 ].map((rule, index) => (
                   <li key={index} style={{
                     color: 'var(--white)',
                     fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
                     lineHeight: '1.8',
-                    marginBottom: isMobile ? '10px' : '12px',
+                    marginBottom: isMobile ? '12px' : '15px',
                     paddingLeft: isMobile ? '20px' : '24px',
                     position: 'relative'
                   }}>
@@ -466,6 +659,24 @@ export default function About() {
                   </li>
                 ))}
               </ul>
+              <p style={{
+                color: 'var(--white)',
+                fontSize: isMobile ? 'clamp(14px, 3vw, 16px)' : '16px',
+                lineHeight: '1.8',
+                marginBottom: isMobile ? '15px' : '20px',
+                fontStyle: 'italic',
+                opacity: 0.9
+              }}>
+                Я верю, что бизнес должен строиться на уважении к клиенту. В этом и есть мой 20-летний опыт.
+              </p>
+              <p style={{
+                color: 'var(--primary)',
+                fontSize: isMobile ? 'clamp(16px, 3.5vw, 18px)' : '18px',
+                fontWeight: 600,
+                marginTop: isMobile ? '20px' : '25px'
+              }}>
+                Герман Мисиков
+              </p>
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { categoryApi, equipmentApi } from '../services/api';
 import type { Category, Equipment } from '../types';
 import SEO from '../components/SEO';
 import { extractFirstParagraph, truncateText } from '../utils/text';
+import { generateBreadcrumbSchema } from '../utils/seo';
 
 export default function EquipmentCategory() {
   const { category } = useParams<{ category: string }>();
@@ -27,6 +28,20 @@ export default function EquipmentCategory() {
       .finally(() => setLoading(false));
   }, [category]);
 
+  const breadcrumbItems = [
+    { name: 'Главная', url: '/' },
+    { name: 'Каталог спецтехники', url: '/equipment' }
+  ];
+  
+  if (catData) {
+    breadcrumbItems.push({
+      name: catData.name,
+      url: `/equipment/category/${catData.slug}`
+    });
+  }
+
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
+
   return (
     <>
       <SEO 
@@ -45,6 +60,7 @@ export default function EquipmentCategory() {
             ? `аренда ${catData.name.toLowerCase()}, ${catData.name.toLowerCase()} Владикавказ, аренда спецтехники ${catData.name.toLowerCase()}`
             : 'аренда спецтехники, каталог техники Владикавказ'
         }
+        structuredData={breadcrumbSchema}
       />
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {loading ? (

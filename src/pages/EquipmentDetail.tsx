@@ -5,6 +5,7 @@ import type { Equipment } from '../types';
 import SEO from '../components/SEO';
 import { splitTextToParagraphs } from '../utils/text';
 import equipmentSeoData from '../data/equipment-seo.json';
+import { generateBreadcrumbSchema } from '../utils/seo';
 
 interface FullSpec {
   label: string;
@@ -384,6 +385,26 @@ ${address ? `Адрес: ${address}` : ''}
     ? parseISODate(startDate).toLocaleDateString('ru-RU', { day: '2-digit', month: 'long', year: 'numeric' })
     : '';
 
+  // Формируем breadcrumbs для микроразметки
+  const breadcrumbItems = [
+    { name: 'Главная', url: '/' },
+    { name: 'Каталог спецтехники', url: '/equipment' }
+  ];
+  
+  if (data.category) {
+    breadcrumbItems.push({
+      name: data.category.name,
+      url: `/equipment/category/${data.category.slug}`
+    });
+  }
+  
+  breadcrumbItems.push({
+    name: data.name,
+    url: `/equipment/${data.slug}`
+  });
+
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
+
   return (
     <>
       <SEO 
@@ -400,6 +421,7 @@ ${address ? `Адрес: ${address}` : ''}
           `аренда ${data.name.toLowerCase()}, ${data.manufacturer} ${data.model}, аренда спецтехники Владикавказ`
         }
         image={`https://ringoostroy.ru${data.primary_image}`}
+        structuredData={breadcrumbSchema}
       />
       
       <section style={{ padding: isMobile ? '30px 0' : '60px 0', background: 'var(--background-black)' }}>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
-import { generateLocalBusinessSchema } from '../utils/seo'
+import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '../utils/seo'
 
 const cities = [
   'Алагир', 'Ардон', 'Беслан', 'Владикавказ', 'Дигора', 'Заводской', 'Моздок'
@@ -37,8 +37,18 @@ export default function Contacts() {
       <SEO 
         title="Контакты RingooStroy | Адрес, телефон, города работы" 
         description="Контактная информация RingooStroy. Адрес: Владикавказ, ул. Билара Кабалоева, 12В. Телефон: +7 988 830-77-77. Работаем во всех крупных городах Северной Осетии: Алагир, Ардон, Беслан, Моздок и др." 
-        keywords="контакты RingooStroy, адрес спецтехники Владикавказ, телефон аренды спецтехники, города работы, Северная Осетия"
-        structuredData={generateLocalBusinessSchema()}
+        keywords="контакты RingooStroy, контакты Ринго Строй, рингострой контакты, ринго, ringostroy, ringoostroy, адрес спецтехники Владикавказ, телефон аренды спецтехники, города работы, Северная Осетия"
+        structuredData={(() => {
+          const localBusinessSchema = generateLocalBusinessSchema();
+          const breadcrumbSchema = generateBreadcrumbSchema([
+            { name: 'Главная', url: '/' },
+            { name: 'Контакты', url: '/contacts' }
+          ]);
+          return {
+            '@context': 'https://schema.org',
+            '@graph': [localBusinessSchema, breadcrumbSchema]
+          };
+        })()}
       />
       
       <section style={{ 

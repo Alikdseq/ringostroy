@@ -4,6 +4,7 @@ export interface LocalBusinessSchema {
   '@context': string;
   '@type': string;
   name: string;
+  alternateName?: string[];
   image: string;
   '@id': string;
   url: string;
@@ -54,6 +55,7 @@ export interface OrganizationSchema {
   '@context': string;
   '@type': string;
   name: string;
+  alternateName?: string[];
   url: string;
   logo: string;
   contactPoint: {
@@ -73,6 +75,7 @@ export function generateLocalBusinessSchema(): LocalBusinessSchema {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'RingooStroy',
+    alternateName: ['ринго', 'рингострой', 'RingooStroy', 'ringostroy', 'ringoostroy', 'ринго строй', 'Ringo Stroy'],
     image: `${SITE_URL}/images/icons/logo.svg`,
     '@id': `${SITE_URL}/#organization`,
     url: SITE_URL,
@@ -141,6 +144,7 @@ export function generateOrganizationSchema(): OrganizationSchema {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'RingooStroy',
+    alternateName: ['ринго', 'рингострой', 'RingooStroy', 'ringostroy', 'ringoostroy', 'ринго строй', 'Ringo Stroy'],
     url: SITE_URL,
     logo: `${SITE_URL}/images/icons/logo.svg`,
     contactPoint: {
@@ -154,16 +158,40 @@ export function generateOrganizationSchema(): OrganizationSchema {
   };
 }
 
+/**
+ * Генерирует схему BreadcrumbList для навигационных цепочек
+ * Соответствует требованиям Яндекс:
+ * - Абсолютные URL (HTTPS)
+ * - position - числа
+ * - name >= 4 символов (рекомендуется)
+ * - До 3 элементов (рекомендуется)
+ */
 export function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+  // Фильтруем элементы: исключаем слишком короткие названия (< 4 символов без пробелов)
+  // и ограничиваем до 3 элементов (рекомендация Яндекс)
+  const filteredItems = items
+    .filter(item => {
+      const nameWithoutSpaces = item.name.replace(/\s/g, '');
+      return nameWithoutSpaces.length >= 4;
+    })
+    .slice(-3); // Берем последние 3 элемента (если больше)
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.name,
-      item: `${SITE_URL}${item.url}`
-    }))
+    itemListElement: filteredItems.map((item, index) => {
+      // Формируем абсолютный URL
+      const absoluteUrl = item.url.startsWith('http') 
+        ? item.url 
+        : `${SITE_URL}${item.url.startsWith('/') ? item.url : '/' + item.url}`;
+      
+      return {
+        '@type': 'ListItem',
+        position: index + 1, // Число, начиная с 1
+        name: item.name, // Текст без эмодзи (эмодзи будут удалены Яндексом)
+        item: absoluteUrl // Абсолютный URL (HTTPS)
+      };
+    })
   };
 }
 

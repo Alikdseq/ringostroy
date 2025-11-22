@@ -5,6 +5,7 @@ import type { Service } from '../types';
 import SEO from '../components/SEO';
 import { splitTextToParagraphs } from '../utils/text';
 import servicesSeoData from '../data/services-seo.json';
+import { generateBreadcrumbSchema } from '../utils/seo';
 
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -29,6 +30,21 @@ export default function ServiceDetail() {
     ? splitTextToParagraphs(service.full_description, { preserveSingleBreaks: true })
     : [];
 
+  // Формируем breadcrumbs для микроразметки
+  const breadcrumbItems = [
+    { name: 'Главная', url: '/' },
+    { name: 'Услуги', url: '/services' }
+  ];
+  
+  if (service) {
+    breadcrumbItems.push({
+      name: service.name,
+      url: `/services/${service.slug}`
+    });
+  }
+
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
+
   return (
     <>
       <SEO 
@@ -49,6 +65,7 @@ export default function ServiceDetail() {
             ? servicesSeoData[service.slug as keyof typeof servicesSeoData].keywords
             : undefined
         }
+        structuredData={breadcrumbSchema}
       />
       <section style={{ padding: '60px 0' }}>
         <div className="container">

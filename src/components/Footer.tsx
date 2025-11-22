@@ -151,7 +151,7 @@ export default function Footer() {
               gap: isMobile ? '10px' : '12px'
             }}>
               <li>
-                <Link to="/services/backfill" style={{ 
+                <Link to="/services/obratnaya-zasypka-fundamentov" style={{ 
                   color: 'var(--txt)',
                   fontSize: isMobile ? 'clamp(13px, 3vw, 15px)' : '15px'
                 }}>
@@ -159,7 +159,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/services/landscaping" style={{ 
+                <Link to="/services/blagoustrojstvo-dvorov" style={{ 
                   color: 'var(--txt)',
                   fontSize: isMobile ? 'clamp(13px, 3vw, 15px)' : '15px'
                 }}>
@@ -167,7 +167,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/services/delivery" style={{ 
+                <Link to="/services/dostavka-chernozema-ballasta-shchebenki-peska" style={{ 
                   color: 'var(--txt)',
                   fontSize: isMobile ? 'clamp(13px, 3vw, 15px)' : '15px'
                 }}>
@@ -175,7 +175,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/services/waste-removal" style={{ 
+                <Link to="/services/vyvoz-stroitelnogo-i-lyubogo-musora" style={{ 
                   color: 'var(--txt)',
                   fontSize: isMobile ? 'clamp(13px, 3vw, 15px)' : '15px'
                 }}>

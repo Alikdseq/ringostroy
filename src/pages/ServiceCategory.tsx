@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { servicesApi } from '../services/api';
 import type { Service } from '../types';
 import SEO from '../components/SEO';
+import { generateBreadcrumbSchema } from '../utils/seo';
 
 export default function ServiceCategory() {
   const { category } = useParams<{ category: string }>();
@@ -25,6 +26,20 @@ export default function ServiceCategory() {
       .finally(() => setLoading(false))
   }, [category]);
 
+  const breadcrumbItems = [
+    { name: 'Главная', url: '/' },
+    { name: 'Услуги', url: '/services' }
+  ];
+  
+  if (categoryName) {
+    breadcrumbItems.push({
+      name: `Категория: ${categoryName}`,
+      url: `/services/category/${category}`
+    });
+  }
+
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
+
   return (
     <>
       <SEO 
@@ -43,6 +58,7 @@ export default function ServiceCategory() {
             ? `услуги ${categoryName.toLowerCase()}, ${categoryName.toLowerCase()} Владикавказ, аренда спецтехники ${categoryName.toLowerCase()}`
             : 'услуги аренды спецтехники, каталог услуг Владикавказ'
         }
+        structuredData={breadcrumbSchema}
       />
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-bold mb-7 text-center">{categoryName ? `Услуги: ${categoryName}` : 'Услуги по категории'}</h1>
