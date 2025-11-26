@@ -4,7 +4,7 @@ import SEO from '../components/SEO'
 import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '../utils/seo'
 
 const cities = [
-  'Алагир', 'Ардон', 'Беслан', 'Владикавказ', 'Дигора', 'Заводской', 'Моздок'
+  'Алагир', 'Ардон', 'Беслан', 'Владикавказ', 'Дигора', 'Заводской', 'Магас', 'Моздок', 'Назрань'
 ]
 
 export default function Contacts() {

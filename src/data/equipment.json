@@ -70,21 +70,21 @@
       "images": [
         {
           "id": 101,
-          "image": "/images/real-photo/real (25).png",
+          "image": "/images/images-technica/k40.jpg",
           "alt_text": "Мини-экскаватор SANY SY35U",
           "is_primary": true,
           "sort_order": 1
         },
         {
           "id": 102,
-          "image": "/images/real-photo/real (19).png",
+          "image": "/images/images-technica/k36.jpg",
           "alt_text": "Мини-экскаватор SANY SY35U - вид сбоку",
           "is_primary": false,
           "sort_order": 2
         },
         {
           "id": 103,
-          "image": "/images/real-photo/real (17).png",
+          "image": "/images/images-technica/k38.jpg",
           "alt_text": "Мини-экскаватор SANY SY35U - кабина",
           "is_primary": false,
           "sort_order": 3
@@ -144,14 +144,14 @@
       "images": [
         {
           "id": 201,
-          "image": "/images/real-photo/r1.png",
+          "image": "/images/images-technica/k25.jpg",
           "alt_text": "Экскаватор-погрузчик MST 644S",
           "is_primary": true,
           "sort_order": 1
         },
         {
           "id": 202,
-          "image": "/images/real-photo/r2.png",
+          "image": "/images/images-technica/k24.jpg",
           "alt_text": "Экскаватор-погрузчик MST 644S - вид сбоку",
           "is_primary": false,
           "sort_order": 2
@@ -352,21 +352,21 @@
       "images": [
         {
           "id": 401,
-          "image": "/images/real-photo/r7.png",
+          "image": "/images/images-technica/k23.jpg",
           "alt_text": "Мини-погрузчик ZOOMLION ZS085V",
           "is_primary": true,
           "sort_order": 1
         },
         {
           "id": 402,
-          "image": "/images/real-photo/r8.png",
+          "image": "/images/images-technica/k21.jpg",
           "alt_text": "Мини-погрузчик ZOOMLION ZS085V - вид сбоку",
           "is_primary": false,
           "sort_order": 2
         },
         {
           "id": 403,
-          "image": "/images/real-photo/r9.png",
+          "image": "/images/images-technica/k22.jpg",
           "alt_text": "Мини-погрузчик ZOOMLION ZS085V - ковш",
           "is_primary": false,
           "sort_order": 3
@@ -390,7 +390,7 @@
       "price_per_shift": 1000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/images-technica/t15.png",
+      "primary_image": "/images/images-technica/k34.png",
       "specs": [
         {
           "label": "Мощность",
@@ -438,21 +438,21 @@
       "images": [
         {
           "id": 501,
-          "image": "/images/real-photo/r14.png",
+          "image": "/images/images-technica/k35.jpg",
           "alt_text": "Мини-трактор",
           "is_primary": true,
           "sort_order": 1
         },
         {
           "id": 502,
-          "image": "/images/real-photo/r13.png",
+          "image": "/images/images-technica/k33.jpg",
           "alt_text": "Мини-трактор с навеской",
           "is_primary": false,
           "sort_order": 2
         },
         {
           "id": 503,
-          "image": "/images/real-photo/real (15).png",
+          "image": "/images/images-technica/k34.jpg",
           "alt_text": "Мини-трактор профиль",
           "is_primary": false,
           "sort_order": 3
@@ -476,7 +476,7 @@
       "price_per_shift": 6000,
       "status": "На выезде",
       "is_featured": false,
-      "primary_image": "/images/images-technica/t6.png",
+      "primary_image": "/images/images-technica/k29.png",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -516,21 +516,21 @@
       "images": [
         {
           "id": 601,
-          "image": "/images/real-photo/r10.png",
+          "image": "/images/images-technica/k3.jpg",
           "alt_text": "Самосвал SHACMAN L3000",
           "is_primary": true,
           "sort_order": 1
         },
         {
           "id": 602,
-          "image": "/images/real-photo/r11.png",
+          "image": "/images/images-technica/k2.jpg",
           "alt_text": "Самосвал SHACMAN L3000 - вид сбоку",
           "is_primary": false,
           "sort_order": 2
         },
         {
           "id": 603,
-          "image": "/images/real-photo/r12.png",
+          "image": "/images/images-technica/k1.jpg",
           "alt_text": "Самосвал SHACMAN L3000 - кузов",
           "is_primary": false,
           "sort_order": 3
@@ -554,7 +554,7 @@
       "price_per_shift": 10000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/images-technica/t7.png",
+      "primary_image": "/images/images-technica/k27.png",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -590,21 +590,21 @@
       "images": [
         {
           "id": 701,
-          "image": "/images/real-photo/r15.png",
+          "image": "/images/images-technica/k7.jpg",
           "alt_text": "Самосвал SHACMAN X3000",
           "is_primary": true,
           "sort_order": 1
         },
         {
           "id": 702,
-          "image": "/images/real-photo/r16.png",
+          "image": "/images/images-technica/k8.jpg",
           "alt_text": "Самосвал SHACMAN X3000 - вид сбоку",
           "is_primary": false,
           "sort_order": 2
         },
         {
           "id": 703,
-          "image": "/images/real-photo/r17.png",
+          "image": "/images/images-technica/k9.jpg",
           "alt_text": "Самосвал SHACMAN X3000 - кабина",
           "is_primary": false,
           "sort_order": 3
@@ -628,7 +628,7 @@
       "price_per_shift": 6000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/images-technica/t9.png",
+      "primary_image": "/images/images-technica/k41.png",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -688,21 +688,21 @@
       "images": [
         {
           "id": 801,
-          "image": "/images/real-photo/r18.png",
+          "image": "/images/images-technica/k41.jpg",
           "alt_text": "КМУ JAC N120 5 тонн",
           "is_primary": true,
           "sort_order": 1
         },
         {
           "id": 802,
-          "image": "/images/real-photo/r19.png",
+          "image": "/images/images-technica/k13.jpg",
           "alt_text": "КМУ JAC N120 5 тонн - стрела",
           "is_primary": false,
           "sort_order": 2
         },
         {
           "id": 803,
-          "image": "/images/real-photo/r20.png",
+          "image": "/images/images-technica/k16.jpg",
           "alt_text": "КМУ JAC N120 5 тонн - кабина",
           "is_primary": false,
           "sort_order": 3
@@ -804,7 +804,7 @@
       "price_per_shift": 3000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/images-technica/t10.png",
+      "primary_image": "/images/images-technica/k28.png",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -860,21 +860,21 @@
       "images": [
         {
           "id": 1001,
-          "image": "/images/real-photo/r24.png",
+          "image": "/images/images-technica/k28.jpg",
           "alt_text": "Эвакуатор ISUZU 4 тонны",
           "is_primary": true,
           "sort_order": 1
         },
         {
           "id": 1002,
-          "image": "/images/real-photo/r25.png",
+          "image": "/images/images-technica/k5.jpg",
           "alt_text": "Эвакуатор ISUZU 4 тонны - платформа",
           "is_primary": false,
           "sort_order": 2
         },
         {
           "id": 1003,
-          "image": "/images/real-photo/r26.png",
+          "image": "/images/images-technica/k4.jpg",
           "alt_text": "Эвакуатор ISUZU 4 тонны - лебедка",
           "is_primary": false,
           "sort_order": 3
@@ -1076,21 +1076,21 @@
       "images": [
         {
           "id": 1201,
-          "image": "/images/real-photo/r27.png",
+          "image": "/images/images-technica/k12.jpg",
           "alt_text": "Мини-погрузчик Sunward гусеничный",
           "is_primary": true,
           "sort_order": 1
         },
         {
           "id": 1202,
-          "image": "/images/real-photo/r28.png",
+          "image": "/images/images-technica/k10.jpg",
           "alt_text": "Мини-погрузчик Sunward гусеничный - вид сбоку",
           "is_primary": false,
           "sort_order": 2
         },
         {
           "id": 1203,
-          "image": "/images/real-photo/r29.png",
+          "image": "/images/images-technica/k11.jpg",
           "alt_text": "Мини-погрузчик Sunward гусеничный - ковш",
           "is_primary": false,
           "sort_order": 3

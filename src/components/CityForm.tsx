@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const cities = [
-  'Алагир', 'Ардон', 'Беслан', 'Владикавказ', 'Дигора', 'Заводской', 'Моздок'
+  'Алагир', 'Ардон', 'Беслан', 'Владикавказ', 'Дигора', 'Заводской', 'Магас', 'Моздок', 'Назрань'
 ]
 
 export default function CityForm() {
