@@ -27,23 +27,6 @@ export default function Header() {
     setIsMenuOpen(false)
   }
 
-  // Обработка якорных ссылок
-  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('/#')) {
-      e.preventDefault()
-      const hash = href.substring(2)
-      if (window.location.pathname === '/') {
-        const element = document.getElementById(hash)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      } else {
-        window.location.href = href
-      }
-      setIsMenuOpen(false)
-    }
-  }
-
   // Блокировка скролла больше не нужна, так как меню раскрывается внутри хедера
 
   return (
@@ -127,9 +110,8 @@ export default function Header() {
             gap: 'clamp(1.25rem, 0.958rem + 1.46vw, 2.5rem)',
             alignItems: 'center'
           }}>
-            <a
-              href="/#equipment"
-              onClick={(e) => handleAnchorClick(e, '/#equipment')}
+            <Link
+              to="/equipment"
               style={{ 
                 color: 'var(--white)',
                 fontFamily: 'var(--second-family)',
@@ -138,8 +120,7 @@ export default function Header() {
                 lineHeight: '120%',
                 textDecoration: 'none',
                 transition: 'color 0.3s ease',
-                position: 'relative',
-                cursor: 'pointer'
+                position: 'relative'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = 'var(--primary)'
@@ -149,7 +130,7 @@ export default function Header() {
               }}
             >
               Наша техника
-            </a>
+            </Link>
             <Link 
               to="/services" 
               style={{ 
@@ -387,12 +368,9 @@ export default function Header() {
               gap: '10px',
               width: '100%'
             }}>
-              <a
-                href="/#equipment"
-                onClick={(e) => {
-                  handleAnchorClick(e, '/#equipment')
-                  handleLinkClick()
-                }}
+              <Link
+                to="/equipment"
+                onClick={handleLinkClick}
                 style={{
                   color: 'var(--white)',
                   fontFamily: 'var(--second-family)',
@@ -435,7 +413,7 @@ export default function Header() {
                   </svg>
                 </div>
                 <span>Наша техника</span>
-              </a>
+              </Link>
               
               <Link 
                 to="/services" 

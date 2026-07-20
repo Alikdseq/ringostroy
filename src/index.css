@@ -127,6 +127,21 @@
   color: var(--cart-black);
 }
 
+.btn--outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn--outline:hover {
+  background: var(--primary);
+  color: var(--cart-black);
+}
+
+.about-gallery-swipe::-webkit-scrollbar {
+  display: none;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }

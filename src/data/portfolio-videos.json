@@ -1,0 +1,25 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "title": "Работа спецтехники на объекте",
+      "src": "/videos/portfolio-1.mp4",
+      "poster": "/images/images-technica/нов1.jpeg",
+      "type": "local"
+    },
+    {
+      "id": 2,
+      "title": "Земляные работы",
+      "src": "/videos/portfolio-2.mp4",
+      "poster": "/images/images-technica/нов2.jpeg",
+      "type": "local"
+    },
+    {
+      "id": 3,
+      "title": "Благоустройство территории",
+      "src": "/videos/portfolio-3.mp4",
+      "poster": "/images/images-technica/нов4.jpeg",
+      "type": "local"
+    }
+  ]
+}

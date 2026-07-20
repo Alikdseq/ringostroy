@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import ContactQuickForm from '../components/ContactQuickForm'
-import CityForm from '../components/CityForm'
 import ServicesCarousel from '../components/ServicesCarousel'
 import EquipmentGridShowcase from '../components/EquipmentGridShowcase'
 import SEO from '../components/SEO'
@@ -228,69 +228,6 @@ export default function Home() {
               marginLeft: isMobile ? '0' : undefined,
               maxWidth: isMobile ? '100%' : undefined
             }}>
-              {/* Номер телефона и адрес для мобильной версии */}
-              {isMobile && (
-                <div style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '100%',
-                  marginBottom: '25px',
-                  textAlign: 'center'
-                }}>
-                  <a 
-                    href="tel:+79888307777"
-                    style={{
-                      fontSize: 'clamp(22px, 6vw, 28px)',
-                      fontWeight: 700,
-                      color: 'var(--primary)',
-                      textDecoration: 'none',
-                      marginBottom: '12px',
-                      padding: '12px 24px',
-                      borderRadius: '12px',
-                      background: 'rgba(132, 204, 22, 0.1)',
-                      border: '2px solid var(--primary)',
-                      transition: 'all 0.3s ease',
-                      display: 'inline-block',
-                      textAlign: 'center'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = 'rgba(132, 204, 22, 0.2)'
-                      e.currentTarget.style.transform = 'scale(1.05)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'rgba(132, 204, 22, 0.1)'
-                      e.currentTarget.style.transform = 'scale(1)'
-                    }}
-                  >
-                    +7 988 830-77-77
-                  </a>
-                  <div style={{
-                    fontSize: 'clamp(13px, 3.5vw, 15px)',
-                    color: 'var(--white)',
-                    opacity: 0.9,
-                    textAlign: 'center',
-                    lineHeight: '1.5'
-                  }}>
-                    г. Владикавказ, ул. Билара Кабалоева, 12В
-                  </div>
-                </div>
-              )}
-              
-              <div className="mb-8" style={{ marginBottom: isMobile ? '20px' : undefined }}>
-                <span className="text-white text-base font-semibold" style={{ 
-                  fontSize: isMobile ? '14px' : undefined,
-                  display: isMobile ? 'block' : undefined,
-                  marginBottom: isMobile ? '5px' : undefined
-                }}>Регион для аренды – Северная Осетия</span>
-                <span className="text-lime-400 text-base font-semibold ml-3" style={{ 
-                  fontSize: isMobile ? '14px' : undefined,
-                  marginLeft: isMobile ? '0' : undefined,
-                  display: isMobile ? 'block' : undefined
-                }}>Все города</span>
-              </div>
-              
               <h1 className="mainbanner__title font-bold text-5xl md:text-7xl lg:text-7xl mb-6 leading-tight" style={{
                 fontSize: isMobile ? 'clamp(28px, 8vw, 36px)' : undefined,
                 marginBottom: isMobile ? '20px' : undefined
@@ -323,15 +260,25 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              {/* ВРЕМЕННО ОТКЛЮЧЕНО: Кнопка аренды техники
+
+              {/* Кнопки под hero-текстом */}
               <div className="button__wrapper flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                <Link to="/equipment" className="btn mainbanner__btn max-w-full sm:max-w-[320px] w-full">Арендовать технику</Link>
-                <div className="separator hidden sm:block h-10 w-px bg-white"></div>
-                <div className="mainbanner__promo max-w-full sm:max-w-[364px] w-full text-sm">
-                  При заявке с сайта скидка 10% на аренду спецтехники
-                </div>
+                <Link
+                  to="/services"
+                  className="btn max-w-full sm:max-w-[320px] w-full"
+                  style={{ height: '64px', padding: '18px 40px' }}
+                >
+                  Наши услуги
+                </Link>
+                <div className="separator hidden sm:block h-10 w-px bg-white" />
+                <Link
+                  to="/equipment"
+                  className="btn btn--outline max-w-full sm:max-w-[320px] w-full"
+                  style={{ height: '64px', padding: '18px 40px' }}
+                >
+                  Наша спецтехника
+                </Link>
               </div>
-              */}
             </div>
           </div>
           
@@ -357,7 +304,18 @@ export default function Home() {
           paddingLeft: isMobile ? '15px' : '0',
           paddingRight: isMobile ? '15px' : '0'
         }}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" style={{
+          <h2
+            style={{
+              color: 'var(--white)',
+              fontSize: 'clamp(26px, 4vw, 42px)',
+              fontWeight: 700,
+              textAlign: 'center',
+              marginBottom: isMobile ? '22px' : '32px'
+            }}
+          >
+            Почему клиенты выбирают нас?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" style={{
           gap: isMobile ? '15px' : '20px'
         }}>
             {/* Guarantee */}
@@ -505,18 +463,57 @@ export default function Home() {
                 Наши условия работы, наш подход, наша гарантия дешёвыми быть не могут.
               </p>
             </div>
+
+            {/* Северная Осетия */}
+            <div style={{
+              border: '1px solid var(--stroke)',
+              borderRadius: isMobile ? '16px' : '20px',
+              padding: isMobile ? '20px' : '25px',
+              background: 'var(--cart-black)'
+            }}>
+              <div style={{
+                background: 'var(--primary)',
+                borderRadius: '50%',
+                width: isMobile ? '60px' : '70px',
+                height: isMobile ? '60px' : '70px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: isMobile ? '15px' : '20px'
+              }}>
+                <svg width={isMobile ? "32" : "40"} height={isMobile ? "32" : "40"} fill="var(--background-black)" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18s7-4.5 7-10A7 7 0 1 0 3 8c0 5.5 7 10 7 10Zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <h4 style={{
+                marginBottom: isMobile ? '8px' : '10px',
+                color: 'var(--white)',
+                fontSize: isMobile ? 'clamp(16px, 3vw, 18px)' : '18px',
+                fontWeight: 600
+              }}>
+                Работаем по всей Северной Осетии
+              </h4>
+              <p style={{
+                color: 'var(--txt)',
+                fontSize: isMobile ? 'clamp(13px, 2.5vw, 14px)' : '14px',
+                lineHeight: '1.5'
+              }}>
+                Подача техники и выполнение работ организуем в любом районе региона.
+              </p>
+            </div>
         </div>
         </div>
       </section>
 
-      {/* Форма быстрой обратной связи - БЕЗ декора */}
-      <ContactQuickForm />
-
       {/* Brands Block - БЕЗ декора */}
       <BrandsBlock />
 
-      {/* Форма с городами перед Footer */}
-      <CityForm />
+      {/* Форма быстрой обратной связи - в конце главной */}
+      <ContactQuickForm />
     </>
   )
 }

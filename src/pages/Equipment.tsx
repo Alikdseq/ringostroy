@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { equipmentApi, categoryApi } from '../services/api'
 import type { Equipment, Category } from '../types'
 import SEO from '../components/SEO'
@@ -11,6 +12,14 @@ export default function Equipment() {
   const [loading, setLoading] = useState(true)
   const [_catLoading, setCatLoading] = useState(true)
   const [error, setError] = useState('')
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     setCatLoading(true)
@@ -39,23 +48,71 @@ export default function Equipment() {
         description="Каталог спецтехники для аренды во Владикавказе. Экскаваторы, погрузчики, самосвалы, манипуляторы, эвакуаторы. Более 12 единиц техники в наличии. Реальные фото, актуальные цены, быстрая подача. Работаем по всей Северной Осетии." 
         keywords="каталог спецтехники, аренда техники Владикавказ, экскаваторы погрузчики самосвалы, аренда спецтехники каталог, техника в наличии, ринго, рингострой, RingooStroy, ringostroy, ringoostroy, ринго строй"
       />
-      <section style={{ background: 'var(--background-black)', padding: '60px 0' }}>
-        <div className="container">
-          <h1 style={{ textAlign: 'center', marginBottom: '60px', color: 'var(--white)', fontFamily: 'var(--second-family)', fontWeight: 600, fontSize: '48px' }}>Каталог спецтехники</h1>
+      <section style={{
+        background: 'var(--background-black)',
+        padding: isMobile ? '30px 0 40px' : '60px 0'
+      }}>
+        <div
+          className="container"
+          style={{
+            paddingLeft: isMobile ? '15px' : undefined,
+            paddingRight: isMobile ? '15px' : undefined
+          }}
+        >
+          <h1 style={{
+            textAlign: 'center',
+            marginBottom: isMobile ? '28px' : '48px',
+            color: 'var(--white)',
+            fontFamily: 'var(--second-family)',
+            fontWeight: 700,
+            fontSize: isMobile ? 'clamp(26px, 7vw, 34px)' : 'clamp(36px, 4vw, 48px)',
+            lineHeight: 1.2
+          }}>
+            Каталог спецтехники
+          </h1>
           
           {/* Tabs категорий */}
-          <div className="flex flex-wrap items-center gap-4 mb-10 justify-center">
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: isMobile ? '8px' : '12px',
+            marginBottom: isMobile ? '24px' : '40px'
+          }}>
             <button 
-              className={`px-6 py-2 rounded-lg font-semibold transition ${activeCat === 'all' ? 'bg-lime-400 text-gray-900' : 'bg-gray-800 text-white'}`} 
+              type="button"
               onClick={() => setActiveCat('all')}
+              style={{
+                padding: isMobile ? '10px 16px' : '10px 22px',
+                borderRadius: '10px',
+                border: 'none',
+                fontWeight: 600,
+                fontSize: isMobile ? '13px' : '15px',
+                cursor: 'pointer',
+                background: activeCat === 'all' ? 'var(--primary)' : 'var(--cart-black)',
+                color: activeCat === 'all' ? 'var(--background-black)' : 'var(--white)',
+                transition: 'all 0.25s ease'
+              }}
             >
               Все
             </button>
             {categories.map(cat => (
               <button 
-                key={cat.slug} 
-                className={`px-6 py-2 rounded-lg font-semibold transition ${activeCat === cat.slug ? 'bg-lime-400 text-gray-900' : 'bg-gray-800 text-white'}`} 
+                key={cat.slug}
+                type="button"
                 onClick={() => setActiveCat(cat.slug)}
+                style={{
+                  padding: isMobile ? '10px 16px' : '10px 22px',
+                  borderRadius: '10px',
+                  border: 'none',
+                  fontWeight: 600,
+                  fontSize: isMobile ? '13px' : '15px',
+                  cursor: 'pointer',
+                  background: activeCat === cat.slug ? 'var(--primary)' : 'var(--cart-black)',
+                  color: activeCat === cat.slug ? 'var(--background-black)' : 'var(--white)',
+                  transition: 'all 0.25s ease'
+                }}
               >
                 {cat.name}
               </button>
@@ -72,93 +129,97 @@ export default function Equipment() {
           ) : (
             <div style={{ 
               display: 'grid', 
-              gridTemplateColumns: 'repeat(3, 1fr)', 
-              gap: '30px', 
-              justifyContent: 'center',
+              gridTemplateColumns: isMobile
+                ? '1fr'
+                : 'repeat(auto-fill, minmax(300px, 1fr))',
+              gap: isMobile ? '18px' : '28px',
               alignItems: 'stretch'
             }}>
               {equipment.map((item) => {
                 const previewText = truncateText(extractFirstParagraph(item.description), 140)
                 return (
-                  <div 
-                    key={item.id} 
+                  <Link
+                    key={item.id}
+                    to={`/equipment/${item.slug}`}
                     style={{
-                    border: '1px solid var(--stroke)',
-                    borderRadius: '20px',
-                    background: 'var(--cart-black)',
-                    overflow: 'hidden',
-                    transition: 'var(--transition)',
-                    display: 'flex', 
-                    flexDirection: 'column',
-                    cursor: 'pointer',
-                    width: '100%',
-                    minHeight: '600px',
-                    height: 'auto'
-                  }}
-                >
-                  {/* Изображение техники БЕЗ отдельного блока */}
-                  {item.primary_image && (
-                    <img 
-                      src={item.primary_image} 
-                      alt={item.name}
-                      style={{
+                      border: '1px solid var(--stroke)',
+                      borderRadius: isMobile ? '16px' : '20px',
+                      background: 'var(--cart-black)',
+                      overflow: 'hidden',
+                      transition: 'var(--transition)',
+                      display: 'flex', 
+                      flexDirection: 'column',
+                      textDecoration: 'none',
+                      color: 'inherit',
+                      width: '100%',
+                      minHeight: isMobile ? 'auto' : '520px',
+                      height: 'auto'
+                    }}
+                  >
+                    {item.primary_image && (
+                      <div style={{
                         width: '100%',
-                        height: '270px',
-                        objectFit: 'cover',
-                        transition: 'transform 0.3s ease',
-                        display: 'block',
+                        height: isMobile ? '200px' : '240px',
+                        overflow: 'hidden',
+                        background: 'var(--background-black)',
                         flexShrink: 0
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                      onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                    />
-                  )}
-                  
-                  <div style={{ 
-                    padding: '25px', 
-                    display: 'flex', 
-                    flexDirection: 'column', 
-                    flex: 1,
-                    gap: '14px',
-                    justifyContent: 'space-between'
-                  }}>
-                    <div>
-                      <h3 style={{ 
-                        color: 'var(--white)', 
-                        marginBottom: '16px', 
-                        fontFamily: 'var(--second-family)', 
-                        fontWeight: 600,
-                        fontSize: '22px',
-                        lineHeight: '1.2',
-                        minHeight: '60px'
                       }}>
-                        {item.name}
-                      </h3>
-                      <div style={{ 
-                        color: 'var(--txt)', 
-                        fontSize: '15px',
-                        marginBottom: '20px',
-                        lineHeight: '1.5',
-                        minHeight: '60px'
-                      }}>
-                        {previewText}
+                        <img 
+                          src={item.primary_image} 
+                          alt={item.name}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'contain',
+                            display: 'block',
+                            padding: isMobile ? '10px' : '16px',
+                            transition: 'transform 0.3s ease'
+                          }}
+                        />
                       </div>
-                    </div>
+                    )}
                     
-                    <div style={{ marginTop: 'auto' }}>
-                      <div style={{ 
-                        color: 'var(--primary)', 
-                        fontWeight: 700, 
-                        fontSize: '24px',
-                        marginBottom: '24px',
-                        textAlign: 'center'
-                      }}>
-                        от {item.price_per_hour.toLocaleString('ru-RU')} ₽/час
+                    <div style={{ 
+                      padding: isMobile ? '18px' : '24px', 
+                      display: 'flex', 
+                      flexDirection: 'column', 
+                      flex: 1,
+                      gap: isMobile ? '10px' : '14px',
+                      justifyContent: 'space-between'
+                    }}>
+                      <div>
+                        <h3 style={{ 
+                          color: 'var(--white)', 
+                          marginBottom: isMobile ? '10px' : '14px', 
+                          fontFamily: 'var(--second-family)', 
+                          fontWeight: 600,
+                          fontSize: isMobile ? 'clamp(16px, 4.5vw, 20px)' : '22px',
+                          lineHeight: 1.3,
+                          wordBreak: 'break-word'
+                        }}>
+                          {item.name}
+                        </h3>
+                        <div style={{ 
+                          color: 'var(--txt)', 
+                          fontSize: isMobile ? '14px' : '15px',
+                          lineHeight: 1.5
+                        }}>
+                          {previewText}
+                        </div>
                       </div>
                       
+                      <div style={{ marginTop: 'auto' }}>
+                        <div style={{ 
+                          color: 'var(--primary)', 
+                          fontWeight: 700, 
+                          fontSize: isMobile ? '20px' : '24px',
+                          textAlign: 'center'
+                        }}>
+                          от {item.price_per_hour.toLocaleString('ru-RU')} ₽/час
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </Link>
                 )
               })}
             </div>

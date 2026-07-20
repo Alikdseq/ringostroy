@@ -222,6 +222,40 @@ export default function Footer() {
             }}>
               ИНН: 151107470870
             </p>
+
+            <div style={{ height: isMobile ? '10px' : '12px' }} />
+
+            <h4 style={{ 
+              marginBottom: isMobile ? '8px' : '10px',
+              color: 'var(--white)',
+              fontFamily: 'var(--second-family)',
+              fontWeight: 600,
+              fontSize: isMobile ? 'clamp(16px, 3.5vw, 18px)' : '18px'
+            }}>
+              Контакты
+            </h4>
+
+            <p style={{ 
+              color: 'var(--txt)', 
+              margin: 0,
+              fontSize: isMobile ? 'clamp(12px, 2.5vw, 14px)' : '14px'
+            }}>
+              Телефон:{' '}
+              <a
+                href="tel:+79888307777"
+                style={{ color: 'var(--primary)', textDecoration: 'underline' }}
+              >
+                +7 988 830-77-77
+              </a>
+            </p>
+            <p style={{ 
+              color: 'var(--txt)', 
+              margin: 0,
+              fontSize: isMobile ? 'clamp(12px, 2.5vw, 14px)' : '14px',
+              lineHeight: 1.5
+            }}>
+              Адрес: г. Владикавказ, ул. Билара Кабалоева, 12В
+            </p>
           </div>
         </div>
 

@@ -27,6 +27,14 @@ export default function EquipmentGridShowcase() {
     return null
   }
 
+  const popularEquipment = items
+    .filter((item) => item.is_featured)
+    .slice(0, 4)
+
+  if (popularEquipment.length === 0) {
+    return null
+  }
+
   return (
     <section id="equipment" style={{ padding: isMobile ? '20px 0 20px' : '30px 0 30px', scrollMarginTop: '100px' }}>
       <div className="container" style={{ paddingLeft: '15px', paddingRight: '15px' }}>
@@ -39,20 +47,21 @@ export default function EquipmentGridShowcase() {
         }}>
           <h2 style={{
             color: 'var(--white)',
-            fontSize: isMobile ? 'clamp(26px, 8vw, 34px)' : '46px',
+            fontSize: 'clamp(26px, 4vw, 42px)',
+            fontWeight: 700,
             margin: 0
           }}>
-            Наша техника
+            Наша популярная техника
           </h2>
         </div>
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? 'repeat(2, minmax(0, 1fr))' : 'repeat(6, minmax(0, 1fr))',
+          gridTemplateColumns: isMobile ? 'repeat(2, minmax(0, 1fr))' : 'repeat(4, minmax(0, 1fr))',
           gap: isMobile ? '18px' : '30px',
           justifyItems: 'center'
         }}>
-          {items.slice(0, 12).map((item) => {
+          {popularEquipment.map((item) => {
             const isHovered = hovered === item.id
             return (
               <Link

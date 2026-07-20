@@ -104,17 +104,24 @@ export default function ServicesCarousel() {
     return null
   }
 
+  const popularServices = services
+    .filter((service) => service.is_popular)
+    .sort((a, b) => a.sort_order - b.sort_order)
+    .slice(0, 4)
+
+  const displayedServices = popularServices.length ? popularServices : services.slice(0, 4)
+
   return (
     <section style={{ padding: isMobile ? '40px 0' : '60px 0', position: 'relative' }}>
       <div className="container" style={{ paddingLeft: isMobile ? '15px' : '0', paddingRight: isMobile ? '15px' : '0' }}>
         <h2 style={{
           color: 'var(--white)',
-          fontSize: 'clamp(24px, 4vw, 42px)',
+          fontSize: 'clamp(26px, 4vw, 42px)',
           fontWeight: 700,
           marginBottom: isMobile ? '30px' : '40px',
           textAlign: 'left'
         }}>
-          Наши услуги
+          Наши популярные услуги
         </h2>
 
         {/* Сетка услуг */}
@@ -124,7 +131,7 @@ export default function ServicesCarousel() {
           gap: isMobile ? '20px' : '24px',
           marginBottom: isMobile ? '25px' : '30px'
         }}>
-          {services.map((service) => {
+          {displayedServices.map((service) => {
             const imagePath = getServiceImage(service.slug) || service.image || '/images/images-imag/mask-group-72.png';
             const isHovered = hoveredCard === service.id;
             
@@ -177,8 +184,8 @@ export default function ServicesCarousel() {
                   right: 0,
                   bottom: 0,
                   background: isHovered 
-                    ? 'linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%)'
-                    : 'linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%)',
+                    ? 'linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.6) 45%, rgba(0, 0, 0, 0.25) 100%)'
+                    : 'linear-gradient(to top, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.22) 100%)',
                   transition: 'background 0.4s ease',
                   zIndex: 1
                 }} />

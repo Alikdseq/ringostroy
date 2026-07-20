@@ -376,9 +376,28 @@ ${address ? `Адрес: ${address}` : ''}
     value: spec.value || ''
   }));
 
-  const allImages = data.images && data.images.length > 0 
+  // Замена фото только на детальной странице (каталог/главная остаются без изменений)
+  const detailImageOverrides: Record<string, string[]> = {
+    'ekskavator-pogruzchik-mst-644s': [
+      '/images/images-technica/нов10.jpeg',
+      '/images/images-technica/нов3.jpeg',
+    ],
+    'ekskavator-pogruzchik-sany-bhl95': [
+      '/images/images-technica/нов7.jpeg',
+    ],
+  };
+
+  const baseImages = data.images && data.images.length > 0
     ? data.images.map(img => img.image)
     : [data.primary_image || '/images/images-technica/t1.png'];
+
+  const overrideImages = detailImageOverrides[data.slug];
+  const allImages = overrideImages
+    ? [
+        ...overrideImages,
+        ...baseImages.slice(overrideImages.length),
+      ]
+    : baseImages;
 
   const otherEquipment = allEquipment.filter(eq => eq.id !== data.id);
   const displayDate = startDate

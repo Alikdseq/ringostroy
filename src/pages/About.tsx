@@ -3,9 +3,21 @@ import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { generateBreadcrumbSchema } from '../utils/seo'
 import CityForm from '../components/CityForm'
+import PortfolioVideos from '../components/PortfolioVideos'
 const imageLeft = '/images/images-technica/t3.png'
 const imageRight = '/images/images-technica/t2.png'
 const osnovatelImage = '/images/images-imag/osnovatel.png'
+
+const aboutGalleryImages = [
+  '/images/images-technica/нов1.jpeg',
+  '/images/images-technica/нов2.jpeg',
+  '/images/images-technica/нов3.jpeg',
+  '/images/images-technica/нов4.jpeg',
+  '/images/images-technica/нов7.jpeg',
+  '/images/images-technica/нов8.jpeg',
+  '/images/images-technica/нов9.jpeg',
+  '/images/images-technica/нов10.jpeg'
+]
 
 export default function About() {
   const [isMobile, setIsMobile] = useState(false)
@@ -104,7 +116,7 @@ export default function About() {
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
             gap: isMobile ? '10px' : '20px',
-            marginBottom: isMobile ? '40px' : '60px'
+            marginBottom: isMobile ? '20px' : '30px'
           }}>
             <div style={{
               borderRadius: isMobile ? '12px' : '20px',
@@ -142,6 +154,91 @@ export default function About() {
                 }}
               />
             </div>
+          </div>
+
+          {/* Галерея на всю ширину: сетка на ПК, свайп на мобиле */}
+          <div
+            style={{
+              width: '100vw',
+              marginLeft: 'calc(50% - 50vw)',
+              marginBottom: isMobile ? '30px' : '50px'
+            }}
+          >
+            {isMobile ? (
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '10px',
+                  overflowX: 'auto',
+                  scrollSnapType: 'x mandatory',
+                  WebkitOverflowScrolling: 'touch',
+                  paddingLeft: '0',
+                  paddingRight: '0',
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none'
+                }}
+                className="about-gallery-swipe"
+              >
+                {aboutGalleryImages.map((src, index) => (
+                  <div
+                    key={src}
+                    style={{
+                      flex: '0 0 100vw',
+                      width: '100vw',
+                      scrollSnapAlign: 'start',
+                      overflow: 'hidden',
+                      background: 'var(--cart-black)'
+                    }}
+                  >
+                    <img
+                      src={src}
+                      alt={`Фото ${index + 1}`}
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        aspectRatio: '16 / 10',
+                        objectFit: 'cover',
+                        display: 'block'
+                      }}
+                      draggable={false}
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+                  gap: '14px',
+                  paddingLeft: '0',
+                  paddingRight: '0'
+                }}
+              >
+                {aboutGalleryImages.map((src, index) => (
+                  <div
+                    key={src}
+                    style={{
+                      borderRadius: '16px',
+                      overflow: 'hidden',
+                      background: 'var(--cart-black)'
+                    }}
+                  >
+                    <img
+                      src={src}
+                      alt={`Фото ${index + 1}`}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block',
+                        aspectRatio: '4 / 3'
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Блок преимуществ (как на главной странице) */}
@@ -681,6 +778,9 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* Портфолио — видео работ на всю ширину */}
+      <PortfolioVideos isMobile={isMobile} />
 
       {/* Блок "Мы работаем во всех крупных городах" */}
       <CityForm />
