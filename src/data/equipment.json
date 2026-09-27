@@ -1,5 +1,5 @@
 {
-  "count": 12,
+  "count": 14,
   "results": [
     {
       "id": 1,
@@ -276,7 +276,7 @@
       "price_per_shift": 23000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/images-technica/t4.png",
+      "primary_image": "/images/newteknica/Зумлион.jpeg",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -352,7 +352,7 @@
       "images": [
         {
           "id": 401,
-          "image": "/images/images-technica/k23.jpg",
+          "image": "/images/newteknica/Зумлион.jpeg",
           "alt_text": "Мини-погрузчик ZOOMLION ZS085V",
           "is_primary": true,
           "sort_order": 1
@@ -390,7 +390,7 @@
       "price_per_shift": 1000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/images-technica/k34.png",
+      "primary_image": "/images/newteknica/минитрактор.jpeg",
       "specs": [
         {
           "label": "Мощность",
@@ -438,8 +438,8 @@
       "images": [
         {
           "id": 501,
-          "image": "/images/images-technica/k35.jpg",
-          "alt_text": "Мини-трактор",
+          "image": "/images/newteknica/минитрактор.jpeg",
+          "alt_text": "Мини-трактор John Deere 3036E",
           "is_primary": true,
           "sort_order": 1
         },
@@ -554,7 +554,7 @@
       "price_per_shift": 10000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/images-technica/k27.png",
+      "primary_image": "/images/newteknica/SHACMAN X3000-1.jpeg",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -590,7 +590,7 @@
       "images": [
         {
           "id": 701,
-          "image": "/images/images-technica/k7.jpg",
+          "image": "/images/newteknica/SHACMAN X3000-1.jpeg",
           "alt_text": "Самосвал SHACMAN X3000",
           "is_primary": true,
           "sort_order": 1
@@ -726,7 +726,7 @@
       "price_per_shift": 8000,
       "status": "На выезде",
       "is_featured": false,
-      "primary_image": "/images/images-technica/t8.png",
+      "primary_image": "/images/newteknica/Манипулятор на базе Камаз Horyong 8т.jpeg",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -766,7 +766,7 @@
       "images": [
         {
           "id": 901,
-          "image": "/images/real-photo/r21.png",
+          "image": "/images/newteknica/Манипулятор на базе Камаз Horyong 8т.jpeg",
           "alt_text": "КМУ Horyong 8 тонн",
           "is_primary": true,
           "sort_order": 1
@@ -898,7 +898,7 @@
       "price_per_shift": 20000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/images-technica/t13.png",
+      "primary_image": "/images/newteknica/ЛОМОВОЗ FAW 3250.jpeg",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -962,22 +962,22 @@
       "images": [
         {
           "id": 1101,
-          "image": "/images/real-photo/real (18).png",
+          "image": "/images/newteknica/ЛОМОВОЗ FAW 3250.jpeg",
           "alt_text": "Ломовоз FAW 3250",
           "is_primary": true,
           "sort_order": 1
         },
         {
           "id": 1102,
-          "image": "/images/real-photo/real (11).png",
-          "alt_text": "Ломовоз FAW 3250 - кузов",
+          "image": "/images/newteknica/ЛОМОВОЗ FAW 3250-2.jpeg",
+          "alt_text": "Ломовоз FAW 3250 - вид 2",
           "is_primary": false,
           "sort_order": 2
         },
         {
           "id": 1103,
-          "image": "/images/real-photo/real (5).png",
-          "alt_text": "Ломовоз FAW 3250 - вид сбоку",
+          "image": "/images/newteknica/ЛОМОВОЗ FAW 3250-3.jpeg",
+          "alt_text": "Ломовоз FAW 3250 - вид 3",
           "is_primary": false,
           "sort_order": 3
         }
@@ -1094,6 +1094,190 @@
           "alt_text": "Мини-погрузчик Sunward гусеничный - ковш",
           "is_primary": false,
           "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Виброкаток LiuGong 6032E",
+      "slug": "vibrokatok-liugong-6032e",
+      "category": {
+        "id": 5,
+        "name": "Дорожная техника",
+        "slug": "dorozhnaya-tehnika"
+      },
+      "description": "Компактный тандемный виброкаток для уплотнения асфальта, грунта и щебня на дорожках, дворах и небольших площадках.\n\nЧто делает для вас: Укатывает основание под покрытие, уплотняет отсыпку и финишный слой там, где крупный каток не проходит.\n\nПочему он: Два вибрирующих вальца, ширина 1 200 мм и масса 3 360 кг — ровное уплотнение без лишней техники.",
+      "full_description": "Компактный тандемный виброкаток для уплотнения асфальта, грунта и щебня на дорожках, дворах и небольших площадках.\n\nЧто делает для вас: Укатывает основание под покрытие, уплотняет отсыпку и финишный слой там, где крупный каток не проходит.\n\nПочему он: Два вибрирующих вальца, ширина 1 200 мм и масса 3 360 кг — ровное уплотнение без лишней техники.",
+      "manufacturer": "LiuGong",
+      "model": "6032E",
+      "price_per_hour": 18000,
+      "price_per_shift": 18000,
+      "status": "Свободен",
+      "is_featured": false,
+      "primary_image": "/images/newteknica/Каток.jpeg",
+      "specs": [
+        {
+          "label": "Эксплуатационная масса",
+          "value": "3 360 кг"
+        },
+        {
+          "label": "Ширина вальца",
+          "value": "1 200 мм"
+        },
+        {
+          "label": "Двигатель",
+          "value": "Perkins 403D-15T, 27,3 кВт"
+        }
+      ],
+      "full_specs": [
+        {
+          "label": "Тип",
+          "value": "Тандемный виброкаток, 2 вальца"
+        },
+        {
+          "label": "Эксплуатационная масса",
+          "value": "3 360 кг"
+        },
+        {
+          "label": "Нагрузка на передний валец",
+          "value": "1 620 кг"
+        },
+        {
+          "label": "Нагрузка на задний валец",
+          "value": "1 740 кг"
+        },
+        {
+          "label": "Ширина вальца",
+          "value": "1 200 мм"
+        },
+        {
+          "label": "Диаметр вальца",
+          "value": "750 мм"
+        },
+        {
+          "label": "Частота вибрации",
+          "value": "60 Гц"
+        },
+        {
+          "label": "Номинальная амплитуда",
+          "value": "0,45 мм"
+        },
+        {
+          "label": "Центробежная сила",
+          "value": "33,5 кН"
+        },
+        {
+          "label": "Двигатель",
+          "value": "Perkins 403D-15T"
+        },
+        {
+          "label": "Мощность",
+          "value": "27,3 кВт (37 л.с.) при 2 600 об/мин"
+        },
+        {
+          "label": "Скорость",
+          "value": "до 10 км/ч"
+        },
+        {
+          "label": "Габариты (Д × Ш × В)",
+          "value": "2 610 × 1 310 × 2 645 мм"
+        }
+      ],
+      "images": [
+        {
+          "id": 1301,
+          "image": "/images/newteknica/Каток.jpeg",
+          "alt_text": "Виброкаток LiuGong 6032E",
+          "is_primary": true,
+          "sort_order": 1
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Мини-грузовик Sollers Argo",
+      "slug": "mini-gruzovik-sollers-argo",
+      "category": {
+        "id": 3,
+        "name": "Грузовой транспорт",
+        "slug": "gruzovoj-transport"
+      },
+      "description": "Малотоннажный грузовик для городских перевозок и доставки по узким дворам.\n\nЧто делает для вас: Везёт инструмент, материалы и небольшие партии груза туда, куда не заедет большой самосвал.\n\nПочему он: Бескапотная кабина, низкая погрузочная высота и категория B — быстро по городу и по объекту.",
+      "full_description": "Малотоннажный грузовик для городских перевозок и доставки по узким дворам.\n\nЧто делает для вас: Везёт инструмент, материалы и небольшие партии груза туда, куда не заедет большой самосвал.\n\nПочему он: Бескапотная кабина, низкая погрузочная высота и категория B — быстро по городу и по объекту.",
+      "manufacturer": "Sollers",
+      "model": "Argo",
+      "price_per_hour": 6000,
+      "price_per_shift": 6000,
+      "status": "Свободен",
+      "is_featured": false,
+      "primary_image": "/images/newteknica/Мини-грузовик.jpeg",
+      "specs": [
+        {
+          "label": "Грузоподъёмность",
+          "value": "до 1 345 кг"
+        },
+        {
+          "label": "Двигатель",
+          "value": "дизель 2.0, 130 л.с."
+        },
+        {
+          "label": "Длина",
+          "value": "5 300 мм"
+        }
+      ],
+      "full_specs": [
+        {
+          "label": "Тип",
+          "value": "Малотоннажный грузовик, бескапотная компоновка"
+        },
+        {
+          "label": "Двигатель",
+          "value": "Дизель 2.0, Common Rail, Евро-5"
+        },
+        {
+          "label": "Мощность",
+          "value": "130 л.с. при 3 600 об/мин"
+        },
+        {
+          "label": "Крутящий момент",
+          "value": "285 Н·м при 2 200–2 600 об/мин"
+        },
+        {
+          "label": "Коробка передач",
+          "value": "Механическая, 6 ступеней"
+        },
+        {
+          "label": "Привод",
+          "value": "Задний"
+        },
+        {
+          "label": "Грузоподъёмность",
+          "value": "до 1 345 кг (тентованный кузов)"
+        },
+        {
+          "label": "Полная масса",
+          "value": "до 3 500 кг"
+        },
+        {
+          "label": "Длина",
+          "value": "5 300 мм"
+        },
+        {
+          "label": "Высота",
+          "value": "2 650 мм"
+        },
+        {
+          "label": "Погрузочная высота",
+          "value": "785 мм"
+        }
+      ],
+      "images": [
+        {
+          "id": 1401,
+          "image": "/images/newteknica/Мини-грузовик.jpeg",
+          "alt_text": "Мини-грузовик Sollers Argo",
+          "is_primary": true,
+          "sort_order": 1
         }
       ]
     }

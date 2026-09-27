@@ -5,6 +5,10 @@ import type { Equipment, Category } from '../types'
 import SEO from '../components/SEO'
 import { extractFirstParagraph, truncateText } from '../utils/text'
 
+const instrumentImages = Array.from({ length: 18 }, (_, index) =>
+  `/images/newteknica/инструмент-${index + 1}.jpeg`
+)
+
 export default function Equipment() {
   const [equipment, setEquipment] = useState<Equipment[]>([])
   const [categories, setCategories] = useState<Category[]>([])
@@ -32,6 +36,12 @@ export default function Equipment() {
   }, [])
   
   useEffect(() => {
+    if (activeCat === 'instrumenty') {
+      setEquipment([])
+      setLoading(false)
+      setError('')
+      return
+    }
     setLoading(true)
     setError('')
     const query = activeCat === 'all' ? equipmentApi.getAll() : equipmentApi.byCategory(activeCat)
@@ -120,7 +130,39 @@ export default function Equipment() {
           </div>
 
           {/* Content */}
-          {loading ? (
+          {activeCat === 'instrumenty' ? (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile
+                ? 'repeat(2, minmax(0, 1fr))'
+                : 'repeat(auto-fill, minmax(240px, 1fr))',
+              gap: isMobile ? '12px' : '20px'
+            }}>
+              {instrumentImages.map((src, index) => (
+                <div
+                  key={src}
+                  style={{
+                    border: '1px solid var(--stroke)',
+                    borderRadius: isMobile ? '14px' : '18px',
+                    overflow: 'hidden',
+                    background: 'var(--cart-black)',
+                    aspectRatio: '1 / 1'
+                  }}
+                >
+                  <img
+                    src={src}
+                    alt={`Инструмент ${index + 1}`}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          ) : loading ? (
             <div style={{ textAlign: 'center', color: 'var(--txt)', marginTop: '40px' }}>Загрузка...</div>
           ) : error ? (
             <div style={{ textAlign: 'center', color: '#e74c3c', marginTop: '40px' }}>{error}</div>

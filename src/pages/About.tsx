@@ -4,6 +4,8 @@ import SEO from '../components/SEO'
 import { generateBreadcrumbSchema } from '../utils/seo'
 import CityForm from '../components/CityForm'
 import PortfolioVideos from '../components/PortfolioVideos'
+import AboutReviews from '../components/AboutReviews'
+import AboutOperators from '../components/AboutOperators'
 const imageLeft = '/images/images-technica/t3.png'
 const imageRight = '/images/images-technica/t2.png'
 const osnovatelImage = '/images/images-imag/osnovatel.png'
@@ -784,6 +786,9 @@ export default function About() {
 
       {/* Блок "Мы работаем во всех крупных городах" */}
       <CityForm />
+
+      <AboutReviews isMobile={isMobile} />
+      <AboutOperators isMobile={isMobile} />
     </>
   )
 }
