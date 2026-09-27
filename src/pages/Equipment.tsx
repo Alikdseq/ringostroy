@@ -179,6 +179,14 @@ export default function Equipment() {
             }}>
               {equipment.map((item) => {
                 const previewText = truncateText(extractFirstParagraph(item.description), 140)
+                const largerCardImage = [
+                  'vibrokatok-liugong-6032e',
+                  'mini-traktor',
+                  'lomovoz-faw-3250',
+                  'mini-gruzovik-sollers-argo',
+                  'kmu-horyong-8-tonn',
+                  'shacman-x3000'
+                ].includes(item.slug)
                 return (
                   <Link
                     key={item.id}
@@ -201,7 +209,9 @@ export default function Equipment() {
                     {item.primary_image && (
                       <div style={{
                         width: '100%',
-                        height: isMobile ? '200px' : '240px',
+                        height: largerCardImage
+                          ? (isMobile ? '280px' : '340px')
+                          : (isMobile ? '200px' : '240px'),
                         overflow: 'hidden',
                         background: 'var(--background-black)',
                         flexShrink: 0
@@ -214,7 +224,7 @@ export default function Equipment() {
                             height: '100%',
                             objectFit: 'contain',
                             display: 'block',
-                            padding: isMobile ? '10px' : '16px',
+                            padding: largerCardImage ? '6px' : (isMobile ? '10px' : '16px'),
                             transition: 'transform 0.3s ease'
                           }}
                         />

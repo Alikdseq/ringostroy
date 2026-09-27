@@ -390,7 +390,7 @@
       "price_per_shift": 1000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/newteknica/минитрактор.jpeg",
+      "primary_image": "/images/newteknica/mini-traktor.png",
       "specs": [
         {
           "label": "Мощность",
@@ -438,7 +438,7 @@
       "images": [
         {
           "id": 501,
-          "image": "/images/newteknica/минитрактор.jpeg",
+          "image": "/images/newteknica/mini-traktor.png",
           "alt_text": "Мини-трактор John Deere 3036E",
           "is_primary": true,
           "sort_order": 1
@@ -726,7 +726,7 @@
       "price_per_shift": 8000,
       "status": "На выезде",
       "is_featured": false,
-      "primary_image": "/images/newteknica/Манипулятор на базе Камаз Horyong 8т.jpeg",
+      "primary_image": "/images/newteknica/kamaz-horyong.png",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -766,7 +766,7 @@
       "images": [
         {
           "id": 901,
-          "image": "/images/newteknica/Манипулятор на базе Камаз Horyong 8т.jpeg",
+          "image": "/images/newteknica/kamaz-horyong.png",
           "alt_text": "КМУ Horyong 8 тонн",
           "is_primary": true,
           "sort_order": 1
@@ -898,7 +898,7 @@
       "price_per_shift": 20000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/newteknica/ЛОМОВОЗ FAW 3250.jpeg",
+      "primary_image": "/images/newteknica/faw-3250.png",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -962,7 +962,7 @@
       "images": [
         {
           "id": 1101,
-          "image": "/images/newteknica/ЛОМОВОЗ FAW 3250.jpeg",
+          "image": "/images/newteknica/faw-3250.png",
           "alt_text": "Ломовоз FAW 3250",
           "is_primary": true,
           "sort_order": 1
