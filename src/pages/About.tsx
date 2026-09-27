@@ -784,11 +784,11 @@ export default function About() {
       {/* Портфолио — видео работ на всю ширину */}
       <PortfolioVideos isMobile={isMobile} />
 
+      <AboutOperators isMobile={isMobile} />
+      <AboutReviews isMobile={isMobile} />
+
       {/* Блок "Мы работаем во всех крупных городах" */}
       <CityForm />
-
-      <AboutReviews isMobile={isMobile} />
-      <AboutOperators isMobile={isMobile} />
     </>
   )
 }

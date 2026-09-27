@@ -276,7 +276,7 @@
       "price_per_shift": 23000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/newteknica/Зумлион.jpeg",
+      "primary_image": "/images/images-technica/t4.png",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -352,7 +352,7 @@
       "images": [
         {
           "id": 401,
-          "image": "/images/newteknica/Зумлион.jpeg",
+          "image": "/images/images-technica/k23.jpg",
           "alt_text": "Мини-погрузчик ZOOMLION ZS085V",
           "is_primary": true,
           "sort_order": 1
@@ -554,7 +554,7 @@
       "price_per_shift": 10000,
       "status": "Свободен",
       "is_featured": true,
-      "primary_image": "/images/newteknica/SHACMAN X3000-1.jpeg",
+      "primary_image": "/images/newteknica/shacman-x3000.png",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -590,7 +590,7 @@
       "images": [
         {
           "id": 701,
-          "image": "/images/newteknica/SHACMAN X3000-1.jpeg",
+          "image": "/images/newteknica/shacman-x3000.png",
           "alt_text": "Самосвал SHACMAN X3000",
           "is_primary": true,
           "sort_order": 1
@@ -1114,7 +1114,7 @@
       "price_per_shift": 18000,
       "status": "Свободен",
       "is_featured": false,
-      "primary_image": "/images/newteknica/Каток.jpeg",
+      "primary_image": "/images/newteknica/liugong-6032e.png",
       "specs": [
         {
           "label": "Эксплуатационная масса",
@@ -1186,7 +1186,7 @@
       "images": [
         {
           "id": 1301,
-          "image": "/images/newteknica/Каток.jpeg",
+          "image": "/images/newteknica/liugong-6032e.png",
           "alt_text": "Виброкаток LiuGong 6032E",
           "is_primary": true,
           "sort_order": 1
@@ -1210,7 +1210,7 @@
       "price_per_shift": 6000,
       "status": "Свободен",
       "is_featured": false,
-      "primary_image": "/images/newteknica/Мини-грузовик.jpeg",
+      "primary_image": "/images/newteknica/sollers-argo.png",
       "specs": [
         {
           "label": "Грузоподъёмность",
@@ -1274,7 +1274,7 @@
       "images": [
         {
           "id": 1401,
-          "image": "/images/newteknica/Мини-грузовик.jpeg",
+          "image": "/images/newteknica/sollers-argo.png",
           "alt_text": "Мини-грузовик Sollers Argo",
           "is_primary": true,
           "sort_order": 1
