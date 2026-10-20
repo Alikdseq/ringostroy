@@ -4,7 +4,7 @@ import ServicesCarousel from '../components/ServicesCarousel'
 import EquipmentGridShowcase from '../components/EquipmentGridShowcase'
 import SEO from '../components/SEO'
 import { generateLocalBusinessSchema, generateOrganizationSchema } from '../utils/seo'
-import BrandsBlock from '../components/BrandsBlock'
+import ToolsShowcase from '../components/ToolsShowcase'
 import useIsMobile from '../hooks/useIsMobile'
 const heroTruckImage = "/images/images-technica/mask-group-2024-10-03t171422.984.png";
 const backgroundImage = "/images/images-fon/category-bg.png";
@@ -497,8 +497,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Brands Block - БЕЗ декора */}
-      <BrandsBlock />
+      <ToolsShowcase />
 
       {/* Форма быстрой обратной связи - в конце главной */}
       <ContactQuickForm />
