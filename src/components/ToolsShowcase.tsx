@@ -12,6 +12,8 @@ const instrumentImages = [
 
 export default function ToolsShowcase() {
   const isMobile = useIsMobile()
+  const previewImages = instrumentImages.slice(0, 6)
+  const instrumentsLink = '/equipment?cat=instrumenty'
 
   return (
     <section style={{ padding: isMobile ? '30px 0 40px' : '40px 0 50px' }}>
@@ -33,7 +35,7 @@ export default function ToolsShowcase() {
             Наши инструменты
           </h2>
           <Link
-            to="/equipment"
+            to={instrumentsLink}
             className="btn btn--outline"
             style={{
               width: 'auto',
@@ -51,13 +53,13 @@ export default function ToolsShowcase() {
           display: 'grid',
           gridTemplateColumns: isMobile
             ? 'repeat(2, minmax(0, 1fr))'
-            : 'repeat(auto-fill, minmax(200px, 1fr))',
+            : 'repeat(3, minmax(0, 1fr))',
           gap: isMobile ? '12px' : '18px'
         }}>
-          {instrumentImages.map((src, index) => (
+          {previewImages.map((src, index) => (
             <Link
               key={src}
-              to="/equipment"
+              to={instrumentsLink}
               style={{
                 border: '1px solid var(--stroke)',
                 borderRadius: isMobile ? '14px' : '18px',

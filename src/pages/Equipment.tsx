@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { equipmentApi, categoryApi } from '../services/api'
 import type { Equipment, Category } from '../types'
 import SEO from '../components/SEO'
@@ -16,13 +16,20 @@ const instrumentImages = [
 ]
 
 export default function Equipment() {
+  const [searchParams] = useSearchParams()
+  const initialCat = searchParams.get('cat') === 'instrumenty' ? 'instrumenty' : 'all'
   const [equipment, setEquipment] = useState<Equipment[]>([])
   const [categories, setCategories] = useState<Category[]>([])
-  const [activeCat, setActiveCat] = useState<string>('all')
+  const [activeCat, setActiveCat] = useState<string>(initialCat)
   const [loading, setLoading] = useState(true)
   const [_catLoading, setCatLoading] = useState(true)
   const [error, setError] = useState('')
   const isMobile = useIsMobile()
+
+  useEffect(() => {
+    const cat = searchParams.get('cat')
+    if (cat === 'instrumenty') setActiveCat('instrumenty')
+  }, [searchParams])
 
   useEffect(() => {
     setCatLoading(true)
