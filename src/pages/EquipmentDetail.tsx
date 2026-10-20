@@ -140,13 +140,16 @@ function CalendarDropdown({
         position: 'absolute',
         top: 'calc(100% + 8px)',
         right: 0,
+        left: 'auto',
         background: 'var(--cart-black)',
         border: '1px solid var(--stroke)',
         borderRadius: '16px',
         padding: '16px',
         boxShadow: '0 20px 50px rgba(0,0,0,0.45)',
         zIndex: 20,
-        width: '320px'
+        width: 'min(320px, calc(100vw - 32px))',
+        maxWidth: '100%',
+        boxSizing: 'border-box'
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
@@ -437,14 +440,22 @@ ${address ? `Адрес: ${address}` : ''}
         structuredData={breadcrumbSchema}
       />
       
-      <section style={{ padding: isMobile ? '30px 0' : '60px 0', background: 'var(--background-black)' }}>
+      <section style={{
+        padding: isMobile ? '30px 0' : '60px 0',
+        background: 'var(--background-black)',
+        overflowX: 'hidden',
+        maxWidth: '100%'
+      }}>
         <div
           className="container"
           style={{
             paddingLeft: isMobile ? '15px' : '20px',
             paddingRight: isMobile ? '15px' : '20px',
             maxWidth: isMobile ? '100%' : '1240px',
-            margin: '0 auto'
+            width: '100%',
+            margin: '0 auto',
+            boxSizing: 'border-box',
+            overflowX: 'hidden'
           }}
         >
           {/* Хлебные крошки */}
@@ -471,11 +482,14 @@ ${address ? `Адрес: ${address}` : ''}
           <h1
             style={{
               color: 'var(--white)',
-              fontSize: isMobile ? 'clamp(28px, 7vw, 38px)' : 'clamp(40px, 5vw, 54px)',
+              fontSize: isMobile ? 'clamp(24px, 6.5vw, 34px)' : 'clamp(40px, 5vw, 54px)',
               fontWeight: 800,
               marginBottom: isMobile ? '25px' : '35px',
               textTransform: 'uppercase',
-              letterSpacing: '0.5px'
+              letterSpacing: '0.5px',
+              wordBreak: 'break-word',
+              overflowWrap: 'anywhere',
+              maxWidth: '100%'
             }}
           >
             {data.name}
@@ -484,12 +498,14 @@ ${address ? `Адрес: ${address}` : ''}
           {/* Основной контент: фото и форма */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '1.2fr 1fr',
+            gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'minmax(0, 1.2fr) minmax(0, 1fr)',
             gap: isMobile ? '30px' : '50px',
-            marginBottom: isMobile ? '40px' : '60px'
+            marginBottom: isMobile ? '40px' : '60px',
+            width: '100%',
+            maxWidth: '100%'
           }}>
             {/* Левая колонка: Фото */}
-            <div>
+            <div style={{ minWidth: 0, maxWidth: '100%' }}>
               {/* Главное фото */}
               <div style={{
                 borderRadius: '20px',
@@ -647,7 +663,14 @@ ${address ? `Адрес: ${address}` : ''}
                 >
                   Описание
                 </h2>
-                <div style={{ color: 'var(--txt)', fontSize: '16px', lineHeight: 1.6 }}>
+                <div style={{
+                  color: 'var(--txt)',
+                  fontSize: isMobile ? '15px' : '16px',
+                  lineHeight: 1.6,
+                  overflowWrap: 'anywhere',
+                  wordBreak: 'break-word',
+                  maxWidth: '100%'
+                }}>
                   {safeDescriptionBlocks.map((paragraph, index) => (
                     <p
                       key={`description-${index}`}
@@ -674,11 +697,13 @@ ${address ? `Адрес: ${address}` : ''}
                     background: 'var(--cart-black)',
                     border: '1px solid var(--stroke)',
                     borderRadius: '20px',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    maxWidth: '100%'
                   }}>
                     <table style={{
                       width: '100%',
-                      borderCollapse: 'collapse'
+                      borderCollapse: 'collapse',
+                      tableLayout: 'fixed'
                     }}>
                       <thead>
                         <tr style={{
@@ -686,9 +711,9 @@ ${address ? `Адрес: ${address}` : ''}
                           borderBottom: '1px solid var(--stroke)'
                         }}>
                           <th style={{
-                            padding: '16px 20px',
+                            padding: isMobile ? '12px 12px' : '16px 20px',
                             color: 'var(--white)',
-                            fontSize: '15px',
+                            fontSize: isMobile ? '13px' : '15px',
                             fontWeight: 600,
                             textAlign: 'left',
                             width: '50%'
@@ -696,9 +721,9 @@ ${address ? `Адрес: ${address}` : ''}
                             Наименование показателя
                           </th>
                           <th style={{
-                            padding: '16px 20px',
+                            padding: isMobile ? '12px 12px' : '16px 20px',
                             color: 'var(--white)',
-                            fontSize: '15px',
+                            fontSize: isMobile ? '13px' : '15px',
                             fontWeight: 600,
                             textAlign: 'right',
                             width: '50%'
@@ -716,18 +741,22 @@ ${address ? `Адрес: ${address}` : ''}
                             }}
                           >
                             <td style={{
-                              padding: '16px 20px',
+                              padding: isMobile ? '12px' : '16px 20px',
                               color: 'var(--txt)',
-                              fontSize: '15px'
+                              fontSize: isMobile ? '13px' : '15px',
+                              wordBreak: 'break-word',
+                              overflowWrap: 'anywhere'
                             }}>
                               {spec.label}
                             </td>
                             <td style={{
-                              padding: '16px 20px',
+                              padding: isMobile ? '12px' : '16px 20px',
                               color: 'var(--white)',
-                              fontSize: '15px',
+                              fontSize: isMobile ? '13px' : '15px',
                               fontWeight: 600,
-                              textAlign: 'right'
+                              textAlign: 'right',
+                              wordBreak: 'break-word',
+                              overflowWrap: 'anywhere'
                             }}>
                               {spec.value}
                             </td>
@@ -752,18 +781,20 @@ ${address ? `Адрес: ${address}` : ''}
             </div>
             
             {/* Правая колонка: Форма заказа */}
-            <div>
+            <div style={{ minWidth: 0, maxWidth: '100%' }}>
               {/* Блок "В стоимость включено" */}
               <div style={{
                 background: 'var(--cart-black)',
                 border: '1px solid var(--stroke)',
                 borderRadius: '20px',
-                padding: isMobile ? '20px' : '28px',
-                marginBottom: '24px'
+                padding: isMobile ? '16px' : '28px',
+                marginBottom: '24px',
+                maxWidth: '100%',
+                boxSizing: 'border-box'
               }}>
                 <h3 style={{
                   color: 'var(--white)',
-                  fontSize: '20px',
+                  fontSize: isMobile ? '18px' : '20px',
                   fontWeight: 700,
                   marginBottom: '20px'
                 }}>
@@ -771,30 +802,33 @@ ${address ? `Адрес: ${address}` : ''}
                 </h3>
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(3, 1fr)',
-                  gap: '12px'
+                  gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                  gap: isMobile ? '8px' : '12px',
+                  width: '100%'
                 }}>
                   {/* Работа оператора */}
                   <div style={{
                     background: 'rgba(192, 239, 85, 0.05)',
                     border: '1px solid var(--stroke)',
                     borderRadius: '12px',
-                    padding: '16px',
+                    padding: isMobile ? '10px 6px' : '16px',
                     textAlign: 'center',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    gap: '8px'
+                    gap: '8px',
+                    minWidth: 0
                   }}>
                     <div style={{
-                      width: '48px',
-                      height: '48px',
+                      width: isMobile ? '40px' : '48px',
+                      height: isMobile ? '40px' : '48px',
                       borderRadius: '12px',
                       background: 'var(--primary)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      marginBottom: '4px'
+                      marginBottom: '4px',
+                      flexShrink: 0
                     }}>
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--background-black)">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
@@ -802,9 +836,10 @@ ${address ? `Адрес: ${address}` : ''}
                     </div>
                     <span style={{
                       color: 'var(--white)',
-                      fontSize: '13px',
+                      fontSize: isMobile ? '11px' : '13px',
                       fontWeight: 500,
-                      lineHeight: '1.3'
+                      lineHeight: '1.3',
+                      wordBreak: 'break-word'
                     }}>
                       Работа оператора
                     </span>
@@ -815,22 +850,24 @@ ${address ? `Адрес: ${address}` : ''}
                     background: 'rgba(192, 239, 85, 0.05)',
                     border: '1px solid var(--stroke)',
                     borderRadius: '12px',
-                    padding: '16px',
+                    padding: isMobile ? '10px 6px' : '16px',
                     textAlign: 'center',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    gap: '8px'
+                    gap: '8px',
+                    minWidth: 0
                   }}>
                     <div style={{
-                      width: '48px',
-                      height: '48px',
+                      width: isMobile ? '40px' : '48px',
+                      height: isMobile ? '40px' : '48px',
                       borderRadius: '12px',
                       background: 'var(--primary)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      marginBottom: '4px'
+                      marginBottom: '4px',
+                      flexShrink: 0
                     }}>
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--background-black)">
                         <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
@@ -838,9 +875,10 @@ ${address ? `Адрес: ${address}` : ''}
                     </div>
                     <span style={{
                       color: 'var(--white)',
-                      fontSize: '13px',
+                      fontSize: isMobile ? '11px' : '13px',
                       fontWeight: 500,
-                      lineHeight: '1.3'
+                      lineHeight: '1.3',
+                      wordBreak: 'break-word'
                     }}>
                       Обслуживание техники
                     </span>
@@ -851,22 +889,24 @@ ${address ? `Адрес: ${address}` : ''}
                     background: 'rgba(192, 239, 85, 0.05)',
                     border: '1px solid var(--stroke)',
                     borderRadius: '12px',
-                    padding: '16px',
+                    padding: isMobile ? '10px 6px' : '16px',
                     textAlign: 'center',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    gap: '8px'
+                    gap: '8px',
+                    minWidth: 0
                   }}>
                     <div style={{
-                      width: '48px',
-                      height: '48px',
+                      width: isMobile ? '40px' : '48px',
+                      height: isMobile ? '40px' : '48px',
                       borderRadius: '12px',
                       background: 'var(--primary)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      marginBottom: '4px'
+                      marginBottom: '4px',
+                      flexShrink: 0
                     }}>
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--background-black)">
                         <path d="M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM12 10H6V5h6v5zm6 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
@@ -874,9 +914,10 @@ ${address ? `Адрес: ${address}` : ''}
                     </div>
                     <span style={{
                       color: 'var(--white)',
-                      fontSize: '13px',
+                      fontSize: isMobile ? '11px' : '13px',
                       fontWeight: 500,
-                      lineHeight: '1.3'
+                      lineHeight: '1.3',
+                      wordBreak: 'break-word'
                     }}>
                       Заправка топливом
                     </span>
@@ -889,7 +930,9 @@ ${address ? `Адрес: ${address}` : ''}
                 background: 'var(--cart-black)',
                 border: '1px solid var(--stroke)',
                 borderRadius: '20px',
-                padding: isMobile ? '20px' : '28px'
+                padding: isMobile ? '16px' : '28px',
+                maxWidth: '100%',
+                boxSizing: 'border-box'
               }}>
                 {/* Цены */}
                 <div style={{ marginBottom: '24px' }}>
@@ -906,11 +949,13 @@ ${address ? `Адрес: ${address}` : ''}
                     borderRadius: '16px',
                     border: '1px dashed rgba(192, 239, 85, 0.6)',
                     background: 'rgba(192, 239, 85, 0.12)',
-                    padding: '16px 20px',
+                    padding: isMobile ? '12px 14px' : '16px 20px',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '14px',
-                    marginBottom: '18px'
+                    gap: isMobile ? '10px' : '14px',
+                    marginBottom: '18px',
+                    maxWidth: '100%',
+                    boxSizing: 'border-box'
                   }}
                 >
                   <div
@@ -1145,11 +1190,12 @@ ${address ? `Адрес: ${address}` : ''}
                 </div>
 
                 {/* Кнопки */}
-                <div style={{ display: 'flex', gap: '12px', marginBottom: '16px' }}>
+                <div style={{ display: 'flex', gap: isMobile ? '8px' : '12px', marginBottom: '16px', maxWidth: '100%' }}>
                   <button
                     onClick={handleQuickOrder}
                     style={{
                       flex: 1,
+                      minWidth: 0,
                       padding: '16px',
                       borderRadius: '12px',
                       border: '2px solid var(--white)',
@@ -1175,12 +1221,13 @@ ${address ? `Адрес: ${address}` : ''}
                     onClick={handleWhatsAppOrder}
                     style={{
                       flex: 1,
-                      padding: '16px',
+                      minWidth: 0,
+                      padding: isMobile ? '14px 10px' : '16px',
                       borderRadius: '12px',
                       border: 'none',
                       background: 'var(--primary)',
                       color: 'var(--background-black)',
-                      fontSize: '16px',
+                      fontSize: isMobile ? '14px' : '16px',
                       fontWeight: 700,
                       cursor: 'pointer',
                       transition: 'all 0.3s ease'
