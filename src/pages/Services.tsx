@@ -4,24 +4,13 @@ import { servicesApi } from '../services/api'
 import type { Service } from '../types'
 import SEO from '../components/SEO'
 import { generateBreadcrumbSchema } from '../utils/seo'
+import useIsMobile from '../hooks/useIsMobile'
 
 export default function Services() {
   const [services, setServices] = useState<Service[]>([])
   const [loading, setLoading] = useState(true)
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Определение размера экрана для адаптивности
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+  const isMobile = useIsMobile()
 
   // Маппинг slug'ов на пути к конкретным страницам услуг
   // Соответствие: slug из базы данных -> путь к странице услуги (Page-1 до Page-19)

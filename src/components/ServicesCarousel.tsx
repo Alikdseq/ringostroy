@@ -2,24 +2,13 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { servicesApi } from '../services/api'
 import type { Service } from '../types'
+import useIsMobile from '../hooks/useIsMobile'
 
 export default function ServicesCarousel() {
   const [services, setServices] = useState<Service[]>([])
   const [loading, setLoading] = useState(true)
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Определение размера экрана
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+  const isMobile = useIsMobile()
 
   // Маппинг slug'ов на пути к конкретным страницам услуг
   // Соответствие: slug из базы данных -> путь к странице услуги (Page-1 до Page-19)

@@ -6,6 +6,7 @@ import SEO from '../components/SEO';
 import { splitTextToParagraphs } from '../utils/text';
 import equipmentSeoData from '../data/equipment-seo.json';
 import { generateBreadcrumbSchema } from '../utils/seo';
+import useIsMobile from '../hooks/useIsMobile';
 
 interface FullSpec {
   label: string;
@@ -244,7 +245,7 @@ export default function EquipmentDetail() {
   const [allEquipment, setAllEquipment] = useState<Equipment[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const dateFieldRef = useRef<HTMLDivElement>(null);
@@ -255,13 +256,6 @@ export default function EquipmentDetail() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);

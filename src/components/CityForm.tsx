@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import useIsMobile from '../hooks/useIsMobile'
 
 const cities = [
   'Алагир', 'Ардон', 'Беслан', 'Владикавказ', 'Дигора', 'Заводской', 'Магас', 'Моздок', 'Назрань'
@@ -8,19 +9,7 @@ const cities = [
 export default function CityForm() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Определение размера экрана
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+  const isMobile = useIsMobile()
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()

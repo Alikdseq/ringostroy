@@ -773,17 +773,24 @@
         },
         {
           "id": 902,
-          "image": "/images/real-photo/r22.png",
-          "alt_text": "КМУ Horyong 8 тонн - стрела",
+          "image": "/images/images-technica/погруз8т1.jpeg",
+          "alt_text": "Манипулятор на базе КамАЗ Horyong 8 тонн",
           "is_primary": false,
           "sort_order": 2
         },
         {
           "id": 903,
-          "image": "/images/real-photo/r23.png",
-          "alt_text": "КМУ Horyong 8 тонн - кабина",
+          "image": "/images/images-technica/погруз8т2.jpeg",
+          "alt_text": "Манипулятор на базе КамАЗ - вид спереди",
           "is_primary": false,
           "sort_order": 3
+        },
+        {
+          "id": 904,
+          "image": "/images/images-technica/погруз8т3.jpeg",
+          "alt_text": "Манипулятор на базе КамАЗ - со стрелой",
+          "is_primary": false,
+          "sort_order": 4
         }
       ]
     },
@@ -1190,6 +1197,27 @@
           "alt_text": "Виброкаток LiuGong 6032E",
           "is_primary": true,
           "sort_order": 1
+        },
+        {
+          "id": 1302,
+          "image": "/images/images-technica/каток1.jpeg",
+          "alt_text": "Виброкаток LiuGong 6032E - вид сбоку",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 1303,
+          "image": "/images/images-technica/каток2.jpeg",
+          "alt_text": "Виброкаток LiuGong 6032E - вид спереди",
+          "is_primary": false,
+          "sort_order": 3
+        },
+        {
+          "id": 1304,
+          "image": "/images/images-technica/каток3.jpeg",
+          "alt_text": "Виброкаток LiuGong 6032E - вид сзади",
+          "is_primary": false,
+          "sort_order": 4
         }
       ]
     },
@@ -1278,6 +1306,27 @@
           "alt_text": "Мини-грузовик Sollers Argo",
           "is_primary": true,
           "sort_order": 1
+        },
+        {
+          "id": 1402,
+          "image": "/images/images-technica/грузовик1.jpeg",
+          "alt_text": "Мини-грузовик Sollers Argo - вид спереди",
+          "is_primary": false,
+          "sort_order": 2
+        },
+        {
+          "id": 1403,
+          "image": "/images/images-technica/грузовик2.jpeg",
+          "alt_text": "Мини-грузовик Sollers Argo - вид сбоку",
+          "is_primary": false,
+          "sort_order": 3
+        },
+        {
+          "id": 1404,
+          "image": "/images/images-technica/грузовик3.jpeg",
+          "alt_text": "Мини-грузовик Sollers Argo - вид 3",
+          "is_primary": false,
+          "sort_order": 4
         }
       ]
     }

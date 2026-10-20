@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import useIsMobile from '../hooks/useIsMobile';
 
 const promos = [
   {
@@ -31,19 +32,7 @@ const promos = [
 
 export default function PromoBanner() {
   const [visible, setVisible] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Определение размера экрана
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+  const isMobile = useIsMobile();
 
   if (!visible) return null;
   return (

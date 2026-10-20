@@ -74,8 +74,7 @@ export default function SEO({
       {/* <meta name="twitter:site" content="@ringoostroy" /> */}
       {/* <meta name="twitter:creator" content="@ringoostroy" /> */}
       
-      {/* Mobile optimization */}
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+      {/* viewport остаётся только в index.html — дубль в Helmet ломает Chrome Mobile */}
       <meta name="theme-color" content="#c0ef55" />
       
       {/* Structured Data (JSON-LD) */}

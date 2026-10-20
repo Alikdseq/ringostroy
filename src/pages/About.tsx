@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { generateBreadcrumbSchema } from '../utils/seo'
@@ -6,6 +6,7 @@ import CityForm from '../components/CityForm'
 import PortfolioVideos from '../components/PortfolioVideos'
 import AboutReviews from '../components/AboutReviews'
 import AboutOperators from '../components/AboutOperators'
+import useIsMobile from '../hooks/useIsMobile'
 const imageLeft = '/images/images-technica/t3.png'
 const imageRight = '/images/images-technica/t2.png'
 const osnovatelImage = '/images/images-imag/osnovatel.png'
@@ -22,19 +23,7 @@ const aboutGalleryImages = [
 ]
 
 export default function About() {
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Определение размера экрана
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+  const isMobile = useIsMobile()
 
   // Прокрутка к началу страницы при монтировании компонента
   useEffect(() => {

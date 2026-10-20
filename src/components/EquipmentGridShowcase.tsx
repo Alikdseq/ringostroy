@@ -2,25 +2,19 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { equipmentApi } from '../services/api'
 import type { Equipment } from '../types'
+import useIsMobile from '../hooks/useIsMobile'
 
 const fallbackImage = '/images/images-technica/mask-group-2024-10-08t151047.880.png'
 
 export default function EquipmentGridShowcase() {
   const [items, setItems] = useState<Equipment[]>([])
   const [hovered, setHovered] = useState<number | null>(null)
-  const [isMobile, setIsMobile] = useState(false)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     equipmentApi.getAll()
       .then(res => setItems(res.data.results))
       .catch(() => setItems([]))
-  }, [])
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768)
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   if (items.length === 0) {

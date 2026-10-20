@@ -1,22 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { generateBreadcrumbSchema } from '../utils/seo'
+import useIsMobile from '../hooks/useIsMobile'
 
 export default function Promotions() {
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Определение размера экрана
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+  const isMobile = useIsMobile()
 
   // Прокрутка к началу страницы при монтировании компонента
   useEffect(() => {

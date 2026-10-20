@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { servicesApi } from '../services/api'
 import type { Service } from '../types'
+import useIsMobile from '../hooks/useIsMobile'
 
 export default function ContactQuickForm() {
   const [name, setName] = useState('')
@@ -12,19 +13,7 @@ export default function ContactQuickForm() {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
   const [pending, setPending] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Определение размера экрана
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     // Загружаем услуги при монтировании

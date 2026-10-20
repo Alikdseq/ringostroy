@@ -6,6 +6,7 @@ import SEO from '../../components/SEO';
 import { generateBreadcrumbSchema, generateServiceSchema } from '../../utils/seo';
 import servicesSeoData from '../../data/services-seo.json';
 import { getServiceTextContent } from '../../utils/serviceContent';
+import useIsMobile from '../../hooks/useIsMobile';
 
 type ServicePageTemplateProps = {
   slug: string;
@@ -34,14 +35,7 @@ export default function ServicePageTemplate({
   galleryImages,
 }: ServicePageTemplateProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     window.scrollTo(0, 0);

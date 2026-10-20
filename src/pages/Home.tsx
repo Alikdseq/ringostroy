@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ContactQuickForm from '../components/ContactQuickForm'
 import ServicesCarousel from '../components/ServicesCarousel'
@@ -6,23 +5,12 @@ import EquipmentGridShowcase from '../components/EquipmentGridShowcase'
 import SEO from '../components/SEO'
 import { generateLocalBusinessSchema, generateOrganizationSchema } from '../utils/seo'
 import BrandsBlock from '../components/BrandsBlock'
+import useIsMobile from '../hooks/useIsMobile'
 const heroTruckImage = "/images/images-technica/mask-group-2024-10-03t171422.984.png";
 const backgroundImage = "/images/images-fon/category-bg.png";
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Определение размера экрана
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+  const isMobile = useIsMobile()
   // ВРЕМЕННО ОТКЛЮЧЕНО: Загрузка данных с API
   // import { useEffect, useState } from 'react'
   // import { servicesApi } from '../services/api'

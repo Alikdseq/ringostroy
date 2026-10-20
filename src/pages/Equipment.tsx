@@ -4,10 +4,16 @@ import { equipmentApi, categoryApi } from '../services/api'
 import type { Equipment, Category } from '../types'
 import SEO from '../components/SEO'
 import { extractFirstParagraph, truncateText } from '../utils/text'
+import useIsMobile from '../hooks/useIsMobile'
 
-const instrumentImages = Array.from({ length: 18 }, (_, index) =>
-  `/images/newteknica/инструмент-${index + 1}.jpeg`
-)
+const instrumentImages = [
+  ...Array.from({ length: 18 }, (_, index) =>
+    `/images/newteknica/инструмент-${index + 1}.jpeg`
+  ),
+  ...Array.from({ length: 7 }, (_, index) =>
+    `/images/images-technica/инст${index + 1}.jpeg`
+  )
+]
 
 export default function Equipment() {
   const [equipment, setEquipment] = useState<Equipment[]>([])
@@ -16,14 +22,7 @@ export default function Equipment() {
   const [loading, setLoading] = useState(true)
   const [_catLoading, setCatLoading] = useState(true)
   const [error, setError] = useState('')
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768)
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     setCatLoading(true)

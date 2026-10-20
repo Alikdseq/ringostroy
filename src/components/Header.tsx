@@ -1,26 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import useIsMobile from '../hooks/useIsMobile'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const isMobile = useIsMobile()
 
-  // Определение размера экрана
   useEffect(() => {
-    const checkMobile = () => {
-      const mobile = window.innerWidth < 768
-      setIsMobile(mobile)
-      // Закрываем меню при изменении размера экрана на десктоп
-      if (!mobile) {
-        setIsMenuOpen(false)
-      }
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
+    if (!isMobile) setIsMenuOpen(false)
+  }, [isMobile])
 
   // Закрытие меню при клике на ссылку
   const handleLinkClick = () => {
