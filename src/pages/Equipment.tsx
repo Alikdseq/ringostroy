@@ -3,17 +3,10 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { equipmentApi, categoryApi } from '../services/api'
 import type { Equipment, Category } from '../types'
 import SEO from '../components/SEO'
+import InstrumentCard from '../components/InstrumentCard'
+import { instruments } from '../data/instruments'
 import { extractFirstParagraph, truncateText } from '../utils/text'
 import useIsMobile from '../hooks/useIsMobile'
-
-const instrumentImages = [
-  ...Array.from({ length: 18 }, (_, index) =>
-    `/images/newteknica/инструмент-${index + 1}.jpeg`
-  ),
-  ...Array.from({ length: 7 }, (_, index) =>
-    `/images/images-technica/инст${index + 1}.jpeg`
-  )
-]
 
 export default function Equipment() {
   const [searchParams] = useSearchParams()
@@ -141,31 +134,11 @@ export default function Equipment() {
               display: 'grid',
               gridTemplateColumns: isMobile
                 ? 'repeat(2, minmax(0, 1fr))'
-                : 'repeat(auto-fill, minmax(240px, 1fr))',
+                : 'repeat(auto-fill, minmax(200px, 1fr))',
               gap: isMobile ? '12px' : '20px'
             }}>
-              {instrumentImages.map((src, index) => (
-                <div
-                  key={src}
-                  style={{
-                    border: '1px solid var(--stroke)',
-                    borderRadius: isMobile ? '14px' : '18px',
-                    overflow: 'hidden',
-                    background: 'var(--cart-black)',
-                    aspectRatio: '1 / 1'
-                  }}
-                >
-                  <img
-                    src={src}
-                    alt={`Инструмент ${index + 1}`}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      display: 'block'
-                    }}
-                  />
-                </div>
+              {instruments.map((item) => (
+                <InstrumentCard key={item.id} instrument={item} />
               ))}
             </div>
           ) : loading ? (

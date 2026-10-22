@@ -1,18 +1,13 @@
 import { Link } from 'react-router-dom'
+import { instruments } from '../data/instruments'
+import InstrumentCard from './InstrumentCard'
 import useIsMobile from '../hooks/useIsMobile'
 
-const instrumentImages = [
-  ...Array.from({ length: 18 }, (_, index) =>
-    `/images/newteknica/инструмент-${index + 1}.jpeg`
-  ),
-  ...Array.from({ length: 7 }, (_, index) =>
-    `/images/images-technica/инст${index + 1}.jpeg`
-  )
-]
+const PREVIEW_COUNT = 6
 
 export default function ToolsShowcase() {
   const isMobile = useIsMobile()
-  const previewImages = instrumentImages.slice(0, 6)
+  const preview = instruments.slice(0, PREVIEW_COUNT)
   const instrumentsLink = '/equipment?cat=instrumenty'
 
   return (
@@ -56,31 +51,8 @@ export default function ToolsShowcase() {
             : 'repeat(3, minmax(0, 1fr))',
           gap: isMobile ? '12px' : '18px'
         }}>
-          {previewImages.map((src, index) => (
-            <Link
-              key={src}
-              to={instrumentsLink}
-              style={{
-                border: '1px solid var(--stroke)',
-                borderRadius: isMobile ? '14px' : '18px',
-                overflow: 'hidden',
-                background: 'var(--cart-black)',
-                aspectRatio: '1 / 1',
-                display: 'block',
-                textDecoration: 'none'
-              }}
-            >
-              <img
-                src={src}
-                alt={`Инструмент ${index + 1}`}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block'
-                }}
-              />
-            </Link>
+          {preview.map((item) => (
+            <InstrumentCard key={item.id} instrument={item} />
           ))}
         </div>
       </div>
