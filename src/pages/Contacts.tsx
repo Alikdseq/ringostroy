@@ -2,14 +2,14 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '../utils/seo'
-import useIsMobile from '../hooks/useIsMobile'
+import useBreakpoint from '../hooks/useBreakpoint'
 
 const cities = [
   'Алагир', 'Ардон', 'Беслан', 'Владикавказ', 'Дигора', 'Заводской', 'Магас', 'Моздок', 'Назрань'
 ]
 
 export default function Contacts() {
-  const isMobile = useIsMobile()
+  const { isMobile, isCompact } = useBreakpoint()
 
   // Прокрутка к началу страницы при монтировании компонента
   useEffect(() => {
@@ -45,10 +45,7 @@ export default function Contacts() {
         background: 'var(--background-black)',
         minHeight: '60vh'
       }}>
-        <div className="container" style={{
-          paddingLeft: isMobile ? '15px' : '0',
-          paddingRight: isMobile ? '15px' : '0'
-        }}>
+        <div className="container">
           {/* Хлебные крошки */}
           <div style={{
             display: 'flex',
@@ -102,7 +99,7 @@ export default function Contacts() {
           {/* Основной контент: две колонки */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '1fr 1.5fr',
+            gridTemplateColumns: isCompact ? '1fr' : 'minmax(0, 1fr) minmax(0, 1.5fr)',
             gap: isMobile ? '20px' : '30px',
             alignItems: 'start'
           }}>

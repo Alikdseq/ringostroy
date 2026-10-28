@@ -1,3 +1,5 @@
+import useBreakpoint from '../hooks/useBreakpoint'
+
 const operators = [
   { name: 'Басиев Виктор', photo: '/images/newteknica/Басиев Виктор.jpeg' },
   { name: 'Гутонов Эдуард', photo: '/images/newteknica/Гутонов Эдуард.jpeg' },
@@ -6,10 +8,13 @@ const operators = [
   { name: 'Мисиков Олег', photo: '/images/newteknica/Мисиков Олег.jpeg' }
 ]
 
-export default function AboutOperators({ isMobile }: { isMobile: boolean }) {
+export default function AboutOperators({ isMobile: isMobileProp }: { isMobile?: boolean }) {
+  const { isMobile: isMobileHook, isCompact } = useBreakpoint()
+  const isMobile = isMobileProp ?? isMobileHook
+
   return (
     <section style={{ padding: isMobile ? '10px 0 50px' : '10px 0 80px', background: 'var(--background-black)' }}>
-      <div className="container" style={{ paddingLeft: isMobile ? '15px' : undefined, paddingRight: isMobile ? '15px' : undefined }}>
+      <div className="container">
         <h2 style={{
           color: 'var(--white)',
           fontSize: 'clamp(26px, 4vw, 42px)',
@@ -21,11 +26,15 @@ export default function AboutOperators({ isMobile }: { isMobile: boolean }) {
         </h2>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? 'repeat(2, minmax(0, 1fr))' : 'repeat(5, minmax(0, 1fr))',
+          gridTemplateColumns: isMobile
+            ? 'repeat(2, minmax(0, 1fr))'
+            : isCompact
+              ? 'repeat(3, minmax(0, 1fr))'
+              : 'repeat(5, minmax(0, 1fr))',
           gap: isMobile ? '14px' : '20px'
         }}>
           {operators.map((operator) => (
-            <figure key={operator.name} style={{ margin: 0, textAlign: 'center' }}>
+            <figure key={operator.name} style={{ margin: 0, textAlign: 'center', minWidth: 0 }}>
               <div style={{
                 borderRadius: isMobile ? '16px' : '20px',
                 overflow: 'hidden',

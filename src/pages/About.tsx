@@ -6,7 +6,7 @@ import CityForm from '../components/CityForm'
 import PortfolioVideos from '../components/PortfolioVideos'
 import AboutReviews from '../components/AboutReviews'
 import AboutOperators from '../components/AboutOperators'
-import useIsMobile from '../hooks/useIsMobile'
+import useBreakpoint from '../hooks/useBreakpoint'
 const imageLeft = '/images/images-technica/t3.png'
 const imageRight = '/images/images-technica/t2.png'
 const osnovatelImage = '/images/images-imag/osnovatel.png'
@@ -23,7 +23,7 @@ const aboutGalleryImages = [
 ]
 
 export default function About() {
-  const isMobile = useIsMobile()
+  const { isMobile, isCompact } = useBreakpoint()
 
   // Прокрутка к началу страницы при монтировании компонента
   useEffect(() => {
@@ -47,10 +47,7 @@ export default function About() {
         background: 'var(--background-black)',
         minHeight: '60vh'
       }}>
-        <div className="container" style={{
-          paddingLeft: isMobile ? '15px' : '0',
-          paddingRight: isMobile ? '15px' : '0'
-        }}>
+        <div className="container">
           {/* Хлебные крошки */}
           <div style={{
             display: 'flex',
@@ -236,10 +233,7 @@ export default function About() {
           <section style={{
             padding: isMobile ? '40px 0' : '60px 0'
           }}>
-            <div className="container" style={{
-              paddingLeft: isMobile ? '15px' : '0',
-              paddingRight: isMobile ? '15px' : '0'
-            }}>
+            <div className="container">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" style={{
                 gap: isMobile ? '15px' : '20px'
               }}>
@@ -435,7 +429,7 @@ export default function About() {
               </h2>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                gridTemplateColumns: isCompact ? '1fr' : 'repeat(2, minmax(0, 1fr))',
                 gap: isMobile ? '20px' : '30px'
               }}>
                 <div style={{
@@ -551,7 +545,7 @@ export default function About() {
               </h2>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+                gridTemplateColumns: isCompact ? '1fr' : 'repeat(2, minmax(0, 1fr))',
                 gap: isMobile ? '20px' : '30px'
               }}>
                 <div style={{
@@ -656,7 +650,7 @@ export default function About() {
           {/* Блок с фото основателя слева и текстом справа */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+            gridTemplateColumns: isCompact ? '1fr' : 'minmax(0, 1fr) minmax(0, 1fr)',
             gap: isMobile ? '30px' : '40px',
             marginTop: isMobile ? '40px' : '60px',
             marginBottom: isMobile ? '40px' : '60px',
@@ -666,7 +660,7 @@ export default function About() {
             <div style={{
               borderRadius: isMobile ? '16px' : '20px',
               overflow: 'hidden',
-              order: isMobile ? 1 : 1
+              order: 1
             }}>
               <img
                 src={osnovatelImage}

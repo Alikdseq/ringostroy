@@ -64,7 +64,7 @@ const gratitudePhotos = [
 export default function AboutReviews({ isMobile }: { isMobile: boolean }) {
   return (
     <section style={{ padding: isMobile ? '40px 0' : '70px 0', background: 'var(--background-black)' }}>
-      <div className="container" style={{ paddingLeft: isMobile ? '15px' : undefined, paddingRight: isMobile ? '15px' : undefined }}>
+      <div className="container">
         <h2 style={{
           color: 'var(--white)',
           fontSize: 'clamp(26px, 4vw, 42px)',

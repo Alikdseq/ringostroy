@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { equipmentApi } from '../services/api'
 import type { Equipment } from '../types'
-import useIsMobile from '../hooks/useIsMobile'
+import useBreakpoint from '../hooks/useBreakpoint'
 
 const fallbackImage = '/images/images-technica/mask-group-2024-10-08t151047.880.png'
 
 export default function EquipmentGridShowcase() {
   const [items, setItems] = useState<Equipment[]>([])
   const [hovered, setHovered] = useState<number | null>(null)
-  const isMobile = useIsMobile()
+  const { isMobile, isCompact } = useBreakpoint()
 
   useEffect(() => {
     equipmentApi.getAll()
@@ -31,7 +31,7 @@ export default function EquipmentGridShowcase() {
 
   return (
     <section id="equipment" style={{ padding: isMobile ? '20px 0 20px' : '30px 0 30px', scrollMarginTop: '100px' }}>
-      <div className="container" style={{ paddingLeft: '15px', paddingRight: '15px' }}>
+      <div className="container">
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -51,8 +51,12 @@ export default function EquipmentGridShowcase() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? 'repeat(2, minmax(0, 1fr))' : 'repeat(4, minmax(0, 1fr))',
-          gap: isMobile ? '18px' : '30px',
+          gridTemplateColumns: isMobile
+            ? 'repeat(2, minmax(0, 1fr))'
+            : isCompact
+              ? 'repeat(2, minmax(0, 1fr))'
+              : 'repeat(4, minmax(0, 1fr))',
+          gap: isMobile ? '18px' : '24px',
           justifyItems: 'center'
         }}>
           {popularEquipment.map((item) => {

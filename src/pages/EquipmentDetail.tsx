@@ -6,7 +6,7 @@ import SEO from '../components/SEO';
 import { splitTextToParagraphs } from '../utils/text';
 import equipmentSeoData from '../data/equipment-seo.json';
 import { generateBreadcrumbSchema } from '../utils/seo';
-import useIsMobile from '../hooks/useIsMobile';
+import useBreakpoint from '../hooks/useBreakpoint';
 
 interface FullSpec {
   label: string;
@@ -248,7 +248,7 @@ export default function EquipmentDetail() {
   const [allEquipment, setAllEquipment] = useState<Equipment[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const isMobile = useIsMobile();
+  const { isMobile, isCompact } = useBreakpoint();
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const dateFieldRef = useRef<HTMLDivElement>(null);
@@ -279,19 +279,19 @@ export default function EquipmentDetail() {
         setAllEquipment(all);
         const found = all.find((x: Equipment) => x.slug === slug);
         if (!found) {
-          // Проверяем, может это категория
           categoryApi.getAll()
             .then((catRes) => {
               const isCategory = catRes.data.results.some(cat => cat.slug === slug);
               if (isCategory) {
-                // Редирект на страницу категории (используем тот же роут, но другой компонент обработает)
-                // Но лучше просто показать 404, так как роут /equipment/:category должен обрабатываться отдельно
-                setError('Техника не найдена');
-                setLoading(false);
-              } else {
-                setError('Техника не найдена');
-                setLoading(false);
+                if (slug === 'instrumenty') {
+                  navigate('/equipment?cat=instrumenty', { replace: true });
+                } else {
+                  navigate(`/equipment/category/${slug}`, { replace: true });
+                }
+                return;
               }
+              setError('Техника не найдена');
+              setLoading(false);
             })
             .catch(() => {
               setError('Техника не найдена');
@@ -498,7 +498,7 @@ ${address ? `Адрес: ${address}` : ''}
           {/* Основной контент: фото и форма */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'minmax(0, 1.2fr) minmax(0, 1fr)',
+            gridTemplateColumns: isCompact ? 'minmax(0, 1fr)' : 'minmax(0, 1.2fr) minmax(0, 1fr)',
             gap: isMobile ? '30px' : '50px',
             marginBottom: isMobile ? '40px' : '60px',
             width: '100%',
@@ -1273,7 +1273,11 @@ ${address ? `Адрес: ${address}` : ''}
               </h2>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: isMobile ? 'repeat(2, minmax(0, 1fr))' : 'repeat(6, minmax(0, 1fr))',
+                gridTemplateColumns: isMobile
+                  ? 'repeat(2, minmax(0, 1fr))'
+                  : isCompact
+                    ? 'repeat(3, minmax(0, 1fr))'
+                    : 'repeat(6, minmax(0, 1fr))',
                 gap: isMobile ? '18px' : '30px',
                 justifyItems: 'center'
               }}>

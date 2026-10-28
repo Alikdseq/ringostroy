@@ -34,9 +34,7 @@ export default function CityForm() {
     }}>
       <div className="container" style={{ 
         maxWidth: '1000px',
-        paddingLeft: isMobile ? '15px' : '0',
-        paddingRight: isMobile ? '15px' : '0'
-      }}>
+        }}>
         <h2 style={{ 
           color: 'var(--white)', 
           fontSize: isMobile ? 'clamp(20px, 5vw, 36px)' : 'clamp(24px, 3vw, 36px)', 

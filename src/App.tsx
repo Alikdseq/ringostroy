@@ -4,47 +4,46 @@ import Services from './pages/Services'
 import Equipment from './pages/Equipment'
 import EquipmentCategory from './pages/EquipmentCategory'
 import EquipmentDetail from './pages/EquipmentDetail'
-import ServiceCategory from './pages/ServiceCategory'
-import ServiceDetail from './pages/ServiceDetail';
-import YardImprovementService from './pages/service-pages/Page-1';
-import TrenchDiggingService from './pages/service-pages/Page-2';
-import SewerageService from './pages/service-pages/Page-3';
-import RingsInstallationService from './pages/service-pages/Page-4';
-import FBSBlocksService from './pages/service-pages/Page-5';
-import BackfillFoundationService from './pages/service-pages/Page-6';
-import SitePlanningService from './pages/service-pages/Page-7';
-import TreeRemovalService from './pages/service-pages/Page-8';
-import PileDrillingService from './pages/service-pages/Page-9';
-import WasteRemovalService from './pages/service-pages/Page-10';
-import MaterialDeliveryService from './pages/service-pages/Page-11';
-import HydraulicHammerService from './pages/service-pages/Page-12';
-import ExcavationService from './pages/service-pages/Page-13';
-import FoundationDiggingService from './pages/service-pages/Page-14';
-import ConcreteAsphaltCuttingService from './pages/service-pages/Page-15';
-import MulchingService from './pages/service-pages/Page-16';
-import FoundationConstructionService from './pages/service-pages/Page-17';
-import FenceConstructionService from './pages/service-pages/Page-18';
-import SnowRemovalService from './pages/service-pages/Page-19';
+import ServiceDetail from './pages/ServiceDetail'
+import YardImprovementService from './pages/service-pages/Page-1'
+import TrenchDiggingService from './pages/service-pages/Page-2'
+import SewerageService from './pages/service-pages/Page-3'
+import RingsInstallationService from './pages/service-pages/Page-4'
+import FBSBlocksService from './pages/service-pages/Page-5'
+import BackfillFoundationService from './pages/service-pages/Page-6'
+import SitePlanningService from './pages/service-pages/Page-7'
+import TreeRemovalService from './pages/service-pages/Page-8'
+import PileDrillingService from './pages/service-pages/Page-9'
+import WasteRemovalService from './pages/service-pages/Page-10'
+import MaterialDeliveryService from './pages/service-pages/Page-11'
+import HydraulicHammerService from './pages/service-pages/Page-12'
+import ExcavationService from './pages/service-pages/Page-13'
+import FoundationDiggingService from './pages/service-pages/Page-14'
+import ConcreteAsphaltCuttingService from './pages/service-pages/Page-15'
+import MulchingService from './pages/service-pages/Page-16'
+import FoundationConstructionService from './pages/service-pages/Page-17'
+import FenceConstructionService from './pages/service-pages/Page-18'
+import SnowRemovalService from './pages/service-pages/Page-19'
 import Layout from './components/Layout'
-import NotFound from './pages/NotFound';
-import Promotions from './pages/Promotions';
-import About from './pages/About';
-import Contacts from './pages/Contacts';
-import Privacy from './pages/Privacy';
-import YandexMetrika from './components/YandexMetrika';
+import ScrollToTop from './components/ScrollToTop'
+import NotFound from './pages/NotFound'
+import Promotions from './pages/Promotions'
+import About from './pages/About'
+import Contacts from './pages/Contacts'
+import Privacy from './pages/Privacy'
+import YandexMetrika from './components/YandexMetrika'
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <YandexMetrika />
       <Layout>
         <Routes>
-          {/* Роуты техники */}
+          <Route path="/equipment/category/:category" element={<EquipmentCategory />} />
           <Route path="/equipment/:slug" element={<EquipmentDetail />} />
-          <Route path="/equipment/:category" element={<EquipmentCategory />} />
           <Route path="/equipment" element={<Equipment />} />
 
-          <Route path="/services/:category" element={<ServiceCategory />} />
           <Route path="/services/blagoustrojstvo-dvorov" element={<YardImprovementService />} />
           <Route path="/services/kopka-transej" element={<TrenchDiggingService />} />
           <Route path="/services/kanalizaciya-pod-klyuch" element={<SewerageService />} />

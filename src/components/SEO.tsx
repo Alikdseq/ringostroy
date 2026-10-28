@@ -12,7 +12,7 @@ interface SEOProps {
   canonical?: string;
 }
 
-const SITE_URL = 'https://ringoostroy.ru'; // TODO: Заменить на реальный домен
+const SITE_URL = 'https://ringoostroy.ru'
 const DEFAULT_IMAGE = `${SITE_URL}/images/icons/logo.svg`;
 const DEFAULT_KEYWORDS = 'аренда спецтехники, аренда экскаватора, аренда погрузчика, аренда крана, спецтехника Владикавказ, спецтехника Северная Осетия, аренда техники, строительная техника, дорожная техника, коммунальная техника, ринго, рингострой, RingooStroy, ringostroy, ringoostroy, ринго строй, рингострой владикавказ, ringoo stroy';
 

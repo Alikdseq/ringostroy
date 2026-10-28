@@ -207,16 +207,15 @@ export default function Home() {
         }}>
           <div className="container h-full flex items-start pt-20" style={{ 
             paddingTop: isMobile ? '10px' : undefined,
-            paddingLeft: isMobile ? '15px' : undefined,
-            paddingRight: isMobile ? '15px' : undefined
-          }}>
+            }}>
             {/* Текстовая часть */}
-            <div className="mainbanner__wrapper relative z-10 w-full lg:w-1/2 max-w-[600px] lg:ml-20 mt-10" style={{
+            <div className="mainbanner__wrapper relative z-10 w-full lg:w-1/2 max-w-[600px] lg:ml-12 xl:ml-20 mt-10" style={{
               marginTop: isMobile ? '0' : undefined,
               marginLeft: isMobile ? '0' : undefined,
-              maxWidth: isMobile ? '100%' : undefined
+              maxWidth: isMobile ? '100%' : undefined,
+              paddingRight: isMobile ? undefined : '16px'
             }}>
-              <h1 className="mainbanner__title font-bold text-5xl md:text-7xl lg:text-7xl mb-6 leading-tight" style={{
+              <h1 className="mainbanner__title font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight" style={{
                 fontSize: isMobile ? 'clamp(28px, 8vw, 36px)' : undefined,
                 marginBottom: isMobile ? '20px' : undefined
               }}>
@@ -288,10 +287,7 @@ export default function Home() {
       <section style={{
         padding: isMobile ? '40px 0' : '60px 0'
       }}>
-        <div className="container" style={{
-          paddingLeft: isMobile ? '15px' : '0',
-          paddingRight: isMobile ? '15px' : '0'
-        }}>
+        <div className="container">
           <h2
             style={{
               color: 'var(--white)',

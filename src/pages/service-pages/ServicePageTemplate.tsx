@@ -105,10 +105,6 @@ export default function ServicePageTemplate({
         <section style={{ padding: isMobile ? '40px 0' : '60px 0' }}>
           <div
             className="container"
-            style={{
-              paddingLeft: isMobile ? '15px' : '0',
-              paddingRight: isMobile ? '15px' : '0',
-            }}
           >
             <nav
               style={{
@@ -264,10 +260,6 @@ export default function ServicePageTemplate({
         <section style={{ padding: isMobile ? '40px 0' : '60px 0' }}>
           <div
             className="container"
-            style={{
-              paddingLeft: isMobile ? '15px' : '0',
-              paddingRight: isMobile ? '15px' : '0',
-            }}
           >
             <div
               style={{
@@ -373,10 +365,6 @@ export default function ServicePageTemplate({
         <section style={{ padding: isMobile ? '40px 0' : '60px 0' }}>
           <div
             className="container"
-            style={{
-              paddingLeft: isMobile ? '15px' : '0',
-              paddingRight: isMobile ? '15px' : '0',
-            }}
           >
             <h2
               style={{
@@ -539,10 +527,6 @@ export default function ServicePageTemplate({
         <section id="contact-form" style={{ padding: isMobile ? '40px 0' : '60px 0' }}>
           <div
             className="container"
-            style={{
-              paddingLeft: isMobile ? '15px' : '0',
-              paddingRight: isMobile ? '15px' : '0',
-            }}
           >
             <div
               style={{

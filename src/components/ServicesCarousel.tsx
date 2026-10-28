@@ -102,7 +102,7 @@ export default function ServicesCarousel() {
 
   return (
     <section style={{ padding: isMobile ? '40px 0' : '60px 0', position: 'relative' }}>
-      <div className="container" style={{ paddingLeft: isMobile ? '15px' : '0', paddingRight: isMobile ? '15px' : '0' }}>
+      <div className="container">
         <h2 style={{
           color: 'var(--white)',
           fontSize: 'clamp(26px, 4vw, 42px)',

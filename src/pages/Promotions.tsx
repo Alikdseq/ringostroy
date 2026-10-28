@@ -35,10 +35,7 @@ export default function Promotions() {
         background: 'var(--background-black)',
         minHeight: '60vh'
       }}>
-        <div className="container" style={{
-          paddingLeft: isMobile ? '15px' : '0',
-          paddingRight: isMobile ? '15px' : '0'
-        }}>
+        <div className="container">
           {/* Хлебные крошки */}
           <div style={{
             display: 'flex',

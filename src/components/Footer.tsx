@@ -24,9 +24,7 @@ export default function Footer() {
       marginTop: isMobile ? '30px' : 'clamp(1.875rem, 1.437rem + 2.19vw, 3.75rem)',
       paddingTop: isMobile ? '30px' : 'clamp(2.5rem, 2.208rem + 1.46vw, 3.75rem)',
       paddingBottom: isMobile ? '20px' : '30px',
-      paddingLeft: isMobile ? '15px' : '0',
-      paddingRight: isMobile ? '15px' : '0'
-    }}>
+      }}>
       <div className="container" style={{
         display: 'flex',
         flexDirection: 'column',

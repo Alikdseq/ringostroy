@@ -99,10 +99,7 @@ export default function Services() {
         padding: isMobile ? '40px 0' : '60px 0', 
         minHeight: '60vh' 
       }}>
-        <div className="container" style={{
-          paddingLeft: isMobile ? '15px' : '0',
-          paddingRight: isMobile ? '15px' : '0'
-        }}>
+        <div className="container">
           <div style={{ 
             textAlign: 'center', 
             color: 'var(--white)', 
@@ -132,10 +129,7 @@ export default function Services() {
       padding: isMobile ? '40px 0' : '60px 0', 
       position: 'relative' 
     }}>
-      <div className="container" style={{
-        paddingLeft: isMobile ? '15px' : '0',
-        paddingRight: isMobile ? '15px' : '0'
-      }}>
+      <div className="container">
         <h1 style={{
           color: 'var(--white)',
           fontSize: 'clamp(24px, 4vw, 42px)',

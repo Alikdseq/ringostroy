@@ -63,10 +63,6 @@ export default function Equipment() {
       }}>
         <div
           className="container"
-          style={{
-            paddingLeft: isMobile ? '15px' : undefined,
-            paddingRight: isMobile ? '15px' : undefined
-          }}
         >
           <h1 style={{
             textAlign: 'center',
@@ -152,7 +148,7 @@ export default function Equipment() {
               display: 'grid', 
               gridTemplateColumns: isMobile
                 ? '1fr'
-                : 'repeat(auto-fill, minmax(300px, 1fr))',
+                : 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
               gap: isMobile ? '18px' : '28px',
               alignItems: 'stretch'
             }}>

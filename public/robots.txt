@@ -1,30 +1,9 @@
-# robots.txt для RingooStroy
-
 User-agent: *
 Allow: /
 
 Host: https://ringoostroy.ru
-
-# Запрещаем индексацию служебных файлов и папок
-Disallow: /api/
-Disallow: /admin/
-Disallow: /dist/
-Disallow: /*.json$
-Disallow: /src/
-
-# Разрешаем индексацию основных страниц
-Allow: /
-Allow: /services
-Allow: /services/*
-Allow: /equipment
-Allow: /equipment/*
-Allow: /about
-Allow: /contacts
-Allow: /promotions
-
-# Sitemap
 Sitemap: https://ringoostroy.ru/sitemap.xml
 
-# Crawl-delay для вежливости (опционально)
-Crawl-delay: 1
-
+Disallow: /api/
+Disallow: /admin/
+Disallow: /src/

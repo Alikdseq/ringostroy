@@ -15,7 +15,15 @@ export default function CategoryGrid({ categories }: { categories: Category[] })
         <h2 style={{ color: 'var(--white)', marginBottom: '40px', textAlign: 'center', fontFamily: 'var(--second-family)', fontWeight: 600 }}>Каталог спецтехники</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
           {categories.map(cat => (
-            <Link to={`/equipment/${cat.slug}`} key={cat.id} className="text-center bg-[#25282a] rounded-2xl p-8 shadow-lg text-white no-underline transition-all hover:shadow-primary/20 hover:-translate-y-1">
+            <Link
+              to={
+                cat.slug === 'instrumenty'
+                  ? '/equipment?cat=instrumenty'
+                  : `/equipment/category/${cat.slug}`
+              }
+              key={cat.id}
+              className="text-center bg-[#25282a] rounded-2xl p-8 shadow-lg text-white no-underline transition-all hover:shadow-primary/20 hover:-translate-y-1"
+            >
               <div style={{ marginBottom: '18px', height: 48, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 {categoryIcons[cat.slug] || <svg width="40" height="40" fill="#c0ef55"><rect width="40" height="40" rx="8"/></svg>}
               </div>

@@ -68,7 +68,7 @@ export interface OrganizationSchema {
   sameAs: string[];
 }
 
-const SITE_URL = 'https://ringoostroy.ru'; // TODO: Заменить на реальный домен
+const SITE_URL = 'https://ringoostroy.ru'
 
 export function generateLocalBusinessSchema(): LocalBusinessSchema {
   return {
